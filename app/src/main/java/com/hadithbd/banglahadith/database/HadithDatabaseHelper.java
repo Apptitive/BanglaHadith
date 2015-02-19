@@ -19,7 +19,6 @@ public class HadithDatabaseHelper  extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
     }
 
     @Override
