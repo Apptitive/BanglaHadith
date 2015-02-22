@@ -1,20 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background_home">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".7" />
 
     <LinearLayout
         android:layout_gravity="bottom"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="0dp"
+        android:layout_weight=".3"
         android:divider="@android:drawable/divider_horizontal_bright"
         android:showDividers="middle"
         android:orientation="horizontal">
 
         <RelativeLayout
+            android:id="@+id/layout_all_hadiths"
             android:layout_weight=".5"
             android:layout_width="0dp"
-            android:background="@color/abc_search_url_text_normal"
+            android:background="@drawable/bg_shadow_layout"
             android:layout_height="match_parent">
 
             <ImageView
@@ -22,22 +31,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:src="@drawable/abc_ic_menu_copy_mtrl_am_alpha" />
+                android:background="@drawable/ic_hadiths" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ic_all_hadiths"
                 android:layout_centerInParent="true"
-                android:layout_marginTop="@dimen/vertical_margin_8"
+                android:layout_marginTop="@dimen/vertical_margin_8dp"
+                android:textColor="@android:color/white"
                 android:text="@string/text_all_hadiths" />
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:background="@color/abc_search_url_text_normal"
+            android:id="@+id/layout_all_books"
             android:layout_weight=".5"
             android:layout_width="0dp"
+            android:background="@drawable/bg_shadow_layout"
             android:layout_height="match_parent">
 
             <ImageView
@@ -52,7 +63,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ic_all_books"
                 android:layout_centerInParent="true"
-                android:layout_marginTop="@dimen/vertical_margin_8"
+                android:layout_marginTop="@dimen/vertical_margin_8dp"
+                android:textColor="@android:color/white"
                 android:text="@string/text_all_books" />
         </RelativeLayout>
 
