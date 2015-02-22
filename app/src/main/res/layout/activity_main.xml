@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -33,14 +34,14 @@
                 android:layout_centerInParent="true"
                 android:background="@drawable/ic_hadiths" />
 
-            <TextView
+            <com.hadithbd.banglahadith.views.BanglaTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ic_all_hadiths"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="@dimen/vertical_margin_8dp"
                 android:textColor="@android:color/white"
-                android:text="@string/text_all_hadiths" />
+                app:banglaText="@string/text_all_hadiths" />
 
         </RelativeLayout>
 
@@ -58,16 +59,15 @@
                 android:layout_centerInParent="true"
                 android:src="@drawable/abc_ic_menu_copy_mtrl_am_alpha" />
 
-            <TextView
+            <com.hadithbd.banglahadith.views.BanglaTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ic_all_books"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="@dimen/vertical_margin_8dp"
                 android:textColor="@android:color/white"
-                android:text="@string/text_all_books" />
+                app:banglaText="@string/text_all_books" />
         </RelativeLayout>
-
     </LinearLayout>
 
 </LinearLayout>
