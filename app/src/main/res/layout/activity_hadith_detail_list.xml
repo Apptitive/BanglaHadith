@@ -4,7 +4,10 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_home"
     tools:context="com.hadithbd.banglahadith.ui.HadithDetailListActivity">
-
+<View
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CC000000"/>
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />

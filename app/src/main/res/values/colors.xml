@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="text_drawable_stroke_color">#333534</color>
-    <color name="list_item_background_color">#575858</color>
+    <color name="text_drawable_stroke_color">#66000000</color>
+    <color name="list_item_background_color">#33ffffff</color>
     <color name="background_shadow_color">#CC000000</color>
+    <color name="color_primary">#B3000000</color>
 </resources>
