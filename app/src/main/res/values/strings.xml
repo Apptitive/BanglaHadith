@@ -3,4 +3,7 @@
     <string name="action_settings">Settings</string>
     <string name="text_all_hadiths">হাদিস সমূহ</string>
     <string name="text_all_books">গ্রন্থ সমূহ</string>
+    <string name="title_activity_hadith_detail_list">HadithDetailList</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>

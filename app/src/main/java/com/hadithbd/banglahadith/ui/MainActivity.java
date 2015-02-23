@@ -1,5 +1,6 @@
 package com.hadithbd.banglahadith.ui;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -25,7 +26,7 @@ public class MainActivity extends ActionBarActivity {
         mLayoutAllHadiths.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(getBaseContext(), HadithDetailListActivity.class));
             }
         });
 

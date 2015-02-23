@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/horizontal_margin_8dp"
+    android:background="@color/list_item_background_color">
 
+    <com.hadithbd.banglahadith.views.BanglaTextView
+        android:id="@+id/text_drawable"
+        android:layout_width="@dimen/text_drawable_width"
+        android:layout_height="@dimen/text_drawable_height"
+        android:background="@drawable/text_drawable_background"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/horizontal_margin_8dp"
+        app:banglaText="3" />
+
+    <com.hadithbd.banglahadith.views.BanglaTextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:banglaText="Headline"
+        android:textColor="@android:color/white"
+        android:layout_toRightOf="@id/text_drawable"
+        android:textSize="@dimen/abc_text_size_subhead_material"
+        android:layout_marginTop="@dimen/vertical_margin_8dp"
+        android:layout_marginLeft="@dimen/horizontal_margin_8dp" />
+
+    <com.hadithbd.banglahadith.views.BanglaTextView
+        android:layout_below="@id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:banglaText="Sub Headline"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:layout_marginTop="@dimen/vertical_margin_4dp"
+        android:layout_marginBottom="@dimen/vertical_margin_8dp"
+        android:layout_alignLeft="@id/title" />
 </RelativeLayout>
