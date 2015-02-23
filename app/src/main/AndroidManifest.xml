@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.hadithbd.banglahadith" >
+    package="com.hadithbd.banglahadith">
 
     <application
         android:name=".BanglaHadithApp"
         android:allowBackup="true"
         android:icon="@android:drawable/dialog_frame"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme.Actionbar" >
+        android:theme="@style/AppTheme.Actionbar">
         <activity
             android:name=".ui.MainActivity"
             android:label="@string/app_name"
@@ -17,6 +17,15 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.HadithDetailListActivity"
+            android:label="@string/title_activity_hadith_detail_list"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".ui.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.MainActivity" />
         </activity>
     </application>
 
