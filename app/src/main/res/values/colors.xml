@@ -4,4 +4,15 @@
     <color name="list_item_background_color">#33ffffff</color>
     <color name="background_shadow_color">#CC000000</color>
     <color name="color_primary">#B3000000</color>
+
+    <array name="hadith_item_strip_colors">
+        <item>#29abe2</item>
+        <item>#e0bf3d</item>
+        <item>#f15a24</item>
+        <item>#39b54a</item>
+        <item>#662d91</item>
+        <item>#c1272d</item>
+        <item>#22b573</item>
+        <item>#0000ff</item>
+    </array>
 </resources>

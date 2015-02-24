@@ -1,24 +1,23 @@
 package com.hadithbd.banglahadith.adapters;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.hadithbd.banglahadith.BanglaHadithApp;
 import com.hadithbd.banglahadith.R;
-import com.hadithbd.banglahadith.views.BanglaTextView;
-
-import java.util.List;
 
 /**
- * Created by Sharif on 2/19/2015.
+ * Created by Sharif on 2/24/2015.
  */
-public class HadithDetailListAdapter extends RecyclerView.Adapter<HadithDetailListAdapter.ViewHolder> {
+public class HadithListAdapter extends RecyclerView.Adapter<HadithListAdapter.ViewHolder> {
 
-    private List<String> mHadithDetailLists;
+    private Context mContext;
 
-    public HadithDetailListAdapter(List<String> hadithDetailLists) {
-        mHadithDetailLists = hadithDetailLists;
+    public HadithListAdapter(Context context) {
+        mContext = context;
     }
 
     @Override
@@ -26,28 +25,28 @@ public class HadithDetailListAdapter extends RecyclerView.Adapter<HadithDetailLi
 
         final View view = LayoutInflater
                 .from(parent.getContext())
-                .inflate(R.layout.hadith_detail_list_item, parent, false);
+                .inflate(R.layout.hadith_list_item, parent, false);
 
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
-        viewHolder.mTextDrawable.setBanglaText(mHadithDetailLists.get(position));
+        viewHolder.mHadithItemColor.setBackgroundColor(BanglaHadithApp.itemStripColors.get(position%8));
     }
 
     @Override
     public int getItemCount() {
-        return mHadithDetailLists != null ? mHadithDetailLists.size() : 0;
+        return 20;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public BanglaTextView mTextDrawable;
+        public View mHadithItemColor;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            mTextDrawable = (BanglaTextView) itemView.findViewById(R.id.text_drawable);
+            mHadithItemColor = (View) itemView.findViewById(R.id.hadith_item_color);
         }
     }
 

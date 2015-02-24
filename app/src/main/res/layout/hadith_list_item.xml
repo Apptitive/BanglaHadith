@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/vertical_margin_4dp"
+    android:paddingLeft="@dimen/vertical_margin_8dp"
+    android:paddingTop="@dimen/vertical_margin_8dp"
+    android:background="@color/list_item_background_color">
+
+    <com.hadithbd.banglahadith.views.BanglaTextView
+        android:id="@+id/hadith_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/abc_text_size_headline_material"
+        app:banglaText="Headline" />
+
+    <com.hadithbd.banglahadith.views.BanglaTextView
+        android:id="@+id/hadith_chapter"
+        android:layout_below="@id/hadith_name"
+        android:layout_width="wrap_content"
+        android:textSize="@dimen/abc_text_size_subhead_material"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        app:banglaText="Subheadline" />
+
+    <com.hadithbd.banglahadith.views.BanglaTextView
+        android:id="@+id/hadith_number"
+        android:layout_below="@id/hadith_chapter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/abc_text_size_subhead_material"
+        android:textColor="@android:color/white"
+        app:banglaText="Subheadline" />
+
+
+    <View
+        android:id="@+id/hadith_item_color"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="32dp"
+        android:layout_width="@dimen/hadith_item_color_width"
+        android:layout_height="@dimen/hadith_item_color_height"
+        android:background="#29abe2" />
+</RelativeLayout>

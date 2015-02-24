@@ -1,6 +1,7 @@
 package com.hadithbd.banglahadith;
 
 import android.app.Application;
+import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.text.TextUtils;
 
@@ -9,6 +10,9 @@ import com.android.volley.RequestQueue;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.Volley;
 import com.hadithbd.banglahadith.util.Constants;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Sharif on 2/5/2015.
@@ -23,6 +27,8 @@ public class BanglaHadithApp extends Application {
 
     private static BanglaHadithApp mInstance;
 
+    public static final List<Integer> itemStripColors = new ArrayList<>();
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -30,8 +36,22 @@ public class BanglaHadithApp extends Application {
         banglaHadithFont = Typeface.createFromAsset(getAssets(),
                 Constants.FONT_FOLDER_LOCATION + Constants.FONT_NAME);
 
+
         mInstance = this;
 
+        preLoadListStripColors();
+
+    }
+
+
+    private void preLoadListStripColors() {
+        TypedArray ta = getResources().obtainTypedArray(R.array.hadith_item_strip_colors);
+
+        for (int i = 0; i < ta.length(); i++) {
+            itemStripColors.add(ta.getColor(i, 0));
+        }
+
+        ta.recycle();
     }
 
     public static synchronized BanglaHadithApp getInstance() {
@@ -60,8 +80,8 @@ public class BanglaHadithApp extends Application {
         getRequestQueue().add(request);
     }
 
-    public void cancelPendingRequest(Object tag){
-        if (mRequestQueue!=null){
+    public void cancelPendingRequest(Object tag) {
+        if (mRequestQueue != null) {
             mRequestQueue.cancelAll(tag);
         }
     }

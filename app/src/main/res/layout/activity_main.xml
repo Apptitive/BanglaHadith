@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/background_home">
+    android:background="@drawable/main_bg">
 
-    <FrameLayout
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:src="@drawable/background_big_icon" />
+
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight=".7" />
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/white_layer" />
+
 
     <LinearLayout
         android:layout_gravity="bottom"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight=".3"
-        android:divider="@android:drawable/divider_horizontal_bright"
+        android:layout_height="200dp"
+        android:divider="?android:dividerHorizontal"
         android:showDividers="middle"
         android:orientation="horizontal">
 
@@ -32,7 +39,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:background="@drawable/ic_hadiths" />
+                android:layout_marginTop="-24dp"
+                android:background="@drawable/ic_books_home" />
 
             <com.hadithbd.banglahadith.views.BanglaTextView
                 android:layout_width="wrap_content"
@@ -41,6 +49,7 @@
                 android:layout_centerInParent="true"
                 android:layout_marginTop="@dimen/vertical_margin_8dp"
                 android:textColor="@android:color/white"
+                android:textSize="@dimen/abc_text_size_subhead_material"
                 app:banglaText="@string/text_all_hadiths" />
 
         </RelativeLayout>
@@ -57,17 +66,27 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:src="@drawable/abc_ic_menu_copy_mtrl_am_alpha" />
+                android:layout_marginTop="-24dp"
+                android:src="@drawable/ic_hadiths_home" />
 
             <com.hadithbd.banglahadith.views.BanglaTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ic_all_books"
                 android:layout_centerInParent="true"
+                android:textSize="@dimen/abc_text_size_subhead_material"
                 android:layout_marginTop="@dimen/vertical_margin_8dp"
                 android:textColor="@android:color/white"
                 app:banglaText="@string/text_all_books" />
         </RelativeLayout>
     </LinearLayout>
 
-</LinearLayout>
+
+    <ImageView
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="48dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bismillah"/>
+
+</FrameLayout>

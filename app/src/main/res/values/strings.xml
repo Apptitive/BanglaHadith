@@ -6,4 +6,5 @@
     <string name="title_activity_hadith_detail_list">HadithDetailList</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_hadith_list">HadithListActivity</string>
 </resources>
