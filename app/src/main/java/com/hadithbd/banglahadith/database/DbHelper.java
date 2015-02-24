@@ -50,7 +50,7 @@ public class DbHelper extends OrmLiteSqliteOpenHelper {
         try {
             TableUtils.clearTable(connectionSource, HadithPublisher.class);
 
-            CsvToDbHelper.sBulkInsert(context, R.raw.hadithPublisher, sqLiteDatabase);
+            CsvToDbHelper.sBulkInsert(context, R.raw.hadithpublisher, sqLiteDatabase);
             Log.e("Upgrade", "Success");
 
             for (String sql : allSql) {

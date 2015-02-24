@@ -4,6 +4,7 @@ import android.content.Context;
 import com.hadithbd.banglahadith.database.tables.hadith.HadithPublisher;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,7 +33,7 @@ public class DbManager {
     }
 
     public List<HadithPublisher> getAllHadithPublishers() {
-        List<HadithPublisher> hadithPublisherList = null;
+        List<HadithPublisher> hadithPublisherList = new ArrayList<>();
         try {
             hadithPublisherList = getHelper().getHadithPublisherDao().queryForAll();
         } catch (SQLException e) {
