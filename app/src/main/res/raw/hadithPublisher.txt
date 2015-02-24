@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS "hadithpublisher";
+CREATE TABLE "hadithpublisher" ("id" , "nameBengali" , "nameEnglish" , "isActive", "lastUpdate" );
+INSERT INTO "hadithpublisher" VALUES('0','Publisher 1','Publisher 1','1', '');
+INSERT INTO "hadithpublisher" VALUES('1','Publisher 2','Publisher 2','1', '');
+INSERT INTO "hadithpublisher" VALUES('2','Publisher 3','Publisher 3','1', '');
+INSERT INTO "hadithpublisher" VALUES('3','Publisher 4','Publisher 4','1', '');

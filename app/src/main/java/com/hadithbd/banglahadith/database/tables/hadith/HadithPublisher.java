@@ -20,4 +20,8 @@ public class HadithPublisher {
     private int isActive;
     @DatabaseField
     private Date lastUpdate;
+
+    public String getNameBengali(){
+        return this.nameBengali;
+    }
 }
