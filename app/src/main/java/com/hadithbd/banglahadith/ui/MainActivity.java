@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -102,16 +103,16 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void myLayerDrawable(){
+    public void myLayerDrawable() {
 
 
         BitmapDrawable whiteLayer = (BitmapDrawable) getResources().getDrawable(R.drawable.white_layer);
-        BitmapDrawable bigIcon = (BitmapDrawable) getResources().getDrawable(R.drawable.background_big_icon);
+        BitmapDrawable bigIcon = (BitmapDrawable) getResources().getDrawable(R.drawable.bg_caliography);
         bigIcon.setGravity(Gravity.BOTTOM);
 
         BitmapDrawable mainBg = (BitmapDrawable) getResources().getDrawable(R.drawable.main_bg);
 
-        BitmapDrawable bismillah = (BitmapDrawable) getResources().getDrawable(R.drawable.bismillah);
+        BitmapDrawable bismillah = (BitmapDrawable) getResources().getDrawable(R.drawable.bg_bismillah);
         bismillah.setGravity(Gravity.CENTER_HORIZONTAL);
         bismillah.setGravity(Gravity.TOP);
 
@@ -119,9 +120,19 @@ public class MainActivity extends ActionBarActivity {
 
 
         LayerDrawable layerDrawable = new LayerDrawable(drawables);
+        layerDrawable.setLayerInset(3, 0, 72, 0, 0);
 
-       FrameLayout view = (FrameLayout) findViewById(R.id.main);
-        view.setBackgroundDrawable(layerDrawable);
+        setLayerToBackground(layerDrawable);
 
+    }
+
+    private void setLayerToBackground(LayerDrawable layerDrawable) {
+        FrameLayout view = (FrameLayout) findViewById(R.id.main);
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
+            view.setBackgroundDrawable(layerDrawable);
+        } else {
+            view.setBackground(layerDrawable);
+        }
     }
 }
