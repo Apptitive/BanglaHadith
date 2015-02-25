@@ -1,36 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/main_bg">
+    android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="300dp"
+    <View
+        android:layout_width="1dp"
         android:layout_height="300dp"
         android:layout_gravity="bottom|center_horizontal"
-        android:src="@drawable/background_big_icon" />
+        android:background="@android:color/white"/>
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/white_layer" />
-
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_gravity="bottom"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:divider="?android:dividerHorizontal"
-        android:showDividers="middle"
-        android:orientation="horizontal">
+        android:layout_height="300dp">
+
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"/>
 
         <RelativeLayout
             android:id="@+id/layout_all_hadiths"
-            android:layout_weight=".5"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
+            android:layout_toLeftOf="@id/divider"
             android:background="@drawable/bg_shadow_layout"
             android:layout_height="match_parent">
 
@@ -56,8 +53,8 @@
 
         <RelativeLayout
             android:id="@+id/layout_all_books"
-            android:layout_weight=".5"
-            android:layout_width="0dp"
+            android:layout_toRightOf="@id/divider"
+            android:layout_width="match_parent"
             android:background="@drawable/bg_shadow_layout"
             android:layout_height="match_parent">
 
@@ -79,14 +76,7 @@
                 android:textColor="@android:color/white"
                 app:banglaText="@string/text_all_books" />
         </RelativeLayout>
-    </LinearLayout>
+    </RelativeLayout>
 
-
-    <ImageView
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="48dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/bismillah"/>
 
 </FrameLayout>

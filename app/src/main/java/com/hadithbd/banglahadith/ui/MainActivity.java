@@ -2,12 +2,17 @@ package com.hadithbd.banglahadith.ui;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
 import com.hadithbd.banglahadith.R;
@@ -30,6 +35,9 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        myLayerDrawable();
+
         DbManager.init(this);
         mDbHelper = new DbHelper(getApplicationContext());
         mDatabase = mDbHelper.getWritableDatabase();
@@ -92,5 +100,28 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void myLayerDrawable(){
+
+
+        BitmapDrawable whiteLayer = (BitmapDrawable) getResources().getDrawable(R.drawable.white_layer);
+        BitmapDrawable bigIcon = (BitmapDrawable) getResources().getDrawable(R.drawable.background_big_icon);
+        bigIcon.setGravity(Gravity.BOTTOM);
+
+        BitmapDrawable mainBg = (BitmapDrawable) getResources().getDrawable(R.drawable.main_bg);
+
+        BitmapDrawable bismillah = (BitmapDrawable) getResources().getDrawable(R.drawable.bismillah);
+        bismillah.setGravity(Gravity.CENTER_HORIZONTAL);
+        bismillah.setGravity(Gravity.TOP);
+
+        Drawable[] drawables = new Drawable[]{mainBg, bigIcon, whiteLayer, bismillah};
+
+
+        LayerDrawable layerDrawable = new LayerDrawable(drawables);
+
+       FrameLayout view = (FrameLayout) findViewById(R.id.main);
+        view.setBackgroundDrawable(layerDrawable);
+
     }
 }
