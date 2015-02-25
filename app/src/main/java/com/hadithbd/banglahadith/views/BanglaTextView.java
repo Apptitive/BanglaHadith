@@ -2,24 +2,20 @@ package com.hadithbd.banglahadith.views;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
 import com.hadithbd.banglahadith.BanglaHadithApp;
 import com.hadithbd.banglahadith.R;
 import com.hadithbd.banglahadith.bangla.AndroidCustomFontSupport;
-
-import java.util.Locale;
+import com.hadithbd.banglahadith.util.Utils;
 
 /**
  * Created by Sharif on 2/22/2015.
  */
 public class BanglaTextView extends TextView {
 
-    public static final boolean IS_BANGLA_AVAILABLE = isBanglaAvailable();
-
-    public static final boolean IS_BUILD_ABOVE_HONEYCOMB = Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB_MR2;
+    public static final boolean IS_BANGLA_AVAILABLE = Utils.isLocaleAvailable("bengali");
 
     private TypedArray typedArray;
     private String banglaText;
@@ -66,32 +62,18 @@ public class BanglaTextView extends TextView {
 
     private void setUpTypeFace() {
         if (isBanglaAvailableAndAboveHoneyComb()) {
-            setTypeface(BanglaHadithApp.banglaHadithFont);
+            setTypeface(BanglaHadithApp.typefaceBangla);
         }
-
     }
 
     private boolean isBanglaAvailableAndAboveHoneyComb() {
-        return IS_BANGLA_AVAILABLE & !IS_BUILD_ABOVE_HONEYCOMB;
+        return IS_BANGLA_AVAILABLE & !Utils.IS_BUILD_ABOVE_HONEYCOMB;
     }
 
     private void setBanglaSupportedText(String banglaText) {
         if (banglaText != null) {
-            setText(IS_BUILD_ABOVE_HONEYCOMB ? banglaText :
-                    AndroidCustomFontSupport.getCorrectedBengaliFormat(banglaText, BanglaHadithApp.banglaHadithFont, -1));
+            setText(Utils.IS_BUILD_ABOVE_HONEYCOMB ? banglaText :
+                    AndroidCustomFontSupport.getCorrectedBengaliFormat(banglaText, BanglaHadithApp.typefaceBangla, -1));
         }
     }
-
-
-
-    private static boolean isBanglaAvailable() {
-        Locale[] locales = Locale.getAvailableLocales();
-        for (Locale locale : locales) {
-            if (locale.getDisplayName().toLowerCase().contains("bengali")) {
-                return true;
-            }
-        }
-        return false;
-    }
-
 }

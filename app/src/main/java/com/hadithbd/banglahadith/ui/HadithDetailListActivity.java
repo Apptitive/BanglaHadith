@@ -1,5 +1,6 @@
 package com.hadithbd.banglahadith.ui;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -70,6 +71,7 @@ public class HadithDetailListActivity extends ActionBarActivity implements Hadit
 
     @Override
     public void onHadithDetailItemClicked(int position) {
-
+        Intent intent = new Intent(HadithDetailListActivity.this, HadithDetailActivity.class);
+        startActivity(intent);
     }
 }

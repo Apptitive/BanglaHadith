@@ -3,4 +3,7 @@
     <declare-styleable name="BanglaTextView">
         <attr name="banglaText" format="string"/>
     </declare-styleable>
+    <declare-styleable name="ArabicTextView">
+        <attr name="arabicText" format="string"/>
+    </declare-styleable>
 </resources>

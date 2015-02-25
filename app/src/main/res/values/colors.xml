@@ -4,6 +4,7 @@
     <color name="list_item_background_color">#33ffffff</color>
     <color name="background_shadow_color">#CC000000</color>
     <color name="color_primary">#B3000000</color>
+    <color name="tab_strip_color">@color/white_40</color>
 
     <array name="hadith_item_strip_colors">
         <item>#29abe2</item>
@@ -15,4 +16,6 @@
         <item>#22b573</item>
         <item>#0000ff</item>
     </array>
+
+    <color name="white_40">#99ffffff</color>
 </resources>
