@@ -22,7 +22,7 @@
     <LinearLayout
         android:layout_gravity="bottom"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="300dp"
         android:divider="?android:dividerHorizontal"
         android:showDividers="middle"
         android:orientation="horizontal">

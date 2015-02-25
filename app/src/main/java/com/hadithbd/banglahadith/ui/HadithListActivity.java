@@ -1,5 +1,6 @@
 package com.hadithbd.banglahadith.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.GridLayoutManager;
@@ -11,13 +12,15 @@ import android.view.MenuItem;
 import com.hadithbd.banglahadith.R;
 import com.hadithbd.banglahadith.adapters.HadithListAdapter;
 
-public class HadithListActivity extends ActionBarActivity {
+public class HadithListActivity extends ActionBarActivity implements HadithListAdapter.HadithItemClickListener {
+
     private static final int NUMBER_OF_COLUMNS = 2;
 
     private RecyclerView mRecyclerView;
 
     private HadithListAdapter mHadithListAdapter;
     private Toolbar mToolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +41,7 @@ public class HadithListActivity extends ActionBarActivity {
     private void initRecyclerAdapter() {
         mHadithListAdapter = new HadithListAdapter(this);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, NUMBER_OF_COLUMNS));
+        mHadithListAdapter.setHadithItemClickListener(this);
         mRecyclerView.setAdapter(mHadithListAdapter);
     }
 
@@ -66,5 +70,11 @@ public class HadithListActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onHadithItemClicked(int position) {
+        Intent intent = new Intent(this, HadithDetailListActivity.class);
+        startActivity(intent);
     }
 }

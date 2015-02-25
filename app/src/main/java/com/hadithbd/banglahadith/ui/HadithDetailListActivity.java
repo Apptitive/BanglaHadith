@@ -12,7 +12,7 @@ import com.hadithbd.banglahadith.R;
 import com.hadithbd.banglahadith.adapters.HadithDetailListAdapter;
 import com.hadithbd.banglahadith.util.Utils;
 
-public class HadithDetailListActivity extends ActionBarActivity {
+public class HadithDetailListActivity extends ActionBarActivity implements HadithDetailListAdapter.HadithDetailItemListener{
 
     private static final int NUMBER_OF_COLUMNS = 2;
 
@@ -41,6 +41,7 @@ public class HadithDetailListActivity extends ActionBarActivity {
     private void initRecyclerAdapter() {
         mHadithDetailListAdapter = new HadithDetailListAdapter(Utils.getDummyHaditsData());
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, NUMBER_OF_COLUMNS));
+        mHadithDetailListAdapter.setHadithDetailItemListener(this);
         mRecyclerView.setAdapter(mHadithDetailListAdapter);
     }
 
@@ -65,5 +66,10 @@ public class HadithDetailListActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onHadithDetailItemClicked(int position) {
+
     }
 }

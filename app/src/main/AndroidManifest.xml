@@ -20,10 +20,10 @@
         <activity
             android:name=".ui.HadithDetailListActivity"
             android:label="@string/title_activity_hadith_detail_list"
-            android:parentActivityName=".ui.MainActivity" >
+            android:parentActivityName=".ui.HadithListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.MainActivity" />
+                android:value=".ui.HadithListActivity" />
         </activity>
         <activity
             android:name=".ui.HadithListActivity"
