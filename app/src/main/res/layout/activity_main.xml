@@ -9,14 +9,14 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight=".73"
+        android:layout_weight=".75"
         android:visibility="invisible" />
 
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight=".27">
+        android:layout_weight=".25">
 
         <View
             android:layout_width="1dp"
