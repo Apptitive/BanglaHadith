@@ -67,7 +67,7 @@ public class BanglaTextView extends TextView {
     }
 
     private boolean isBanglaAvailableAndAboveHoneyComb() {
-        return IS_BANGLA_AVAILABLE & !Utils.IS_BUILD_ABOVE_HONEYCOMB;
+        return IS_BANGLA_AVAILABLE & Utils.IS_BUILD_ABOVE_HONEYCOMB;
     }
 
     private void setBanglaSupportedText(String banglaText) {

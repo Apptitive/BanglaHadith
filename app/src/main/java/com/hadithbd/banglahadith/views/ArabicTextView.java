@@ -67,7 +67,7 @@ public class ArabicTextView extends TextView {
     }
 
     private boolean isArabicAvailableAndAboveHoneyComb() {
-        return IS_ARABIC_AVAILABLE & !Utils.IS_BUILD_ABOVE_HONEYCOMB;
+        return IS_ARABIC_AVAILABLE & Utils.IS_BUILD_ABOVE_HONEYCOMB;
     }
 
     private void setArabicSupportedText(String arabicText) {

@@ -13,8 +13,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp"
-        android:orientation="vertical">
+        android:padding="8dp"
+        android:orientation="vertical"
+        android:background="@color/hadith_detail_screen_background">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -22,23 +23,159 @@
             android:background="@android:color/black">
 
             <LinearLayout
+                android:id="@+id/tab_bangla"
                 android:orientation="vertical"
                 android:layout_width="@dimen/hadith_detail_tab_width"
                 android:layout_height="match_parent"
                 android:gravity="center">
 
                 <View
+                    android:id="@+id/tab_marker_bangla"
                     android:layout_width="@dimen/hadith_detail_tab_width"
                     android:layout_height="@dimen/hadith_detail_tab_marker_height"
-                    android:background="@color/tab_strip_color" />
+                    android:background="@color/tab_marker_color" />
 
                 <com.hadithbd.banglahadith.views.BanglaTextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tab_text_bangla"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textColor="@android:color/white"
-                    app:banglaText="@string/bangla" />
+                    app:banglaText="@string/bangla"
+                    android:clickable="true"
+                    android:onClick="onClick"
+                    android:background="@drawable/tab_selector" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider_1"
+                android:layout_width="@dimen/hadith_detail_tab_divider_width"
+                android:layout_height="@dimen/hadith_detail_tab_divider_height"
+                android:layout_marginTop="@dimen/hadith_detail_tab_divider_margin_top"
+                android:layout_toRightOf="@id/tab_bangla"
+                android:layout_toEndOf="@id/tab_bangla"
+                android:layout_centerInParent="true"
+                android:background="@color/tab_marker_color" />
+
+            <LinearLayout
+                android:id="@+id/tab_english"
+                android:layout_toRightOf="@id/divider_1"
+                android:layout_toEndOf="@id/divider_1"
+                android:orientation="vertical"
+                android:layout_width="@dimen/hadith_detail_tab_width"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <View
+                    android:id="@+id/tab_marker_english"
+                    android:layout_width="@dimen/hadith_detail_tab_width"
+                    android:layout_height="@dimen/hadith_detail_tab_marker_height"
+                    android:background="@color/tab_marker_color"
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/tab_text_english"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:background="@drawable/tab_selector"
+                    android:text="@string/english"
+                    android:clickable="true"
+                    android:onClick="onClick" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider_2"
+                android:layout_width="@dimen/hadith_detail_tab_divider_width"
+                android:layout_height="@dimen/hadith_detail_tab_divider_height"
+                android:layout_marginTop="@dimen/hadith_detail_tab_divider_margin_top"
+                android:layout_toRightOf="@id/tab_english"
+                android:layout_toEndOf="@id/tab_english"
+                android:layout_centerInParent="true"
+                android:background="@color/tab_marker_color" />
+
+            <LinearLayout
+                android:id="@+id/tab_arabic"
+                android:layout_toRightOf="@id/divider_2"
+                android:layout_toEndOf="@id/divider_2"
+                android:orientation="vertical"
+                android:layout_width="@dimen/hadith_detail_tab_width"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <View
+                    android:id="@+id/tab_marker_arabic"
+                    android:layout_width="@dimen/hadith_detail_tab_width"
+                    android:layout_height="@dimen/hadith_detail_tab_marker_height"
+                    android:background="@color/tab_marker_color"
+                    android:visibility="invisible" />
+
+                <com.hadithbd.banglahadith.views.ArabicTextView
+                    android:id="@+id/tab_text_arabic"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:background="@drawable/tab_selector"
+                    app:arabicText="@string/arabic"
+                    android:clickable="true"
+                    android:onClick="onClick" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider_3"
+                android:layout_width="@dimen/hadith_detail_tab_divider_width"
+                android:layout_height="@dimen/hadith_detail_tab_divider_height"
+                android:layout_marginTop="@dimen/hadith_detail_tab_divider_margin_top"
+                android:layout_toRightOf="@id/tab_arabic"
+                android:layout_toEndOf="@id/tab_arabic"
+                android:layout_centerInParent="true"
+                android:background="@color/tab_marker_color" />
+
+            <LinearLayout
+                android:id="@+id/tab_hadith_explanation"
+                android:layout_toRightOf="@id/divider_3"
+                android:layout_toEndOf="@id/divider_3"
+                android:orientation="vertical"
+                android:layout_width="@dimen/hadith_detail_tab_width"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <View
+                    android:id="@+id/tab_marker_hadith_explanation"
+                    android:layout_width="@dimen/hadith_detail_tab_width"
+                    android:layout_height="@dimen/hadith_detail_tab_marker_height"
+                    android:background="@color/tab_marker_color"
+                    android:visibility="invisible" />
+
+                <com.hadithbd.banglahadith.views.BanglaTextView
+                    android:id="@+id/tab_text_hadith_explanation"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:background="@drawable/tab_selector"
+                    app:banglaText="@string/explanation"
+                    android:clickable="true"
+                    android:onClick="onClick" />
             </LinearLayout>
         </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/hadith_detail_menu_strip_height"
+            android:background="@color/menu_strip_background_color">
+
+            <com.hadithbd.banglahadith.views.BanglaTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"
+                android:layout_gravity="center_vertical"
+                android:textSize="16sp"
+                android:textColor="@android:color/white"
+                app:banglaText="@string/hadith_number" />
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>
