@@ -7,22 +7,22 @@
     android:orientation="vertical">
 
     <View
-        android:layout_width="1dp"
-        android:layout_height="300dp"
+        android:layout_width="2dp"
+        android:layout_height="200dp"
         android:layout_gravity="bottom|center_horizontal"
-        android:background="@android:color/white"/>
+        android:background="@android:color/white" />
 
     <RelativeLayout
         android:layout_gravity="bottom"
         android:layout_width="match_parent"
-        android:layout_height="300dp">
+        android:layout_height="200dp">
 
 
         <View
             android:id="@+id/divider"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true" />
 
         <RelativeLayout
             android:id="@+id/layout_all_hadiths"
