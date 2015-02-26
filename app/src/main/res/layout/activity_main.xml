@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main"
+    android:id="@+id/home_layout_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <View
-        android:layout_width="2dp"
-        android:layout_height="200dp"
-        android:layout_gravity="bottom|center_horizontal"
-        android:background="@android:color/white" />
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".75"
+        android:visibility="invisible" />
+
 
     <RelativeLayout
-        android:layout_gravity="bottom"
         android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_height="0dp"
+        android:layout_weight=".25">
 
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:background="@android:color/white" />
 
         <View
             android:id="@+id/divider"
@@ -28,6 +34,7 @@
             android:id="@+id/layout_all_hadiths"
             android:layout_width="match_parent"
             android:layout_toLeftOf="@id/divider"
+            android:gravity="center"
             android:background="@drawable/bg_shadow_layout"
             android:layout_height="match_parent">
 
@@ -35,15 +42,15 @@
                 android:id="@+id/ic_all_hadiths"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_marginTop="-24dp"
                 android:background="@drawable/ic_books_home" />
 
             <com.hadithbd.banglahadith.views.BanglaTextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/ic_all_hadiths"
+                android:layout_alignRight="@id/ic_all_hadiths"
+                android:gravity="center_horizontal"
                 android:layout_below="@id/ic_all_hadiths"
-                android:layout_centerInParent="true"
                 android:layout_marginTop="@dimen/vertical_margin_8dp"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/abc_text_size_subhead_material"
@@ -55,6 +62,7 @@
             android:id="@+id/layout_all_books"
             android:layout_toRightOf="@id/divider"
             android:layout_width="match_parent"
+            android:gravity="center"
             android:background="@drawable/bg_shadow_layout"
             android:layout_height="match_parent">
 
@@ -62,15 +70,15 @@
                 android:id="@+id/ic_all_books"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_marginTop="-24dp"
                 android:src="@drawable/ic_hadiths_home" />
 
             <com.hadithbd.banglahadith.views.BanglaTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ic_all_books"
-                android:layout_centerInParent="true"
+                android:layout_alignLeft="@id/ic_all_books"
+                android:layout_alignRight="@id/ic_all_books"
+                android:gravity="center_horizontal"
                 android:textSize="@dimen/abc_text_size_subhead_material"
                 android:layout_marginTop="@dimen/vertical_margin_8dp"
                 android:textColor="@android:color/white"
@@ -78,5 +86,4 @@
         </RelativeLayout>
     </RelativeLayout>
 
-
-</FrameLayout>
+</LinearLayout>

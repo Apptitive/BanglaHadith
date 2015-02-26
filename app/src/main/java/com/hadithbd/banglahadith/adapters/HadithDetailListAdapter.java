@@ -41,7 +41,7 @@ public class HadithDetailListAdapter extends RecyclerView.Adapter<HadithDetailLi
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
-        viewHolder.mTextDrawable.setBanglaText(mHadithDetailLists.get(position));
+        viewHolder.mTextDrawable.setBanglaText(String.valueOf(position+1));
         viewHolder.itemView.setTag(position);
     }
 

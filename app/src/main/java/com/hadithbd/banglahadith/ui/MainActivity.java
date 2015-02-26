@@ -13,7 +13,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.hadithbd.banglahadith.R;
@@ -27,9 +27,14 @@ import java.util.List;
 
 public class MainActivity extends ActionBarActivity {
 
+    private static final int BISMILLAH_MARGIN_TOP = 72;
+
     private RelativeLayout mLayoutAllHadiths;
+
     private RelativeLayout mLayoutAllBooks;
+
     private DbHelper mDbHelper;
+
     private SQLiteDatabase mDatabase;
 
     @Override
@@ -37,7 +42,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        myLayerDrawable();
+        setHomeBackgroundLayer();
 
         DbManager.init(this);
         mDbHelper = new DbHelper(getApplicationContext());
@@ -76,7 +81,6 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-
     }
 
     private void initLayouts() {
@@ -103,31 +107,31 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void myLayerDrawable() {
+    public void setHomeBackgroundLayer() {
 
+        BitmapDrawable whiteLayer = (BitmapDrawable) getResources().getDrawable(R.drawable.home_white_layer);
+        BitmapDrawable iconCaliography = (BitmapDrawable) getResources().getDrawable(R.drawable.bg_caliography);
+        iconCaliography.setGravity(Gravity.BOTTOM);
 
-        BitmapDrawable whiteLayer = (BitmapDrawable) getResources().getDrawable(R.drawable.white_layer);
-        BitmapDrawable bigIcon = (BitmapDrawable) getResources().getDrawable(R.drawable.bg_caliography);
-        bigIcon.setGravity(Gravity.BOTTOM);
+        BitmapDrawable blueLayer = (BitmapDrawable) getResources().getDrawable(R.drawable.home_blue_layer);
 
-        BitmapDrawable mainBg = (BitmapDrawable) getResources().getDrawable(R.drawable.main_bg);
+        BitmapDrawable iconBismillah = (BitmapDrawable) getResources().getDrawable(R.drawable.bg_bismillah);
+        iconBismillah.setGravity(Gravity.CENTER_HORIZONTAL);
+        iconBismillah.setGravity(Gravity.TOP);
 
-        BitmapDrawable bismillah = (BitmapDrawable) getResources().getDrawable(R.drawable.bg_bismillah);
-        bismillah.setGravity(Gravity.CENTER_HORIZONTAL);
-        bismillah.setGravity(Gravity.TOP);
-
-        Drawable[] drawables = new Drawable[]{mainBg, bigIcon, whiteLayer, bismillah};
+        Drawable[] drawables = new Drawable[]{blueLayer, iconCaliography, whiteLayer, iconBismillah};
 
 
         LayerDrawable layerDrawable = new LayerDrawable(drawables);
-        layerDrawable.setLayerInset(3, 0, 72, 0, 0);
+        layerDrawable.setLayerInset(3, 0, BISMILLAH_MARGIN_TOP, 0, 0);
 
         setLayerToBackground(layerDrawable);
 
     }
 
+
     private void setLayerToBackground(LayerDrawable layerDrawable) {
-        FrameLayout view = (FrameLayout) findViewById(R.id.main);
+        LinearLayout view = (LinearLayout) findViewById(R.id.home_layout_main);
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
             view.setBackgroundDrawable(layerDrawable);
