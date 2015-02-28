@@ -2,17 +2,14 @@ package com.hadithbd.banglahadith.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import com.hadithbd.banglahadith.R;
 import com.hadithbd.banglahadith.adapters.HadithListAdapter;
 
-public class HadithListActivity extends ActionBarActivity implements HadithListAdapter.HadithItemClickListener {
+public class HadithListActivity extends BaseActivity implements HadithListAdapter.HadithItemClickListener {
 
     private static final int NUMBER_OF_COLUMNS = 2;
 
@@ -39,6 +36,7 @@ public class HadithListActivity extends ActionBarActivity implements HadithListA
     }
 
     private void initRecyclerAdapter() {
+        mRecyclerView.setHasFixedSize(true);
         mHadithListAdapter = new HadithListAdapter(this);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, NUMBER_OF_COLUMNS));
         mHadithListAdapter.setHadithItemClickListener(this);
@@ -50,27 +48,6 @@ public class HadithListActivity extends ActionBarActivity implements HadithListA
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_hadith_list, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     @Override
     public void onHadithItemClicked(int position) {
