@@ -10,6 +10,10 @@
     <color name="tab_marker_color">@color/white_40</color>
     <color name="tab_selector_pressed">@color/white_40</color>
     <color name="menu_strip_background_color">@color/white_80</color>
+    <color name="nav_btn_bg_normal_color">#736357</color>
+    <color name="nav_btn_bg_pressed_color">#4f413b</color>
+    <color name="menu_overflow_bg_pressed">@color/white_80</color>
+    <color name="menu_share_bg_pressed">@color/black_80</color>
 
     <array name="hadith_item_strip_colors">
         <item>#29abe2</item>

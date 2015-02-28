@@ -14,6 +14,11 @@
         <item name="theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
     </style>
 
+    <style name="Widget.CompoundButton.Love.Custom" parent="@android:style/Widget.CompoundButton.Star">
+        <item name="android:button">@null</item>
+        <item name="android:background">@drawable/bg_menu_love</item>
+    </style>
+
     <style name="Widget"></style>
 
 </resources>

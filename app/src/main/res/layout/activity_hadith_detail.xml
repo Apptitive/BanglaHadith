@@ -160,22 +160,82 @@
                     android:clickable="true"
                     android:onClick="onClick" />
             </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/hadith_tick"
+                android:layout_toLeftOf="@+id/menu_overflow"
+                android:layout_toStartOf="@+id/menu_overflow" />
+
+            <ImageButton
+                android:id="@+id/menu_overflow"
+                android:layout_width="@dimen/hadith_detail_menu_overflow_width"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/bg_menu_overflow"
+                android:src="@drawable/menu_overflow" />
         </RelativeLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/hadith_detail_menu_strip_height"
             android:background="@color/menu_strip_background_color">
 
             <com.hadithbd.banglahadith.views.BanglaTextView
+                android:id="@+id/textView_hadith_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
                 android:layout_marginStart="12dp"
-                android:layout_gravity="center_vertical"
+                android:layout_centerVertical="true"
                 android:textSize="16sp"
                 android:textColor="@android:color/white"
                 app:banglaText="@string/hadith_number" />
-        </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/menu_love"
+                style="@style/Widget.CompoundButton.Love.Custom"
+                android:layout_width="@dimen/hadith_detail_menu_love_size"
+                android:layout_height="@dimen/hadith_detail_menu_love_size"
+                android:layout_marginRight="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/menu_share"
+                android:layout_toStartOf="@+id/menu_share" />
+
+            <ImageButton
+                android:id="@+id/menu_share"
+                android:layout_width="@dimen/hadith_detail_menu_share_width"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@+id/nav_back"
+                android:layout_toStartOf="@+id/nav_back"
+                android:background="@drawable/bg_menu_share"
+                android:src="@drawable/share" />
+
+            <ImageButton
+                android:id="@+id/nav_back"
+                android:layout_width="@dimen/hadith_detail_nav_button_width"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@+id/nav_forward"
+                android:layout_toStartOf="@+id/nav_forward"
+                android:layout_marginRight="1dp"
+                android:layout_marginEnd="1dp"
+                android:background="@drawable/bg_nav_btn"
+                android:src="@drawable/nav_back"
+                android:onClick="onClick" />
+
+            <ImageButton
+                android:id="@+id/nav_forward"
+                android:layout_width="@dimen/hadith_detail_nav_button_width"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/bg_nav_btn"
+                android:src="@drawable/nav_forward"
+                android:onClick="onClick" />
+        </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

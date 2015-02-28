@@ -3,6 +3,7 @@ package com.hadithbd.banglahadith.ui;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
 import com.hadithbd.banglahadith.R;
 
@@ -46,6 +47,8 @@ public class HadithDetailActivity extends BaseActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-        switchTabMarkerVisibilty(v.getId());
+        if (v instanceof TextView) {
+            switchTabMarkerVisibilty(v.getId());
+        }
     }
 }
