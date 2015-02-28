@@ -1,5 +1,8 @@
 package com.hadithbd.banglahadith.util;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Build;
 
 import java.util.ArrayList;
@@ -58,5 +61,20 @@ public class Utils {
         datas.add("3");
         datas.add("4");
         return datas;
+    }
+
+
+    /**
+     * Check internet connection availability
+     * */
+    public static boolean isNetworkAvailable(Context context) {
+        ConnectivityManager connectionManager = (ConnectivityManager) context
+                .getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = connectionManager.getActiveNetworkInfo();
+        if (netInfo != null && netInfo.isConnected()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

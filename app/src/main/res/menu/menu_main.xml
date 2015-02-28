@@ -7,7 +7,7 @@
         android:orderInCategory="100"
         app:showAsAction="always"
         android:title=""
-        android:icon="@android:drawable/ic_menu_search" />
+        android:icon="@drawable/ic_search" />
     <item
         android:id="@+id/action_settings"
         android:title="@string/action_settings"
@@ -17,6 +17,27 @@
         android:id="@+id/action_about_us"
         android:title="@string/action_about_us"
         android:orderInCategory="102"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_favorite"
+        android:title="@string/action_favorite"
+        android:orderInCategory="103"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_data_sync"
+        android:title="@string/action_data_sync"
+        android:orderInCategory="104"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_donation"
+        android:title="@string/action_donation"
+        android:orderInCategory="105"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_latest_update"
+        android:title="@string/action_latest_update"
+        android:orderInCategory="106"
         app:showAsAction="never" />
 
 </menu>
