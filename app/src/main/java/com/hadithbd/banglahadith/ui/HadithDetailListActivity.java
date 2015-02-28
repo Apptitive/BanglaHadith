@@ -40,6 +40,7 @@ public class HadithDetailListActivity extends ActionBarActivity implements Hadit
     }
 
     private void initRecyclerAdapter() {
+        mRecyclerView.setHasFixedSize(true);
         mHadithDetailListAdapter = new HadithDetailListAdapter(Utils.getDummyHaditsData());
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, NUMBER_OF_COLUMNS));
         mHadithDetailListAdapter.setHadithDetailItemListener(this);

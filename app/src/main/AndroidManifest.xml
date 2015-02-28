@@ -45,8 +45,11 @@
 
         <activity
             android:name=".ui.BookChapterListActivity"
-            android:label="@string/title_activity_book_chapter_list">
-
+            android:label="@string/title_activity_book_chapter_list"
+            android:parentActivityName=".ui.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.MainActivity" />
         </activity>
     </application>
 
