@@ -1,17 +1,14 @@
 package com.hadithbd.banglahadith.ui;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 
 import com.hadithbd.banglahadith.R;
 
 import java.util.HashMap;
 
-public class HadithDetailActivity extends ActionBarActivity implements View.OnClickListener {
+public class HadithDetailActivity extends BaseActivity implements View.OnClickListener {
 
     private HashMap<Integer, View> tabToMarkerMap;
     private View currentVisibleTabMarker;
@@ -45,28 +42,6 @@ public class HadithDetailActivity extends ActionBarActivity implements View.OnCl
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         initTabMarkers();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_hadith_detail, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     @Override
