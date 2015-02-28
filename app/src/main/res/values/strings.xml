@@ -21,4 +21,5 @@
     <string name="action_donation">Donation</string>
     <string name="action_latest_update">Latest Update</string>
     <string name="text_internet_connection_failed">Internet connection is not available right now, please try again later.</string>
+    <string name="title_activity_menu">MenuActivity</string>
 </resources>
