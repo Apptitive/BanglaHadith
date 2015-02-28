@@ -28,10 +28,14 @@
         <activity
             android:name=".ui.HadithListActivity"
             android:label="@string/title_activity_hadith_list"
-            android:parentActivityName=".ui.MainActivity">
+            android:parentActivityName=".ui.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ui.BookChapterListActivity"
+            android:label="@string/title_activity_book_chapter_list" >
         </activity>
     </application>
 

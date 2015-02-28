@@ -7,4 +7,5 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_hadith_list">HadithListActivity</string>
+    <string name="title_activity_book_chapter_list">BookChapterListActivity</string>
 </resources>
