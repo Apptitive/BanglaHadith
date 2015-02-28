@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="text_drawable_stroke_color">#66000000</color>
+    <color name="text_drawable_stroke_color">@color/black_60</color>
     <color name="list_item_background_color_normal">#33ffffff</color>
+    <color name="list_item_background_color">@color/white_80</color>
     <color name="list_item_background_color_pressed">@color/text_drawable_stroke_color</color>
-    <color name="background_shadow_color">#CC000000</color>
-    <color name="color_primary">#B3000000</color>
+    <color name="background_shadow_color">@color/black_20</color>
+    <color name="color_primary">@color/black_30</color>
+    <color name="hadith_detail_screen_background">@color/black_30</color>
+    <color name="tab_marker_color">@color/white_40</color>
+    <color name="tab_selector_pressed">@color/white_40</color>
+    <color name="menu_strip_background_color">@color/white_80</color>
 
     <array name="hadith_item_strip_colors">
         <item>#29abe2</item>
@@ -16,4 +21,11 @@
         <item>#22b573</item>
         <item>#0000ff</item>
     </array>
+
+    <color name="black_20">#CC000000</color>
+    <color name="black_30">#B3000000</color>
+    <color name="black_60">#66000000</color>
+    <color name="black_80">#33000000</color>
+    <color name="white_40">#99ffffff</color>
+    <color name="white_80">#33ffffff</color>
 </resources>

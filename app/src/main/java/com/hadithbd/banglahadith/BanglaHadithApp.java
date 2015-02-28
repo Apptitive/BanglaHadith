@@ -21,7 +21,9 @@ public class BanglaHadithApp extends Application {
 
     public static final String TAG = "VolleyTag";
 
-    public static Typeface banglaHadithFont;
+    public static Typeface typefaceBangla;
+
+    public static Typeface typefaceArabic;
 
     private RequestQueue mRequestQueue;
 
@@ -33,16 +35,13 @@ public class BanglaHadithApp extends Application {
     public void onCreate() {
         super.onCreate();
 
-        banglaHadithFont = Typeface.createFromAsset(getAssets(),
-                Constants.FONT_FOLDER_LOCATION + Constants.FONT_NAME);
-
-
+        typefaceBangla = Typeface.createFromAsset(getAssets(),
+                Constants.FONT_FOLDER_LOCATION + Constants.FONT_NAME_BANGLA);
+        typefaceArabic = Typeface.createFromAsset(getAssets(),
+                Constants.FONT_FOLDER_LOCATION + Constants.FONT_NAME_ARABIC);
         mInstance = this;
-
         preLoadListStripColors();
-
     }
-
 
     private void preLoadListStripColors() {
         TypedArray ta = getResources().obtainTypedArray(R.array.hadith_item_strip_colors);
@@ -73,7 +72,6 @@ public class BanglaHadithApp extends Application {
 
         getRequestQueue().add(request);
     }
-
 
     public <T> void addToRequestQueue(Request<T> request) {
         request.setTag(TAG);

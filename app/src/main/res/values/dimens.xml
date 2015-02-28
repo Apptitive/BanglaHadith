@@ -12,5 +12,11 @@
     <dimen name="default_elevation">8dp</dimen>
     <dimen name="hadith_item_color_height">72dp</dimen>
     <dimen name="hadith_item_color_width">4dp</dimen>
-
+    <dimen name="hadith_detail_tab_strip_height">48dp</dimen>
+    <dimen name="hadith_detail_tab_width">56dp</dimen>
+    <dimen name="hadith_detail_tab_marker_height">4dp</dimen>
+    <dimen name="hadith_detail_tab_divider_width">0.5dp</dimen>
+    <dimen name="hadith_detail_tab_divider_height">24dp</dimen>
+    <dimen name="hadith_detail_tab_divider_margin_top">8dp</dimen>
+    <dimen name="hadith_detail_menu_strip_height">40dp</dimen>
 </resources>

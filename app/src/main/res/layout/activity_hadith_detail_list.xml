@@ -8,7 +8,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#CC000000" />
+        android:background="@color/black_20" />
 
     <include
         android:id="@+id/toolbar"
@@ -16,7 +16,6 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/hadith_detail_recycler_view"
-        android:layout_margin="@dimen/vertical_margin_8dp"
         android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
