@@ -6,6 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.hadithbd.banglahadith.R;
 
@@ -71,6 +72,8 @@ public class HadithDetailActivity extends ActionBarActivity implements View.OnCl
 
     @Override
     public void onClick(View v) {
-        switchTabMarkerVisibilty(v.getId());
+        if (v instanceof TextView) {
+            switchTabMarkerVisibilty(v.getId());
+        }
     }
 }

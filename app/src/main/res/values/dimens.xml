@@ -19,4 +19,8 @@
     <dimen name="hadith_detail_tab_divider_height">24dp</dimen>
     <dimen name="hadith_detail_tab_divider_margin_top">8dp</dimen>
     <dimen name="hadith_detail_menu_strip_height">40dp</dimen>
+    <dimen name="hadith_detail_nav_button_width">48dp</dimen>
+    <dimen name="hadith_detail_menu_overflow_width">32dp</dimen>
+    <dimen name="hadith_detail_menu_share_width">40dp</dimen>
+    <dimen name="hadith_detail_menu_love_size">28dp</dimen>
 </resources>
