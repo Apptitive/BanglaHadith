@@ -33,6 +33,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.MainActivity" />
         </activity>
+
+        <activity
+            android:name=".ui.HadithDetailActivity"
+            android:label="@string/title_activity_hadith_detail"
+            android:parentActivityName=".ui.HadithDetailListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.HadithDetailListActivity" />
+        </activity>
+
         <activity
             android:name=".ui.BookChapterListActivity"
             android:label="@string/title_activity_book_chapter_list">
