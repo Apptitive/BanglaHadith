@@ -21,5 +21,29 @@ public class RabiHadith {
     @DatabaseField
     private int isActive;
     @DatabaseField
-    private Date lastUpdate;
+    private String lastUpdate;
+
+    public int getId() {
+        return id;
+    }
+
+    public String getRabiBengali() {
+        return rabiBengali;
+    }
+
+    public String getRabiEnglish() {
+        return rabiEnglish;
+    }
+
+    public String getSortBy() {
+        return sortBy;
+    }
+
+    public int getIsActive() {
+        return isActive;
+    }
+
+    public String getLastUpdate() {
+        return lastUpdate;
+    }
 }

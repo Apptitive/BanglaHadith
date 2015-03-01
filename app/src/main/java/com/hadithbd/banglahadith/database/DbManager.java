@@ -7,7 +7,14 @@ import com.hadithbd.banglahadith.database.tables.book.BookName;
 import com.hadithbd.banglahadith.database.tables.book.BookSection;
 import com.hadithbd.banglahadith.database.tables.book.BookType;
 import com.hadithbd.banglahadith.database.tables.book.BookWriter;
+import com.hadithbd.banglahadith.database.tables.hadith.HadithBook;
+import com.hadithbd.banglahadith.database.tables.hadith.HadithChapter;
+import com.hadithbd.banglahadith.database.tables.hadith.HadithExplanation;
+import com.hadithbd.banglahadith.database.tables.hadith.HadithMain;
 import com.hadithbd.banglahadith.database.tables.hadith.HadithPublisher;
+import com.hadithbd.banglahadith.database.tables.hadith.HadithSection;
+import com.hadithbd.banglahadith.database.tables.hadith.HadithStatus;
+import com.hadithbd.banglahadith.database.tables.hadith.RabiHadith;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -36,16 +43,6 @@ public class DbManager {
 
     private DbHelper getHelper() {
         return helper;
-    }
-
-    public List<HadithPublisher> getAllHadithPublishers() {
-        List<HadithPublisher> hadithPublisherList = new ArrayList<>();
-        try {
-            hadithPublisherList = getHelper().getHadithPublisherDao().queryForAll();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return hadithPublisherList;
     }
 
     public List<BookWriter> getAllBookWriters(){
@@ -96,6 +93,87 @@ public class DbManager {
             e.printStackTrace();
         }
         return bookSectionList;
+    }
+
+    public List<RabiHadith> getAllRabiHadiths(){
+        List<RabiHadith> rabiHadithList = new ArrayList<>();
+        try {
+            rabiHadithList = getHelper().getRabiHadithDao().queryForAll();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rabiHadithList;
+    }
+
+    public List<HadithStatus> getAllHadithStatus(){
+        List<HadithStatus> hadithStatusList = new ArrayList<>();
+        try {
+            hadithStatusList = getHelper().getHadithStatusDao().queryForAll();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return hadithStatusList;
+    }
+
+    public List<HadithSection> getAllHadithSections(){
+        List<HadithSection> hadithSectionList = new ArrayList<>();
+        try {
+            hadithSectionList = getHelper().getHadithSectionDao().queryForAll();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return hadithSectionList;
+    }
+
+    public List<HadithPublisher> getAllHadithPublishers(){
+        List<HadithPublisher> hadithPublisherList = new ArrayList<>();
+        try {
+            hadithPublisherList = getHelper().getHadithPublisherDao().queryForAll();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return hadithPublisherList;
+    }
+
+    public List<HadithMain> getAllHadithMains(){
+        List<HadithMain> hadithMainList = new ArrayList<>();
+        try {
+            hadithMainList = getHelper().getHadithMainDao().queryForAll();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return hadithMainList;
+    }
+
+
+    public List<HadithExplanation> getAllHadithExplanations(){
+        List<HadithExplanation> hadithExplanationList = new ArrayList<>();
+        try {
+            hadithExplanationList = getHelper().getHadithExplanationDao().queryForAll();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return hadithExplanationList;
+    }
+
+    public List<HadithChapter> getAllHadithChapters(){
+        List<HadithChapter> hadithChapterList = new ArrayList<>();
+        try {
+            hadithChapterList = getHelper().getHadithChapterDao().queryForAll();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return hadithChapterList;
+    }
+
+    public List<HadithBook> getAllHadithBooks(){
+        List<HadithBook> hadithBookList = new ArrayList<>();
+        try {
+            hadithBookList = getHelper().getHadithBookDao().queryForAll();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return hadithBookList;
     }
 }
 

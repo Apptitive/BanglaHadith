@@ -21,5 +21,29 @@ public class HadithSection {
     @DatabaseField
     private int isActive;
     @DatabaseField
-    private Date lastUpdate;
+    private String lastUpdate;
+
+    public int getId() {
+        return id;
+    }
+
+    public int getBookId() {
+        return bookId;
+    }
+
+    public String getNameBengali() {
+        return nameBengali;
+    }
+
+    public String getNameEnglish() {
+        return nameEnglish;
+    }
+
+    public int getIsActive() {
+        return isActive;
+    }
+
+    public String getLastUpdate() {
+        return lastUpdate;
+    }
 }

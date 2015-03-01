@@ -1,6 +1,7 @@
-DROP TABLE IF EXISTS "hadithpublisher";
-CREATE TABLE "hadithpublisher" ("id" , "nameBengali" , "nameEnglish" , "isActive", "lastUpdate" );
-INSERT INTO "hadithpublisher" VALUES('0','Publisher 1','Publisher 1','1', '');
-INSERT INTO "hadithpublisher" VALUES('1','Publisher 2','Publisher 2','1', '');
-INSERT INTO "hadithpublisher" VALUES('2','Publisher 3','Publisher 3','1', '');
-INSERT INTO "hadithpublisher" VALUES('3','Publisher 4','Publisher 4','1', '');
+﻿INSERT INTO hadithpublisher(id,nameBengali,nameEnglish,isActive,lastUpdate) VALUES (1,'ইসলামিক ফাউন্ডেশন','Islamic Foundation',1,'02/02/2015');
+INSERT INTO hadithpublisher(id,nameBengali,nameEnglish,isActive,lastUpdate) VALUES (2,'হুসাইন আল-মাদানী প্রকাশনী','Hussain Al Madani',0,'02/02/2015');
+INSERT INTO hadithpublisher(id,nameBengali,nameEnglish,isActive,lastUpdate) VALUES (3,'তাওহীদ পাবলিকেশন','Tawhid Publication',1,'02/02/2015');
+INSERT INTO hadithpublisher(id,nameBengali,nameEnglish,isActive,lastUpdate) VALUES (4,'বাংলাদেশ ইসলামিক সেন্টার','Bangladesh Islamic Centre',0,'02/02/2015');
+INSERT INTO hadithpublisher(id,nameBengali,nameEnglish,isActive,lastUpdate) VALUES (5,'বাংলা হাদিস','Bangla Hadith',1,'02/02/2015');
+INSERT INTO hadithpublisher(id,nameBengali,nameEnglish,isActive,lastUpdate) VALUES (6,'ইসলাম হাউস','Islam House',1,'02/02/2015');
+INSERT INTO hadithpublisher(id,nameBengali,nameEnglish,isActive,lastUpdate) VALUES (7,'ইসলাম কিউএ','Islam QA',0,'02/02/2015');

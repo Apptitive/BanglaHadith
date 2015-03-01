@@ -23,6 +23,14 @@ import com.hadithbd.banglahadith.database.tables.book.BookName;
 import com.hadithbd.banglahadith.database.tables.book.BookSection;
 import com.hadithbd.banglahadith.database.tables.book.BookType;
 import com.hadithbd.banglahadith.database.tables.book.BookWriter;
+import com.hadithbd.banglahadith.database.tables.hadith.HadithBook;
+import com.hadithbd.banglahadith.database.tables.hadith.HadithChapter;
+import com.hadithbd.banglahadith.database.tables.hadith.HadithExplanation;
+import com.hadithbd.banglahadith.database.tables.hadith.HadithMain;
+import com.hadithbd.banglahadith.database.tables.hadith.HadithPublisher;
+import com.hadithbd.banglahadith.database.tables.hadith.HadithSection;
+import com.hadithbd.banglahadith.database.tables.hadith.HadithStatus;
+import com.hadithbd.banglahadith.database.tables.hadith.RabiHadith;
 
 import java.util.List;
 
@@ -59,6 +67,16 @@ public class MainActivity extends ActionBarActivity {
             CsvToDbHelper.sBulkInsert(this, R.raw.bookcontent, mDatabase);
             CsvToDbHelper.sBulkInsert(this, R.raw.booksection, mDatabase);
 
+            CsvToDbHelper.sBulkInsert(this, R.raw.rabihadith, mDatabase);
+            CsvToDbHelper.sBulkInsert(this, R.raw.hadithstatus, mDatabase);
+            CsvToDbHelper.sBulkInsert(this, R.raw.hadithpublisher, mDatabase);
+            CsvToDbHelper.sBulkInsert(this, R.raw.hadithsection, mDatabase);
+            CsvToDbHelper.sBulkInsert(this, R.raw.hadithexplanation, mDatabase);
+            CsvToDbHelper.sBulkInsert(this, R.raw.hadithchapter, mDatabase);
+            CsvToDbHelper.sBulkInsert(this, R.raw.hadithbook, mDatabase);
+            CsvToDbHelper.sBulkInsert(this, R.raw.hadithmain, mDatabase);
+
+
             mDatabase.setTransactionSuccessful();
             Log.e("Insertion", "End");
         } catch (Exception e) {
@@ -67,7 +85,7 @@ public class MainActivity extends ActionBarActivity {
             mDatabase.endTransaction();
         }
 
-        List<BookType> list = DbManager.getInstance().getAllBookTypes();
+       /* List<BookType> list = DbManager.getInstance().getAllBookTypes();
         Log.e("Size", ""+list.size());
         for(BookType t : list){
             Log.e("Type Name : ", t.getCategoryName());
@@ -97,7 +115,53 @@ public class MainActivity extends ActionBarActivity {
             Log.e("Section Name : ", section.getName());
         }
 
+        List<RabiHadith> rabiHadiths = DbManager.getInstance().getAllRabiHadiths();
+        Log.e("Rabi Hadith", ""+rabiHadiths.size());
+        for(RabiHadith rabiHadith : rabiHadiths){
+            Log.e("Rabi Name : ", rabiHadith.getRabiBengali());
+        }
 
+        List<HadithStatus> hadithStatuses = DbManager.getInstance().getAllHadithStatus();
+        Log.e("Hadith Status Size", ""+hadithStatuses.size());
+        for(HadithStatus hadithStatus : hadithStatuses){
+            Log.e("Hadith Status Name : ", hadithStatus.getStatusBengali());
+        }
+
+        List<HadithPublisher> publishers = DbManager.getInstance().getAllHadithPublishers();
+        Log.e("Hadith Publisher Size", ""+publishers.size());
+        for(HadithPublisher publisher : publishers){
+            Log.e("Hadith Publisher Name : ", publisher.getNameBengali());
+        }
+
+        List<HadithSection> sections = DbManager.getInstance().getAllHadithSections();
+        Log.e("Hadith Section Size", ""+sections.size());
+        for(HadithSection section : sections){
+            Log.e("Hadith Section Name : ", section.getNameBengali());
+        }
+
+        List<HadithExplanation> explanations = DbManager.getInstance().getAllHadithExplanations();
+        Log.e("Hadith Explanation Size", ""+explanations.size());
+        for(HadithExplanation explanation : explanations){
+            Log.e("Hadith Explanation : ", explanation.getExplanation());
+        }
+
+        List<HadithChapter> chapters = DbManager.getInstance().getAllHadithChapters();
+        Log.e("Hadith Chapter Size", ""+chapters.size());
+        for(HadithChapter chapter : chapters){
+            Log.e("Hadith Chapter : ", chapter.getNameBengali());
+        }
+
+        List<HadithBook> books = DbManager.getInstance().getAllHadithBooks();
+        Log.e("Hadith Book Size", ""+books.size());
+        for(HadithBook book : books){
+            Log.e("Hadith Book : ", book.getNameBengali());
+        }*/
+
+        List<HadithMain> mains = DbManager.getInstance().getAllHadithMains();
+        Log.e("Hadith Main Size", "" + mains.size());
+        for(HadithMain main : mains) {
+            Log.e("Hadith Main : ", main.getHadithBengali());
+        }
         initLayouts();
 
         mLayoutAllHadiths.setOnClickListener(new View.OnClickListener() {
