@@ -23,7 +23,7 @@ public class HadithDetailListActivity extends BaseActivity implements HadithDeta
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hadith_detail_list);
-
+        setHomeBackground();
         initViews();
 
         setUpToolbar();

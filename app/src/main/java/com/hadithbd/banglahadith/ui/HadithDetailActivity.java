@@ -36,7 +36,7 @@ public class HadithDetailActivity extends BaseActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hadith_detail);
-
+        setHomeBackground();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setBackgroundColor(getResources().getColor(R.color.black_20));
         setSupportActionBar(toolbar);

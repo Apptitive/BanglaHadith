@@ -22,7 +22,7 @@ public class HadithListActivity extends BaseActivity implements HadithListAdapte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hadith_list);
-
+        setHomeBackground();
         initViews();
 
         setUpToolbar();
