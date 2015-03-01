@@ -7,20 +7,21 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
 import com.hadithbd.banglahadith.R;
-import com.hadithbd.banglahadith.adapters.HadithListAdapter;
+import com.hadithbd.banglahadith.adapters.BookListAdapter;
 import com.hadithbd.banglahadith.util.Constants;
 
-public class HadithListActivity extends BaseActivity implements HadithListAdapter.HadithItemClickListener {
+public class BookListActivity extends BaseActivity implements BookListAdapter.BookItemClickListener{
 
     private RecyclerView mRecyclerView;
 
-    private HadithListAdapter mHadithListAdapter;
+    private BookListAdapter mBookListAdapter;
     private Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hadith_list);
+        setContentView(R.layout.activity_book_list);
+
         setHomeBackground();
         initViews();
 
@@ -36,21 +37,21 @@ public class HadithListActivity extends BaseActivity implements HadithListAdapte
 
     private void initRecyclerAdapter() {
         mRecyclerView.setHasFixedSize(true);
-        mHadithListAdapter = new HadithListAdapter(this);
+        mBookListAdapter = new BookListAdapter(null);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, Constants.NUMBER_OF_GRID_COLUMNS));
-        mHadithListAdapter.setHadithItemClickListener(this);
-        mRecyclerView.setAdapter(mHadithListAdapter);
+        mBookListAdapter.setBookItemClickListener(this);
+        mRecyclerView.setAdapter(mBookListAdapter);
     }
 
     private void initViews() {
-        mRecyclerView = (RecyclerView) findViewById(R.id.hadith_list_recycler_view);
+        mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
     }
 
 
     @Override
-    public void onHadithItemClicked(int position) {
-        Intent intent = new Intent(this, HadithDetailListActivity.class);
+    public void onBookItemClicked(int position) {
+        Intent intent = new Intent(this, BookChapterListActivity.class);
         startActivity(intent);
     }
 }

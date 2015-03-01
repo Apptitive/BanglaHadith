@@ -110,7 +110,7 @@ public class MainActivity extends ActionBarActivity {
         mLayoutAllBooks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(), BookChapterListActivity.class));
+                startActivity(new Intent(getBaseContext(), BookListActivity.class));
             }
         });
 
