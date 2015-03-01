@@ -1,9 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">BanglaHadith</string>
     <string name="action_settings">Settings</string>
     <string name="text_all_hadiths">হাদিস সমূহ</string>
     <string name="text_all_books">গ্রন্থ সমূহ</string>
     <string name="title_activity_hadith_detail_list">HadithDetailList</string>
-
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_hadith_list">HadithListActivity</string>
+    <string name="title_activity_book_chapter_list">BookChapterListActivity</string>
+    <string name="title_activity_hadith_detail">HadithDetailActivity</string>
+    <string name="bangla">বাংলা</string>
+    <string name="english">English</string>
+    <string name="arabic">العربية</string>
+    <string name="explanation">ব্যাখ্যা</string>
+    <string name="hadith_number">হাদিস নম্বরঃ  ৭</string>
+    <string name="action_about_us">About Us</string>
+    <string name="action_favorite">Favorite</string>
+    <string name="action_data_sync">Data Sync</string>
+    <string name="action_donation">Donation</string>
+    <string name="action_latest_update">Latest Update</string>
+    <string name="text_internet_connection_failed">Internet connection is not available right now, please try again later.</string>
+    <string name="title_activity_menu">MenuActivity</string>
 </resources>

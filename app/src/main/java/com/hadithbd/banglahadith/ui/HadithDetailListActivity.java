@@ -1,18 +1,16 @@
 package com.hadithbd.banglahadith.ui;
 
-import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import com.hadithbd.banglahadith.R;
 import com.hadithbd.banglahadith.adapters.HadithDetailListAdapter;
 import com.hadithbd.banglahadith.util.Utils;
 
-public class HadithDetailListActivity extends ActionBarActivity {
+public class HadithDetailListActivity extends BaseActivity implements HadithDetailListAdapter.HadithDetailItemListener{
 
     private static final int NUMBER_OF_COLUMNS = 2;
 
@@ -25,7 +23,7 @@ public class HadithDetailListActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hadith_detail_list);
-
+        setHomeBackground();
         initViews();
 
         setUpToolbar();
@@ -39,8 +37,10 @@ public class HadithDetailListActivity extends ActionBarActivity {
     }
 
     private void initRecyclerAdapter() {
+        mRecyclerView.setHasFixedSize(true);
         mHadithDetailListAdapter = new HadithDetailListAdapter(Utils.getDummyHaditsData());
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, NUMBER_OF_COLUMNS));
+        mHadithDetailListAdapter.setHadithDetailItemListener(this);
         mRecyclerView.setAdapter(mHadithDetailListAdapter);
     }
 
@@ -49,21 +49,9 @@ public class HadithDetailListActivity extends ActionBarActivity {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
     }
 
-
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.hadith_detail_list, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+    public void onHadithDetailItemClicked(int position) {
+        Intent intent = new Intent(HadithDetailListActivity.this, HadithDetailActivity.class);
+        startActivity(intent);
     }
 }
