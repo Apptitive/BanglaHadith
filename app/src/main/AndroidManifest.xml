@@ -47,10 +47,18 @@
         <activity
             android:name=".ui.BookChapterListActivity"
             android:label="@string/title_activity_book_chapter_list"
+            android:parentActivityName=".ui.BookListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.BookListActivity" />
+        </activity>
+        <activity
+            android:name=".ui.BookListActivity"
+            android:label="@string/title_activity_book_list"
             android:parentActivityName=".ui.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.MainActivity" />
+                android:value="com.hadithbd.banglahadith.ui.MainActivity" />
         </activity>
     </application>
 
