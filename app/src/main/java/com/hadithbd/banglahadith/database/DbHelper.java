@@ -5,6 +5,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.hadithbd.banglahadith.R;
+import com.hadithbd.banglahadith.database.tables.book.BookContent;
+import com.hadithbd.banglahadith.database.tables.book.BookName;
+import com.hadithbd.banglahadith.database.tables.book.BookSection;
+import com.hadithbd.banglahadith.database.tables.book.BookType;
+import com.hadithbd.banglahadith.database.tables.book.BookWriter;
 import com.hadithbd.banglahadith.database.tables.hadith.HadithPublisher;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.Dao;
@@ -24,6 +29,11 @@ public class DbHelper extends OrmLiteSqliteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private Context context;
     private Dao<HadithPublisher, Integer> hadithPublisherDao = null;
+    private Dao<BookWriter, Integer> bookWriterDao = null;
+    private Dao<BookType, Integer> bookTypeDao = null;
+    private Dao<BookName, Integer> bookNameDao = null;
+    private Dao<BookSection, Integer> bookSectionDao = null;
+    private Dao<BookContent, Integer> bookContentDao = null;
 
 
     public DbHelper(Context context) {
@@ -34,7 +44,11 @@ public class DbHelper extends OrmLiteSqliteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase, ConnectionSource connectionSource) {
         try {
-            TableUtils.createTable(connectionSource, HadithPublisher.class);
+            TableUtils.createTable(connectionSource, BookWriter.class);
+            TableUtils.createTable(connectionSource, BookType.class);
+            TableUtils.createTable(connectionSource, BookSection.class);
+            TableUtils.createTable(connectionSource, BookName.class);
+            TableUtils.createTable(connectionSource, BookContent.class);
         } catch (SQLException e) {
             Log.e(DbHelper.class.getName(), "Can't create database", e);
             throw new RuntimeException(e);
@@ -48,9 +62,18 @@ public class DbHelper extends OrmLiteSqliteOpenHelper {
         List<String> allSql = new ArrayList<String>();
 
         try {
-            TableUtils.clearTable(connectionSource, HadithPublisher.class);
+            TableUtils.clearTable(connectionSource, BookWriter.class);
+            TableUtils.clearTable(connectionSource, BookType.class);
+            TableUtils.clearTable(connectionSource, BookSection.class);
+            TableUtils.clearTable(connectionSource, BookName.class);
+            TableUtils.clearTable(connectionSource, BookContent.class);
 
+            CsvToDbHelper.sBulkInsert(context, R.raw.bookwriter, sqLiteDatabase);
+            CsvToDbHelper.sBulkInsert(context, R.raw.booktype, sqLiteDatabase);
             CsvToDbHelper.sBulkInsert(context, R.raw.hadithpublisher, sqLiteDatabase);
+            CsvToDbHelper.sBulkInsert(context, R.raw.hadithpublisher, sqLiteDatabase);
+            CsvToDbHelper.sBulkInsert(context, R.raw.hadithpublisher, sqLiteDatabase);
+
             Log.e("Upgrade", "Success");
 
             for (String sql : allSql) {
@@ -74,13 +97,59 @@ public class DbHelper extends OrmLiteSqliteOpenHelper {
         return hadithPublisherDao;
     }
 
-
-    public void clearTable(Class cls) {
-        try {
-            TableUtils.clearTable(getConnectionSource(), cls);
-        } catch (SQLException e) {
-            e.printStackTrace();
+    public Dao<BookWriter, Integer> getBookWriterDao() {
+        if (null == bookWriterDao) {
+            try {
+                bookWriterDao = getDao(BookWriter.class);
+            } catch (java.sql.SQLException e) {
+                e.printStackTrace();
+            }
         }
+        return bookWriterDao;
+    }
+
+    public Dao<BookType, Integer> getBookTypeDao() {
+        if (null == bookTypeDao) {
+            try {
+                bookTypeDao = getDao(BookType.class);
+            } catch (java.sql.SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return bookTypeDao;
+    }
+
+    public Dao<BookName, Integer> getBookNameDao() {
+        if (null == bookNameDao) {
+            try {
+                bookNameDao = getDao(BookName.class);
+            } catch (java.sql.SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return bookNameDao;
+    }
+
+    public Dao<BookSection, Integer> getBookSectionDao() {
+        if (null == bookSectionDao) {
+            try {
+                bookSectionDao = getDao(BookSection.class);
+            } catch (java.sql.SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return bookSectionDao;
+    }
+
+    public Dao<BookContent, Integer> getBookContentDao() {
+        if (null == bookContentDao) {
+            try {
+                bookContentDao = getDao(BookContent.class);
+            } catch (java.sql.SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return bookContentDao;
     }
 
 

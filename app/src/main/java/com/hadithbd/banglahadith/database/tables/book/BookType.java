@@ -17,5 +17,21 @@ public class BookType {
     @DatabaseField
     private int isActive;
     @DatabaseField
-    private Date lastUpdate;
+    private String lastUpdate;
+
+    public String getLastUpdate() {
+        return lastUpdate;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public int getIsActive() {
+        return isActive;
+    }
 }

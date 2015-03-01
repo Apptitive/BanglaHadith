@@ -14,7 +14,11 @@ import com.hadithbd.banglahadith.R;
 import com.hadithbd.banglahadith.database.CsvToDbHelper;
 import com.hadithbd.banglahadith.database.DbHelper;
 import com.hadithbd.banglahadith.database.DbManager;
-import com.hadithbd.banglahadith.database.tables.hadith.HadithPublisher;
+import com.hadithbd.banglahadith.database.tables.book.BookContent;
+import com.hadithbd.banglahadith.database.tables.book.BookName;
+import com.hadithbd.banglahadith.database.tables.book.BookSection;
+import com.hadithbd.banglahadith.database.tables.book.BookType;
+import com.hadithbd.banglahadith.database.tables.book.BookWriter;
 
 import java.util.List;
 
@@ -37,7 +41,12 @@ public class MainActivity extends ActionBarActivity {
         mDatabase.beginTransaction();
         try {
             Log.e("Insertion","Start");
-            CsvToDbHelper.sBulkInsert(this, R.raw.hadithpublisher, mDatabase);
+            CsvToDbHelper.sBulkInsert(this, R.raw.bookwriter, mDatabase);
+            CsvToDbHelper.sBulkInsert(this, R.raw.booktype, mDatabase);
+            CsvToDbHelper.sBulkInsert(this, R.raw.bookname, mDatabase);
+            CsvToDbHelper.sBulkInsert(this, R.raw.bookcontent, mDatabase);
+            CsvToDbHelper.sBulkInsert(this, R.raw.booksection, mDatabase);
+
             mDatabase.setTransactionSuccessful();
             Log.e("Insertion","End");
         } catch (Exception e) {
@@ -46,11 +55,37 @@ public class MainActivity extends ActionBarActivity {
             mDatabase.endTransaction();
         }
 
-        List<HadithPublisher> hadithPublishers = DbManager.getInstance().getAllHadithPublishers();
-        Log.e("Size", ""+hadithPublishers.size());
-        for(HadithPublisher hp : hadithPublishers){
-            Log.e("Publisher Name : ", hp.getNameBengali());
+        List<BookType> list = DbManager.getInstance().getAllBookTypes();
+        Log.e("Size", ""+list.size());
+        for(BookType t : list){
+            Log.e("Type Name : ", t.getCategoryName());
         }
+
+        List<BookWriter> writers = DbManager.getInstance().getAllBookWriters();
+        Log.e("Size", ""+writers.size());
+        for(BookWriter writer : writers){
+            Log.e("Writer Name : ", writer.getNameEnglish());
+        }
+
+        List<BookName> names = DbManager.getInstance().getAllBookNames();
+        Log.e("Size", ""+names.size());
+        for(BookName name : names){
+            Log.e("Book Name : ", name.getNameBengali());
+        }
+
+        List<BookContent> contents = DbManager.getInstance().getAllBookContents();
+        Log.e("Size", ""+contents.size());
+        for(BookContent content : contents){
+            Log.e("Content Name : ", content.getQuestion());
+        }
+
+        List<BookSection> sections = DbManager.getInstance().getAllBookSections();
+        Log.e("Size", ""+sections.size());
+        for(BookSection section : sections){
+            Log.e("Section Name : ", section.getName());
+        }
+
+
         initLayouts();
 
         mLayoutAllHadiths.setOnClickListener(new View.OnClickListener() {
