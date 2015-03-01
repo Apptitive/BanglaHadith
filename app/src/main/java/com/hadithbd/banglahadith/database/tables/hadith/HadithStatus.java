@@ -17,10 +17,33 @@ public class HadithStatus {
     @DatabaseField
     private String statusEnglish;
     @DatabaseField
-    private String colCOde;
+    private String colCode;
     @DatabaseField
     private int isActive;
     @DatabaseField
-    private Date lastUpdate;
+    private String lastUpdate;
 
+    public int getId() {
+        return id;
+    }
+
+    public String getStatusBengali() {
+        return statusBengali;
+    }
+
+    public String getStatusEnglish() {
+        return statusEnglish;
+    }
+
+    public String getColCode() {
+        return colCode;
+    }
+
+    public int getIsActive() {
+        return isActive;
+    }
+
+    public String getLastUpdate() {
+        return lastUpdate;
+    }
 }

@@ -1,0 +1,15 @@
+﻿INSERT INTO hadithbook(id,publisherId,nameBengali,nameEnglish,priority,isActive,lastUpdate) VALUES (1,'1','সহীহ বুখারী (ইফাঃ)','Sahih Bukhari (IFA)',2,1,'02/21/2015');
+INSERT INTO hadithbook(id,publisherId,nameBengali,nameEnglish,priority,isActive,lastUpdate) VALUES (2,'1','সহীহ মুসলিম (ইফাঃ)','Sahih Muslim (IFA)',3,1,'02/21/2015');
+INSERT INTO hadithbook(id,publisherId,nameBengali,nameEnglish,priority,isActive,lastUpdate) VALUES (3,'3','রিয়াযুস স্বা-লিহীন','Riyajus Saolehin',9,1,'02/02/2015');
+INSERT INTO hadithbook(id,publisherId,nameBengali,nameEnglish,priority,isActive,lastUpdate) VALUES (4,'1','সুনানে আবু দাউদ (ইফাঃ)','Sunan Abu Daud (IFA)',4,1,'02/21/2015');
+INSERT INTO hadithbook(id,publisherId,nameBengali,nameEnglish,priority,isActive,lastUpdate) VALUES (5,'NULL','আত তিরমিজী (সহিহ)','Att Tirmidi (Sahih)',4,0,'02/02/2015');
+INSERT INTO hadithbook(id,publisherId,nameBengali,nameEnglish,priority,isActive,lastUpdate) VALUES (6,'1','সুনানে নাসাঈ','Sunan''e Nasaye',6,1,'02/21/2015');
+INSERT INTO hadithbook(id,publisherId,nameBengali,nameEnglish,priority,isActive,lastUpdate) VALUES (7,'NULL','বুলুগুল মারাম','Bulugul Maram',10,0,'02/02/2015');
+INSERT INTO hadithbook(id,publisherId,nameBengali,nameEnglish,priority,isActive,lastUpdate) VALUES (8,'3','যঈফ ও জাল হাদিস','Doief & Jal hadith',11,1,'02/02/2015');
+INSERT INTO hadithbook(id,publisherId,nameBengali,nameEnglish,priority,isActive,lastUpdate) VALUES (9,'5','সুনানে ইবনে মাজাহ','Sunan''e Ibn Majah',7,1,'02/02/2015');
+INSERT INTO hadithbook(id,publisherId,nameBengali,nameEnglish,priority,isActive,lastUpdate) VALUES (10,'1','মুসনাদে আহমেদ','Musnade Ahmed',8,1,'02/02/2015');
+INSERT INTO hadithbook(id,publisherId,nameBengali,nameEnglish,priority,isActive,lastUpdate) VALUES (11,'1','জামে তিরমিজী (ইফাঃ)','Jami Tirmidi',5,1,'0000-00-00');
+INSERT INTO hadithbook(id,publisherId,nameBengali,nameEnglish,priority,isActive,lastUpdate) VALUES (12,'3','সহীহ বুখারী (তাওহীদ)','Sahih Bukhari (Tawhid)',1,1,'02/02/2015');
+INSERT INTO hadithbook(id,publisherId,nameBengali,nameEnglish,priority,isActive,lastUpdate) VALUES (13,'6','সহিহ হাদিসে কুদসি','Sahih Hadith''e Qudsi',13,1,'02/02/2015');
+INSERT INTO hadithbook(id,publisherId,nameBengali,nameEnglish,priority,isActive,lastUpdate) VALUES (14,'6','আন্‌-নওয়াবীর চল্লিশ হাদীস','40 Hadith Nawawi',12,1,'02/02/2015');
+INSERT INTO hadithbook(id,publisherId,nameBengali,nameEnglish,priority,isActive,lastUpdate) VALUES (15,'6','রমযান বিষয়ে জাল ও দুর্বল হাদিসসমূহ','Jal & Daif hadith ragarding ramadan',14,1,'02/02/2015');

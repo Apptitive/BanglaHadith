@@ -1,0 +1,9 @@
+﻿INSERT INTO hadithstatus(id,statusBengali,statusEnglish,colCode,isActive,lastUpdate) VALUES (1,'সহিহ (Sahih)','Sahih','#16552A',1,'02/02/2015');
+INSERT INTO hadithstatus(id,statusBengali,statusEnglish,colCode,isActive,lastUpdate) VALUES (2,'হাসান (Hasan)','Hasan','#137D3E',1,'02/02/2015');
+INSERT INTO hadithstatus(id,statusBengali,statusEnglish,colCode,isActive,lastUpdate) VALUES (3,'যঈফ (Dai''f)','Dayef','#FEBC11',1,'02/02/2015');
+INSERT INTO hadithstatus(id,statusBengali,statusEnglish,colCode,isActive,lastUpdate) VALUES (4,'জাল (Fake)','Fake','#FF0000',1,'02/02/2015');
+INSERT INTO hadithstatus(id,statusBengali,statusEnglish,colCode,isActive,lastUpdate) VALUES (0,'নির্ণীত মান বসাতে হবে','Not Confirmed','#000000',1,'02/02/2015');
+INSERT INTO hadithstatus(id,statusBengali,statusEnglish,colCode,isActive,lastUpdate) VALUES (5,'সহিহ/যঈফ [মিক্সড] (Mixed)','Mixed','NULL',1,'02/02/2015');
+INSERT INTO hadithstatus(id,statusBengali,statusEnglish,colCode,isActive,lastUpdate) VALUES (7,'মুনকার (সর্বদা পরিত্যক্ত)','Always Rejected','NULL',1,'02/02/2015');
+INSERT INTO hadithstatus(id,statusBengali,statusEnglish,colCode,isActive,lastUpdate) VALUES (8,'মুরাসাল','Mursal','NULL',1,'02/02/2015');
+INSERT INTO hadithstatus(id,statusBengali,statusEnglish,colCode,isActive,lastUpdate) VALUES (9,'শা''জ','Shaaj','11',1,'02/02/2015');

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.hadithbd.banglahadith">
+    package="com.hadithbd.banglahadith" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -10,10 +10,10 @@
         android:allowBackup="true"
         android:icon="@android:drawable/dialog_frame"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".ui.MainActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,7 +23,7 @@
         <activity
             android:name=".ui.HadithDetailListActivity"
             android:label="@string/title_activity_hadith_detail_list"
-            android:parentActivityName=".ui.HadithListActivity">
+            android:parentActivityName=".ui.HadithListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.HadithListActivity" />
@@ -31,28 +31,34 @@
         <activity
             android:name=".ui.HadithListActivity"
             android:label="@string/title_activity_hadith_list"
-            android:parentActivityName=".ui.MainActivity">
+            android:parentActivityName=".ui.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.MainActivity" />
         </activity>
-
         <activity
             android:name=".ui.HadithDetailActivity"
             android:label="@string/title_activity_hadith_detail"
-            android:parentActivityName=".ui.HadithDetailListActivity">
+            android:parentActivityName=".ui.HadithDetailListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.HadithDetailListActivity" />
         </activity>
-
         <activity
             android:name=".ui.BookChapterListActivity"
             android:label="@string/title_activity_book_chapter_list"
-            android:parentActivityName=".ui.MainActivity">
+            android:parentActivityName=".ui.BookListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.MainActivity" />
+                android:value=".ui.BookListActivity" />
+        </activity>
+        <activity
+            android:name=".ui.BookListActivity"
+            android:label="@string/title_activity_book_list"
+            android:parentActivityName=".ui.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.hadithbd.banglahadith.ui.MainActivity" />
         </activity>
     </application>
 

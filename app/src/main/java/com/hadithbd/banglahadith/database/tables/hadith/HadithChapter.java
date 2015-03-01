@@ -13,17 +13,49 @@ public class HadithChapter {
     @DatabaseField(id = true)
     private int id;
     @DatabaseField
-    private int sectionId;
-    @DatabaseField
     private int bookId;
+    @DatabaseField
+    private int sectionId;
     @DatabaseField
     private String nameBengali;
     @DatabaseField
-    private String nameEnglish;
-    @DatabaseField
     private String nameArabic;
+    @DatabaseField
+    private String nameEnglish;
     @DatabaseField
     private int isActive;
     @DatabaseField
-    private Date lastUpdate;
+    private String lastUpdate;
+
+    public int getId() {
+        return id;
+    }
+
+    public int getBookId() {
+        return bookId;
+    }
+
+    public int getSectionId() {
+        return sectionId;
+    }
+
+    public String getNameBengali() {
+        return nameBengali;
+    }
+
+    public String getNameArabic() {
+        return nameArabic;
+    }
+
+    public String getNameEnglish() {
+        return nameEnglish;
+    }
+
+    public int getIsActive() {
+        return isActive;
+    }
+
+    public String getLastUpdate() {
+        return lastUpdate;
+    }
 }

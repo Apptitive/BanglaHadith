@@ -2,19 +2,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.hadithbd.banglahadith.ui.HadithDetailListActivity">
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#CC000000" />
+    android:background="@color/background_shadow_color"
+    tools:context="com.hadithbd.banglahadith.ui.BookListActivity">
 
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/hadith_list_recycler_view"
+        android:id="@+id/recycler_view"
         android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -22,3 +18,4 @@
 
 
 </RelativeLayout>
+

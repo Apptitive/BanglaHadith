@@ -26,5 +26,37 @@ public class BookContent {
     @DatabaseField
     private int isActive;
     @DatabaseField
-    private Date lastUpdate;
+    private String lastUpdate;
+
+    public int getId() {
+        return id;
+    }
+
+    public int getBookId() {
+        return bookId;
+    }
+
+    public int getSectionId() {
+        return sectionId;
+    }
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public int getIsActive() {
+        return isActive;
+    }
+
+    public String getLastUpdate() {
+        return lastUpdate;
+    }
 }

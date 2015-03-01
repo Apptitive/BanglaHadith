@@ -39,5 +39,65 @@ public class HadithMain {
     @DatabaseField
     private int isActive;
     @DatabaseField
-    private Date lastUpdate;
+    private String lastUpdate;
+
+    public int getId() {
+        return id;
+    }
+
+    public int getRabiId() {
+        return rabiId;
+    }
+
+    public int getBookId() {
+        return bookId;
+    }
+
+    public int getSectionId() {
+        return sectionId;
+    }
+
+    public int getChapterId() {
+        return chapterId;
+    }
+
+    public int getPublisherId() {
+        return publisherId;
+    }
+
+    public int getStatusId() {
+        return statusId;
+    }
+
+    public int getHadithNo() {
+        return hadithNo;
+    }
+
+    public String getHadithArabic() {
+        return hadithArabic;
+    }
+
+    public String getHadithBengali() {
+        return hadithBengali;
+    }
+
+    public String getHadithEnglish() {
+        return hadithEnglish;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public int getCheckStatus() {
+        return checkStatus;
+    }
+
+    public int getIsActive() {
+        return isActive;
+    }
+
+    public String getLastUpdate() {
+        return lastUpdate;
+    }
 }

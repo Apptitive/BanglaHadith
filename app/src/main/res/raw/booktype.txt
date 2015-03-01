@@ -1,0 +1,8 @@
+﻿INSERT INTO booktype(id,categoryName,isActive,lastUpdate) VALUES (1,'আকিদা [তাওহীদ]',1,'02/02/2015');
+INSERT INTO booktype(id,categoryName,isActive,lastUpdate) VALUES (2,'সালাত [নামায]',1,'02/02/2015');
+INSERT INTO booktype(id,categoryName,isActive,lastUpdate) VALUES (3,'যাকাত',1,'02/02/2015');
+INSERT INTO booktype(id,categoryName,isActive,lastUpdate) VALUES (4,'সাওম [রোযা]',1,'02/02/2015');
+INSERT INTO booktype(id,categoryName,isActive,lastUpdate) VALUES (5,'হজ্জ [হজ্ব]',1,'02/02/2015');
+INSERT INTO booktype(id,categoryName,isActive,lastUpdate) VALUES (6,'বিবিধ/অন্যান্য',1,'02/02/2015');
+INSERT INTO booktype(id,categoryName,isActive,lastUpdate) VALUES (7,'ফতোয়া [ফিকহ]',1,'02/02/2015');
+INSERT INTO booktype(id,categoryName,isActive,lastUpdate) VALUES (8,'শিরক / কুফর / বিদআত',1,'02/02/2015');

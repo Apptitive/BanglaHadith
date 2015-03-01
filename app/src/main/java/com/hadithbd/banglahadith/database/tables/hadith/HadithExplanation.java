@@ -19,5 +19,25 @@ public class HadithExplanation {
     @DatabaseField
     private int isActive;
     @DatabaseField
-    private Date lastUpdate;
+    private String lastUpdate;
+
+    public int getId() {
+        return id;
+    }
+
+    public int getHadithId() {
+        return hadithId;
+    }
+
+    public String getExplanation() {
+        return explanation;
+    }
+
+    public int getIsActive() {
+        return isActive;
+    }
+
+    public String getLastUpdate() {
+        return lastUpdate;
+    }
 }

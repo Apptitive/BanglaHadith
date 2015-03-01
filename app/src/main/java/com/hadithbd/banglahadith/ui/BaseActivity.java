@@ -1,9 +1,14 @@
 package com.hadithbd.banglahadith.ui;
 
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
+import android.os.Build;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.hadithbd.banglahadith.R;
@@ -14,6 +19,29 @@ import com.hadithbd.banglahadith.util.Utils;
  */
 public class BaseActivity extends ActionBarActivity {
 
+
+    public void setHomeBackground() {
+        BitmapDrawable whiteLayer = (BitmapDrawable) getResources().getDrawable(R.drawable.home_white_layer);
+        BitmapDrawable iconCaliography = (BitmapDrawable) getResources().getDrawable(R.drawable.bg_caliography);
+        iconCaliography.setGravity(Gravity.BOTTOM);
+        BitmapDrawable blueLayer = (BitmapDrawable) getResources().getDrawable(R.drawable.home_blue_layer);
+        Drawable[] drawables = new Drawable[]{blueLayer, iconCaliography, whiteLayer};
+        LayerDrawable layerDrawable = new LayerDrawable(drawables);
+        setLayerToBackground(layerDrawable);
+    }
+
+
+    private void setLayerToBackground(LayerDrawable layerDrawable) {
+        View view =  findViewById(android.R.id.content);
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
+            view.setBackgroundDrawable(layerDrawable);
+        } else {
+            view.setBackground(layerDrawable);
+        }
+    }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -22,18 +50,10 @@ public class BaseActivity extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch (item.getItemId()) {
-            case R.id.action_search:
-                Log.e("TAG", "menu item is selected");
-                return true;
-            case R.id.action_latest_update:
-                openLatestUpdateActivity();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-
+       /* Intent intent = new Intent(this, MenuActivity.class);
+        intent.putExtra(Constants.MENU_ITEM_ID, item.getItemId());
+        startActivity(intent);*/
+        return super.onOptionsItemSelected(item);
     }
 
     private void openLatestUpdateActivity() {

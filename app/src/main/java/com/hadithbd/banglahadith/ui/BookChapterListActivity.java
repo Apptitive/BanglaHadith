@@ -23,7 +23,7 @@ public class BookChapterListActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_chapter_list);
-
+        setHomeBackground();
         initViews();
 
         initToolbar();
