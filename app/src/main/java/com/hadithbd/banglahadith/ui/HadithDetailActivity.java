@@ -1,5 +1,6 @@
 package com.hadithbd.banglahadith.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -32,6 +33,14 @@ public class HadithDetailActivity extends BaseActivity implements View.OnClickLi
         }
     }
 
+    private void createShareIntent() {
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        shareIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+        shareIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.share_hadith));
+        startActivity(Intent.createChooser(shareIntent, getString(R.string.share_title)));
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +58,13 @@ public class HadithDetailActivity extends BaseActivity implements View.OnClickLi
     public void onClick(View v) {
         if (v instanceof TextView) {
             switchTabMarkerVisibilty(v.getId());
+            return;
+        }
+        int id = v.getId();
+        switch (id) {
+            case R.id.menu_share:
+                createShareIntent();
+                break;
         }
     }
 }

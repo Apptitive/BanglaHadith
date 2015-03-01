@@ -41,6 +41,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textColor="@android:color/white"
+                    android:textAppearance="?android:attr/textAppearanceButton"
                     app:banglaText="@string/bangla"
                     android:clickable="true"
                     android:onClick="onClick"
@@ -118,6 +119,7 @@
                     android:gravity="center"
                     android:textColor="@android:color/white"
                     android:background="@drawable/tab_selector"
+                    android:textAppearance="?android:attr/textAppearanceButton"
                     app:arabicText="@string/arabic"
                     android:clickable="true"
                     android:onClick="onClick" />
@@ -156,16 +158,18 @@
                     android:gravity="center"
                     android:textColor="@android:color/white"
                     android:background="@drawable/tab_selector"
+                    android:textAppearance="?android:attr/textAppearanceButton"
                     app:banglaText="@string/explanation"
                     android:clickable="true"
                     android:onClick="onClick" />
             </LinearLayout>
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/tick_hadith"
+                android:layout_width="@dimen/hadith_detail_tick_hadith_size"
+                android:layout_height="@dimen/hadith_detail_tick_hadith_size"
                 android:layout_centerVertical="true"
-                android:src="@drawable/hadith_tick"
+                android:background="@drawable/tick_hadith"
                 android:layout_toLeftOf="@+id/menu_overflow"
                 android:layout_toStartOf="@+id/menu_overflow" />
 
@@ -176,7 +180,11 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:background="@drawable/bg_menu_overflow"
-                android:src="@drawable/menu_overflow" />
+                android:src="@drawable/menu_overflow"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginStart="@dimen/dp_10"
+                android:padding="@dimen/dp_14"
+                android:scaleType="fitCenter" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -196,12 +204,12 @@
                 app:banglaText="@string/hadith_number" />
 
             <CheckBox
-                android:id="@+id/menu_love"
+                android:id="@+id/checkbox_love"
                 style="@style/Widget.CompoundButton.Love.Custom"
                 android:layout_width="@dimen/hadith_detail_menu_love_size"
                 android:layout_height="@dimen/hadith_detail_menu_love_size"
-                android:layout_marginRight="4dp"
-                android:layout_marginEnd="4dp"
+                android:layout_marginRight="@dimen/dp_4"
+                android:layout_marginEnd="@dimen/dp_4"
                 android:layout_centerVertical="true"
                 android:layout_toLeftOf="@+id/menu_share"
                 android:layout_toStartOf="@+id/menu_share" />
@@ -213,7 +221,10 @@
                 android:layout_toLeftOf="@+id/nav_back"
                 android:layout_toStartOf="@+id/nav_back"
                 android:background="@drawable/bg_menu_share"
-                android:src="@drawable/share" />
+                android:src="@drawable/share"
+                android:padding="@dimen/dp_6"
+                android:scaleType="fitCenter"
+                android:onClick="onClick" />
 
             <ImageButton
                 android:id="@+id/nav_back"
@@ -221,10 +232,12 @@
                 android:layout_height="match_parent"
                 android:layout_toLeftOf="@+id/nav_forward"
                 android:layout_toStartOf="@+id/nav_forward"
-                android:layout_marginRight="1dp"
+                android:layout_marginRight="@dimen/dp_1"
                 android:layout_marginEnd="1dp"
                 android:background="@drawable/bg_nav_btn"
                 android:src="@drawable/nav_back"
+                android:padding="@dimen/dp_6"
+                android:scaleType="fitCenter"
                 android:onClick="onClick" />
 
             <ImageButton
@@ -235,7 +248,52 @@
                 android:layout_alignParentRight="true"
                 android:background="@drawable/bg_nav_btn"
                 android:src="@drawable/nav_forward"
+                android:padding="@dimen/dp_6"
+                android:scaleType="fitCenter"
                 android:onClick="onClick" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:background="@color/hadith_detail_pane_bg_color">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/hadith_detail_pane_header_height"
+                android:background="@color/hadith_detail_pane_header_color" />
+
+            <LinearLayout
+                android:id="@+id/btn_report"
+                android:layout_width="@dimen/hadith_detail_report_btn_width"
+                android:layout_height="@dimen/hadith_detail_report_btn_height"
+                android:orientation="horizontal"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/dp_4"
+                android:background="@drawable/bg_report_btn"
+                android:clickable="true"
+                android:onClick="onClick">
+
+                <ImageView
+                    android:layout_width="@dimen/hadith_detail_report_icon_size"
+                    android:layout_height="@dimen/hadith_detail_report_icon_size"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    android:layout_marginStart="@dimen/dp_16"
+                    android:src="@drawable/report"
+                    android:scaleType="fitCenter" />
+
+                <com.hadithbd.banglahadith.views.BanglaTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dp_12"
+                    android:layout_marginStart="@dimen/dp_12"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    app:banglaText="@string/report_hadith" />
+            </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>
