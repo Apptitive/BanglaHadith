@@ -33,10 +33,10 @@
         <RelativeLayout
             android:id="@+id/layout_all_hadiths"
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_toLeftOf="@id/divider"
-            android:gravity="center"
             android:background="@drawable/bg_shadow_layout"
-            android:layout_height="match_parent">
+            android:gravity="center">
 
             <ImageView
                 android:id="@+id/ic_all_hadiths"
@@ -49,9 +49,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@id/ic_all_hadiths"
                 android:layout_alignRight="@id/ic_all_hadiths"
-                android:gravity="center_horizontal"
                 android:layout_below="@id/ic_all_hadiths"
                 android:layout_marginTop="@dimen/vertical_margin_8dp"
+                android:gravity="center_horizontal"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/abc_text_size_subhead_material"
                 app:banglaText="@string/text_all_hadiths" />
@@ -60,11 +60,11 @@
 
         <RelativeLayout
             android:id="@+id/layout_all_books"
-            android:layout_toRightOf="@id/divider"
             android:layout_width="match_parent"
-            android:gravity="center"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/divider"
             android:background="@drawable/bg_shadow_layout"
-            android:layout_height="match_parent">
+            android:gravity="center">
 
             <ImageView
                 android:id="@+id/ic_all_books"
@@ -75,13 +75,13 @@
             <com.hadithbd.banglahadith.views.BanglaTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/ic_all_books"
                 android:layout_alignLeft="@id/ic_all_books"
                 android:layout_alignRight="@id/ic_all_books"
-                android:gravity="center_horizontal"
-                android:textSize="@dimen/abc_text_size_subhead_material"
+                android:layout_below="@id/ic_all_books"
                 android:layout_marginTop="@dimen/vertical_margin_8dp"
+                android:gravity="center_horizontal"
                 android:textColor="@android:color/white"
+                android:textSize="@dimen/abc_text_size_subhead_material"
                 app:banglaText="@string/text_all_books" />
         </RelativeLayout>
     </RelativeLayout>

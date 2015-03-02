@@ -60,6 +60,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.hadithbd.banglahadith.ui.MainActivity" />
         </activity>
+        <activity
+            android:name=".ui.AboutUsActivity"
+            android:label="@string/title_activity_about_us" >
+        </activity>
     </application>
 
 </manifest>

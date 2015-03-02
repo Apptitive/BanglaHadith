@@ -1,5 +1,6 @@
 package com.hadithbd.banglahadith.ui;
 
+import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
@@ -53,6 +54,13 @@ public class BaseActivity extends ActionBarActivity {
        /* Intent intent = new Intent(this, MenuActivity.class);
         intent.putExtra(Constants.MENU_ITEM_ID, item.getItemId());
         startActivity(intent);*/
+
+        final int menuId = item.getItemId();
+        if (menuId == R.id.action_about_us){
+            startActivity(new Intent(this, AboutUsActivity.class));
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
