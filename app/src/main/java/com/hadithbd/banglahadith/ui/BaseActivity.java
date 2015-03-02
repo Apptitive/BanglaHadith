@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.hadithbd.banglahadith.R;
+import com.hadithbd.banglahadith.util.Constants;
 import com.hadithbd.banglahadith.util.Utils;
 
 /**
@@ -33,7 +34,7 @@ public class BaseActivity extends ActionBarActivity {
 
 
     private void setLayerToBackground(LayerDrawable layerDrawable) {
-        View view =  findViewById(android.R.id.content);
+        View view = findViewById(android.R.id.content);
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
             view.setBackgroundDrawable(layerDrawable);
@@ -51,16 +52,12 @@ public class BaseActivity extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-       /* Intent intent = new Intent(this, MenuActivity.class);
-        intent.putExtra(Constants.MENU_ITEM_ID, item.getItemId());
-        startActivity(intent);*/
-
-        final int menuId = item.getItemId();
-        if (menuId == R.id.action_about_us){
-            startActivity(new Intent(this, AboutUsActivity.class));
-            return true;
+        if (item.getItemId()!=android.R.id.home){
+            Intent intent = new Intent(this, MenuActivity.class);
+            intent.putExtra(Constants.MENU_ITEM_ID, item.getItemId());
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
         }
-
         return super.onOptionsItemSelected(item);
     }
 
