@@ -15,6 +15,9 @@ import com.hadithbd.banglahadith.database.tables.hadith.HadithPublisher;
 import com.hadithbd.banglahadith.database.tables.hadith.HadithSection;
 import com.hadithbd.banglahadith.database.tables.hadith.HadithStatus;
 import com.hadithbd.banglahadith.database.tables.hadith.RabiHadith;
+import com.hadithbd.banglahadith.viewmodel.HadithBookInfo;
+import com.j256.ormlite.stmt.QueryBuilder;
+import com.j256.ormlite.stmt.Where;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -174,6 +177,38 @@ public class DbManager {
             e.printStackTrace();
         }
         return hadithBookList;
+    }
+
+    public long getHadithCount(){
+        try {
+            return getHelper().getHadithMainDao().countOf();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+    public List<HadithBookInfo> getAllHadithBookInfo(){
+        List<HadithBook> hadithBookList = getAllHadithBooks();
+        List<HadithBookInfo> hadithBookInfoList = new ArrayList<>();
+
+        for (HadithBook hadithBook : hadithBookList){
+            long chapterCount = 0, hadithCount= 0;
+            QueryBuilder<HadithChapter, Integer> hadithChapterQueryBuilder = getHelper().getHadithChapterDao().queryBuilder();
+            Where<HadithChapter, Integer> whereHadithChapter = hadithChapterQueryBuilder.where();
+
+            QueryBuilder<HadithMain, Integer> hadithainQueryBuilder = getHelper().getHadithMainDao().queryBuilder();
+            Where<HadithMain, Integer> whereHadithMain = hadithainQueryBuilder.where();
+
+            try {
+                chapterCount = whereHadithChapter.eq("bookId", hadithBook.getId()).countOf();
+                hadithCount = whereHadithMain.eq("bookId", hadithBook.getId()).countOf();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            hadithBookInfoList.add(new HadithBookInfo(hadithBook.getId(),hadithBook.getNameBengali(),chapterCount,hadithCount));
+        }
+
+        return hadithBookInfoList;
     }
 }
 
