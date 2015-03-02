@@ -15,4 +15,6 @@ public class Constants {
 
     public static final int NUMBER_OF_GRID_COLUMNS = 2;
 
+    public static final String BOOK_ID = "book_id";
+
 }

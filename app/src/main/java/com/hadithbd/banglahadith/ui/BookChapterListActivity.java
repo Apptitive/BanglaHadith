@@ -5,30 +5,47 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 
 import com.hadithbd.banglahadith.R;
 import com.hadithbd.banglahadith.adapters.BookChapterListAdapter;
+import com.hadithbd.banglahadith.util.Constants;
 import com.hadithbd.banglahadith.views.SimpleItemDecoration;
 
 public class BookChapterListActivity extends BaseActivity
         implements BookChapterListAdapter.BookChapterItemClickListener{
 
+    public static final String TAG = BookChapterListActivity.class.getSimpleName();
     private Toolbar mToolbar;
 
     private BookChapterListAdapter mBookChapterListAdapter;
     private RecyclerView mRecyclerView;
+
+    private int mBookId;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_chapter_list);
+
         setHomeBackground();
+
         initViews();
+
+        getMessageFromBundle();
 
         initToolbar();
 
         initRecyclerAdapter();
+    }
+
+    private void getMessageFromBundle() {
+        Bundle data= getIntent().getExtras();
+        if (data!=null){
+            mBookId = data.getInt(Constants.BOOK_ID);
+            Log.e(TAG, "Book id: "+ mBookId);
+        }
     }
 
     private void initViews() {

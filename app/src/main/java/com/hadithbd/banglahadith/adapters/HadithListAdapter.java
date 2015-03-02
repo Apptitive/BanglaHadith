@@ -8,18 +8,29 @@ import android.view.ViewGroup;
 
 import com.hadithbd.banglahadith.BanglaHadithApp;
 import com.hadithbd.banglahadith.R;
+import com.hadithbd.banglahadith.viewmodel.HadithBookInfo;
+import com.hadithbd.banglahadith.views.BanglaTextView;
+
+import java.util.List;
 
 /**
  * Created by Sharif on 2/24/2015.
  */
 public class HadithListAdapter extends RecyclerView.Adapter<HadithListAdapter.ViewHolder> implements View.OnClickListener {
 
-    private Context mContext;
 
     private HadithItemClickListener mHadithItemClickListener;
 
-    public HadithListAdapter(Context context) {
-        mContext = context;
+
+    private List<HadithBookInfo> mBookInfoList;
+
+    private String mChapter, mHadith, mCountSuffix;
+
+    public HadithListAdapter(Context context, List<HadithBookInfo> bookInfoList) {
+        mBookInfoList = bookInfoList;
+        mChapter = context.getResources().getString(R.string.chapter_bangla);
+        mHadith = context.getResources().getString(R.string.hadith_bangla);
+        mCountSuffix = context.getResources().getString(R.string.text_count_suffix);
     }
 
 
@@ -39,13 +50,18 @@ public class HadithListAdapter extends RecyclerView.Adapter<HadithListAdapter.Vi
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
-        viewHolder.mHadithItemColor.setBackgroundColor(BanglaHadithApp.itemStripColors.get(position % 8));
+        final HadithBookInfo bookInfo = mBookInfoList.get(position);
+
+        viewHolder.hadithName.setBanglaText(bookInfo.getBookName());
+        viewHolder.hadithChapterCount.setBanglaText(mChapter + " " + String.valueOf(bookInfo.getChapterCount()) + mCountSuffix);
+        viewHolder.hadithCount.setBanglaText(mHadith + " " + String.valueOf(bookInfo.getHadithCount()) + mCountSuffix);
+        viewHolder.hadithItemColor.setBackgroundColor(BanglaHadithApp.itemStripColors.get(position % 8));
         viewHolder.itemView.setTag(position);
     }
 
     @Override
     public int getItemCount() {
-        return 20;
+        return mBookInfoList != null ? mBookInfoList.size() : 0;
     }
 
     @Override
@@ -57,11 +73,17 @@ public class HadithListAdapter extends RecyclerView.Adapter<HadithListAdapter.Vi
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public View mHadithItemColor;
+        public View hadithItemColor;
+
+        public BanglaTextView hadithName, hadithChapterCount, hadithCount;
+
 
         public ViewHolder(View itemView) {
             super(itemView);
-            mHadithItemColor = itemView.findViewById(R.id.hadith_item_color);
+            hadithName = (BanglaTextView) itemView.findViewById(R.id.hadith_name);
+            hadithChapterCount = (BanglaTextView) itemView.findViewById(R.id.hadith_chapter_count);
+            hadithCount = (BanglaTextView) itemView.findViewById(R.id.hadith_count);
+            hadithItemColor = itemView.findViewById(R.id.hadith_item_color);
             itemView.setOnClickListener(HadithListAdapter.this);
         }
     }

@@ -8,7 +8,11 @@ import android.support.v7.widget.Toolbar;
 
 import com.hadithbd.banglahadith.R;
 import com.hadithbd.banglahadith.adapters.HadithListAdapter;
+import com.hadithbd.banglahadith.database.DbManager;
 import com.hadithbd.banglahadith.util.Constants;
+import com.hadithbd.banglahadith.viewmodel.HadithBookInfo;
+
+import java.util.List;
 
 public class HadithListActivity extends BaseActivity implements HadithListAdapter.HadithItemClickListener {
 
@@ -16,6 +20,7 @@ public class HadithListActivity extends BaseActivity implements HadithListAdapte
 
     private HadithListAdapter mHadithListAdapter;
     private Toolbar mToolbar;
+    private List<HadithBookInfo> mBookInfoList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +28,8 @@ public class HadithListActivity extends BaseActivity implements HadithListAdapte
         setContentView(R.layout.activity_hadith_list);
         setHomeBackground();
         initViews();
+
+        mBookInfoList = DbManager.getInstance().getAllHadithBookInfo();
 
         setUpToolbar();
 
@@ -36,7 +43,7 @@ public class HadithListActivity extends BaseActivity implements HadithListAdapte
 
     private void initRecyclerAdapter() {
         mRecyclerView.setHasFixedSize(true);
-        mHadithListAdapter = new HadithListAdapter(this);
+        mHadithListAdapter = new HadithListAdapter(this, mBookInfoList);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, Constants.NUMBER_OF_GRID_COLUMNS));
         mHadithListAdapter.setHadithItemClickListener(this);
         mRecyclerView.setAdapter(mHadithListAdapter);
@@ -50,7 +57,10 @@ public class HadithListActivity extends BaseActivity implements HadithListAdapte
 
     @Override
     public void onHadithItemClicked(int position) {
+        final HadithBookInfo bookInfo = mBookInfoList.get(position);
+
         Intent intent = new Intent(this, HadithDetailListActivity.class);
+        intent.putExtra(Constants.BOOK_ID, bookInfo.getBookId());
         startActivity(intent);
     }
 }

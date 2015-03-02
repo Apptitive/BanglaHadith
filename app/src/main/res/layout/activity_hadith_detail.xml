@@ -1,6 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -13,9 +13,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="8dp"
+        android:background="@color/hadith_detail_screen_background"
         android:orientation="vertical"
-        android:background="@color/hadith_detail_screen_background">
+        android:padding="8dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -24,10 +24,10 @@
 
             <LinearLayout
                 android:id="@+id/tab_bangla"
-                android:orientation="vertical"
                 android:layout_width="@dimen/hadith_detail_tab_width"
                 android:layout_height="match_parent"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <View
                     android:id="@+id/tab_marker_bangla"
@@ -39,33 +39,33 @@
                     android:id="@+id/tab_text_bangla"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:textColor="@android:color/white"
-                    android:textAppearance="?android:attr/textAppearanceButton"
-                    app:banglaText="@string/bangla"
+                    android:background="@drawable/tab_selector"
                     android:clickable="true"
+                    android:gravity="center"
                     android:onClick="onClick"
-                    android:background="@drawable/tab_selector" />
+                    android:textAppearance="?android:attr/textAppearanceButton"
+                    android:textColor="@android:color/white"
+                    app:banglaText="@string/bangla" />
             </LinearLayout>
 
             <View
                 android:id="@+id/divider_1"
                 android:layout_width="@dimen/hadith_detail_tab_divider_width"
                 android:layout_height="@dimen/hadith_detail_tab_divider_height"
-                android:layout_marginTop="@dimen/hadith_detail_tab_divider_margin_top"
-                android:layout_toRightOf="@id/tab_bangla"
-                android:layout_toEndOf="@id/tab_bangla"
                 android:layout_centerInParent="true"
+                android:layout_marginTop="@dimen/hadith_detail_tab_divider_margin_top"
+                android:layout_toEndOf="@id/tab_bangla"
+                android:layout_toRightOf="@id/tab_bangla"
                 android:background="@color/tab_marker_color" />
 
             <LinearLayout
                 android:id="@+id/tab_english"
-                android:layout_toRightOf="@id/divider_1"
-                android:layout_toEndOf="@id/divider_1"
-                android:orientation="vertical"
                 android:layout_width="@dimen/hadith_detail_tab_width"
                 android:layout_height="match_parent"
-                android:gravity="center">
+                android:layout_toEndOf="@id/divider_1"
+                android:layout_toRightOf="@id/divider_1"
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <View
                     android:id="@+id/tab_marker_english"
@@ -78,32 +78,32 @@
                     android:id="@+id/tab_text_english"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:textColor="@android:color/white"
                     android:background="@drawable/tab_selector"
-                    android:text="@string/english"
                     android:clickable="true"
-                    android:onClick="onClick" />
+                    android:gravity="center"
+                    android:onClick="onClick"
+                    android:text="@string/english"
+                    android:textColor="@android:color/white" />
             </LinearLayout>
 
             <View
                 android:id="@+id/divider_2"
                 android:layout_width="@dimen/hadith_detail_tab_divider_width"
                 android:layout_height="@dimen/hadith_detail_tab_divider_height"
-                android:layout_marginTop="@dimen/hadith_detail_tab_divider_margin_top"
-                android:layout_toRightOf="@id/tab_english"
-                android:layout_toEndOf="@id/tab_english"
                 android:layout_centerInParent="true"
+                android:layout_marginTop="@dimen/hadith_detail_tab_divider_margin_top"
+                android:layout_toEndOf="@id/tab_english"
+                android:layout_toRightOf="@id/tab_english"
                 android:background="@color/tab_marker_color" />
 
             <LinearLayout
                 android:id="@+id/tab_arabic"
-                android:layout_toRightOf="@id/divider_2"
-                android:layout_toEndOf="@id/divider_2"
-                android:orientation="vertical"
                 android:layout_width="@dimen/hadith_detail_tab_width"
                 android:layout_height="match_parent"
-                android:gravity="center">
+                android:layout_toEndOf="@id/divider_2"
+                android:layout_toRightOf="@id/divider_2"
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <View
                     android:id="@+id/tab_marker_arabic"
@@ -116,33 +116,33 @@
                     android:id="@+id/tab_text_arabic"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:textColor="@android:color/white"
                     android:background="@drawable/tab_selector"
-                    android:textAppearance="?android:attr/textAppearanceButton"
-                    app:arabicText="@string/arabic"
                     android:clickable="true"
-                    android:onClick="onClick" />
+                    android:gravity="center"
+                    android:onClick="onClick"
+                    android:textAppearance="?android:attr/textAppearanceButton"
+                    android:textColor="@android:color/white"
+                    app:arabicText="@string/arabic" />
             </LinearLayout>
 
             <View
                 android:id="@+id/divider_3"
                 android:layout_width="@dimen/hadith_detail_tab_divider_width"
                 android:layout_height="@dimen/hadith_detail_tab_divider_height"
-                android:layout_marginTop="@dimen/hadith_detail_tab_divider_margin_top"
-                android:layout_toRightOf="@id/tab_arabic"
-                android:layout_toEndOf="@id/tab_arabic"
                 android:layout_centerInParent="true"
+                android:layout_marginTop="@dimen/hadith_detail_tab_divider_margin_top"
+                android:layout_toEndOf="@id/tab_arabic"
+                android:layout_toRightOf="@id/tab_arabic"
                 android:background="@color/tab_marker_color" />
 
             <LinearLayout
                 android:id="@+id/tab_hadith_explanation"
-                android:layout_toRightOf="@id/divider_3"
-                android:layout_toEndOf="@id/divider_3"
-                android:orientation="vertical"
                 android:layout_width="@dimen/hadith_detail_tab_width"
                 android:layout_height="match_parent"
-                android:gravity="center">
+                android:layout_toEndOf="@id/divider_3"
+                android:layout_toRightOf="@id/divider_3"
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <View
                     android:id="@+id/tab_marker_hadith_explanation"
@@ -155,13 +155,13 @@
                     android:id="@+id/tab_text_hadith_explanation"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:textColor="@android:color/white"
                     android:background="@drawable/tab_selector"
-                    android:textAppearance="?android:attr/textAppearanceButton"
-                    app:banglaText="@string/explanation"
                     android:clickable="true"
-                    android:onClick="onClick" />
+                    android:gravity="center"
+                    android:onClick="onClick"
+                    android:textAppearance="?android:attr/textAppearanceButton"
+                    android:textColor="@android:color/white"
+                    app:banglaText="@string/explanation" />
             </LinearLayout>
 
             <ImageView
@@ -169,22 +169,22 @@
                 android:layout_width="@dimen/hadith_detail_tick_hadith_size"
                 android:layout_height="@dimen/hadith_detail_tick_hadith_size"
                 android:layout_centerVertical="true"
-                android:background="@drawable/tick_hadith"
                 android:layout_toLeftOf="@+id/menu_overflow"
-                android:layout_toStartOf="@+id/menu_overflow" />
+                android:layout_toStartOf="@+id/menu_overflow"
+                android:background="@drawable/tick_hadith" />
 
             <ImageButton
                 android:id="@+id/menu_overflow"
                 android:layout_width="@dimen/hadith_detail_menu_overflow_width"
                 android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:background="@drawable/bg_menu_overflow"
-                android:src="@drawable/menu_overflow"
+                android:layout_alignParentRight="true"
                 android:layout_marginLeft="@dimen/dp_10"
                 android:layout_marginStart="@dimen/dp_10"
+                android:background="@drawable/bg_menu_overflow"
                 android:padding="@dimen/dp_14"
-                android:scaleType="fitCenter" />
+                android:scaleType="fitCenter"
+                android:src="@drawable/menu_overflow" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -196,11 +196,11 @@
                 android:id="@+id/textView_hadith_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:layout_marginLeft="12dp"
                 android:layout_marginStart="12dp"
-                android:layout_centerVertical="true"
-                android:textSize="16sp"
                 android:textColor="@android:color/white"
+                android:textSize="16sp"
                 app:banglaText="@string/hadith_number" />
 
             <CheckBox
@@ -208,9 +208,9 @@
                 style="@style/Widget.CompoundButton.Love.Custom"
                 android:layout_width="@dimen/hadith_detail_menu_love_size"
                 android:layout_height="@dimen/hadith_detail_menu_love_size"
-                android:layout_marginRight="@dimen/dp_4"
-                android:layout_marginEnd="@dimen/dp_4"
                 android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/dp_4"
+                android:layout_marginRight="@dimen/dp_4"
                 android:layout_toLeftOf="@+id/menu_share"
                 android:layout_toStartOf="@+id/menu_share" />
 
@@ -221,24 +221,24 @@
                 android:layout_toLeftOf="@+id/nav_back"
                 android:layout_toStartOf="@+id/nav_back"
                 android:background="@drawable/bg_menu_share"
-                android:src="@drawable/share"
+                android:onClick="onClick"
                 android:padding="@dimen/dp_6"
                 android:scaleType="fitCenter"
-                android:onClick="onClick" />
+                android:src="@drawable/share" />
 
             <ImageButton
                 android:id="@+id/nav_back"
                 android:layout_width="@dimen/hadith_detail_nav_button_width"
                 android:layout_height="match_parent"
+                android:layout_marginEnd="1dp"
+                android:layout_marginRight="@dimen/dp_1"
                 android:layout_toLeftOf="@+id/nav_forward"
                 android:layout_toStartOf="@+id/nav_forward"
-                android:layout_marginRight="@dimen/dp_1"
-                android:layout_marginEnd="1dp"
                 android:background="@drawable/bg_nav_btn"
-                android:src="@drawable/nav_back"
+                android:onClick="onClick"
                 android:padding="@dimen/dp_6"
                 android:scaleType="fitCenter"
-                android:onClick="onClick" />
+                android:src="@drawable/nav_back" />
 
             <ImageButton
                 android:id="@+id/nav_forward"
@@ -247,10 +247,10 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:background="@drawable/bg_nav_btn"
-                android:src="@drawable/nav_forward"
+                android:onClick="onClick"
                 android:padding="@dimen/dp_6"
                 android:scaleType="fitCenter"
-                android:onClick="onClick" />
+                android:src="@drawable/nav_forward" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -268,12 +268,12 @@
                 android:id="@+id/btn_report"
                 android:layout_width="@dimen/hadith_detail_report_btn_width"
                 android:layout_height="@dimen/hadith_detail_report_btn_height"
-                android:orientation="horizontal"
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="@dimen/dp_4"
                 android:background="@drawable/bg_report_btn"
                 android:clickable="true"
-                android:onClick="onClick">
+                android:onClick="onClick"
+                android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="@dimen/hadith_detail_report_icon_size"
@@ -281,8 +281,8 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/dp_16"
                     android:layout_marginStart="@dimen/dp_16"
-                    android:src="@drawable/report"
-                    android:scaleType="fitCenter" />
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/report" />
 
                 <com.hadithbd.banglahadith.views.BanglaTextView
                     android:layout_width="match_parent"
