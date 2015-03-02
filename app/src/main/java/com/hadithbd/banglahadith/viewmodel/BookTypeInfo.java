@@ -5,12 +5,12 @@ package com.hadithbd.banglahadith.viewmodel;
  */
 public class BookTypeInfo {
     private int typeId;
-    private String categoryNae;
+    private String categoryName;
     private long bookCount;
 
-    public BookTypeInfo(int typeId, String categoryNae, long bookCount) {
+    public BookTypeInfo(int typeId, String categoryName, long bookCount) {
         this.typeId = typeId;
-        this.categoryNae = categoryNae;
+        this.categoryName = categoryName;
         this.bookCount = bookCount;
     }
 
@@ -19,7 +19,7 @@ public class BookTypeInfo {
     }
 
     public String getCategoryNae() {
-        return categoryNae;
+        return categoryName;
     }
 
     public long getBookCount() {
