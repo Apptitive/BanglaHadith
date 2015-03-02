@@ -27,4 +27,7 @@
     <string name="title_activity_menu">MenuActivity</string>
     <string name="title_activity_book_list">BookListActivity</string>
     <string name="title_activity_about_us">AboutUsActivity</string>
+    <string name="chapter_bangla">অধ্যায়ঃ</string>
+    <string name="hadith_bangla">হাদিসঃ</string>
+    <string name="text_count_suffix">টি</string>
 </resources>

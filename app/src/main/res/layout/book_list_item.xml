@@ -17,7 +17,7 @@
         app:banglaText="Headline" />
 
     <com.hadithbd.banglahadith.views.BanglaTextView
-        android:id="@+id/hadith_chapter"
+        android:id="@+id/book_chapter_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/book_name"
@@ -26,10 +26,10 @@
         app:banglaText="Subheadline" />
 
     <com.hadithbd.banglahadith.views.BanglaTextView
-        android:id="@+id/book_chapter_count"
+        android:id="@+id/hadith_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/hadith_chapter"
+        android:layout_below="@id/book_chapter_count"
         android:textColor="@android:color/white"
         android:textSize="@dimen/abc_text_size_subhead_material"
         app:banglaText="Subheadline" />
