@@ -5,8 +5,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 /**
@@ -25,44 +23,6 @@ public class Utils {
         }
         return false;
     }
-
-    public static List<String>getDummyHaditsData(){
-        List<String>datas = new ArrayList<>();
-        datas.add("1");
-        datas.add("2");
-        datas.add("3");
-        datas.add("4");
-        datas.add("1");
-        datas.add("2");
-        datas.add("3");
-        datas.add("4");
-        datas.add("1");
-        datas.add("2");
-        datas.add("3");
-        datas.add("4");
-        datas.add("1");
-        datas.add("2");
-        datas.add("3");
-        datas.add("4");
-        datas.add("1");
-        datas.add("2");
-        datas.add("3");
-        datas.add("4");
-        datas.add("1");
-        datas.add("2");
-        datas.add("3");
-        datas.add("4");
-        datas.add("1");
-        datas.add("2");
-        datas.add("3");
-        datas.add("4");
-        datas.add("1");
-        datas.add("2");
-        datas.add("3");
-        datas.add("4");
-        return datas;
-    }
-
 
     /**
      * Check internet connection availability
