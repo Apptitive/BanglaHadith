@@ -16,6 +16,7 @@ import com.hadithbd.banglahadith.database.tables.hadith.HadithSection;
 import com.hadithbd.banglahadith.database.tables.hadith.HadithStatus;
 import com.hadithbd.banglahadith.database.tables.hadith.RabiHadith;
 import com.hadithbd.banglahadith.viewmodel.HadithBookInfo;
+import com.hadithbd.banglahadith.viewmodel.HadithMainInfo;
 import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.stmt.Where;
 
@@ -48,7 +49,7 @@ public class DbManager {
         return helper;
     }
 
-    public List<BookWriter> getAllBookWriters(){
+    public List<BookWriter> getAllBookWriters() {
         List<BookWriter> bookWriterList = new ArrayList<>();
         try {
             bookWriterList = getHelper().getBookWriterDao().queryForAll();
@@ -58,7 +59,7 @@ public class DbManager {
         return bookWriterList;
     }
 
-    public List<BookType> getAllBookTypes(){
+    public List<BookType> getAllBookTypes() {
         List<BookType> bookTypeList = new ArrayList<>();
         try {
             bookTypeList = getHelper().getBookTypeDao().queryForAll();
@@ -68,7 +69,7 @@ public class DbManager {
         return bookTypeList;
     }
 
-    public List<BookName> getAllBookNames(){
+    public List<BookName> getAllBookNames() {
         List<BookName> bookNameList = new ArrayList<>();
         try {
             bookNameList = getHelper().getBookNameDao().queryForAll();
@@ -78,7 +79,7 @@ public class DbManager {
         return bookNameList;
     }
 
-    public List<BookContent> getAllBookContents(){
+    public List<BookContent> getAllBookContents() {
         List<BookContent> bookContentList = new ArrayList<>();
         try {
             bookContentList = getHelper().getBookContentDao().queryForAll();
@@ -88,7 +89,7 @@ public class DbManager {
         return bookContentList;
     }
 
-    public List<BookSection> getAllBookSections(){
+    public List<BookSection> getAllBookSections() {
         List<BookSection> bookSectionList = new ArrayList<>();
         try {
             bookSectionList = getHelper().getBookSectionDao().queryForAll();
@@ -98,7 +99,7 @@ public class DbManager {
         return bookSectionList;
     }
 
-    public List<RabiHadith> getAllRabiHadiths(){
+    public List<RabiHadith> getAllRabiHadiths() {
         List<RabiHadith> rabiHadithList = new ArrayList<>();
         try {
             rabiHadithList = getHelper().getRabiHadithDao().queryForAll();
@@ -108,7 +109,7 @@ public class DbManager {
         return rabiHadithList;
     }
 
-    public List<HadithStatus> getAllHadithStatus(){
+    public List<HadithStatus> getAllHadithStatus() {
         List<HadithStatus> hadithStatusList = new ArrayList<>();
         try {
             hadithStatusList = getHelper().getHadithStatusDao().queryForAll();
@@ -118,7 +119,7 @@ public class DbManager {
         return hadithStatusList;
     }
 
-    public List<HadithSection> getAllHadithSections(){
+    public List<HadithSection> getAllHadithSections() {
         List<HadithSection> hadithSectionList = new ArrayList<>();
         try {
             hadithSectionList = getHelper().getHadithSectionDao().queryForAll();
@@ -128,7 +129,7 @@ public class DbManager {
         return hadithSectionList;
     }
 
-    public List<HadithPublisher> getAllHadithPublishers(){
+    public List<HadithPublisher> getAllHadithPublishers() {
         List<HadithPublisher> hadithPublisherList = new ArrayList<>();
         try {
             hadithPublisherList = getHelper().getHadithPublisherDao().queryForAll();
@@ -138,7 +139,7 @@ public class DbManager {
         return hadithPublisherList;
     }
 
-    public List<HadithMain> getAllHadithMains(){
+    public List<HadithMain> getAllHadithMains() {
         List<HadithMain> hadithMainList = new ArrayList<>();
         try {
             hadithMainList = getHelper().getHadithMainDao().queryForAll();
@@ -149,7 +150,7 @@ public class DbManager {
     }
 
 
-    public List<HadithExplanation> getAllHadithExplanations(){
+    public List<HadithExplanation> getAllHadithExplanations() {
         List<HadithExplanation> hadithExplanationList = new ArrayList<>();
         try {
             hadithExplanationList = getHelper().getHadithExplanationDao().queryForAll();
@@ -159,7 +160,7 @@ public class DbManager {
         return hadithExplanationList;
     }
 
-    public List<HadithChapter> getAllHadithChapters(){
+    public List<HadithChapter> getAllHadithChapters() {
         List<HadithChapter> hadithChapterList = new ArrayList<>();
         try {
             hadithChapterList = getHelper().getHadithChapterDao().queryForAll();
@@ -169,7 +170,7 @@ public class DbManager {
         return hadithChapterList;
     }
 
-    public List<HadithBook> getAllHadithBooks(){
+    public List<HadithBook> getAllHadithBooks() {
         List<HadithBook> hadithBookList = new ArrayList<>();
         try {
             hadithBookList = getHelper().getHadithBookDao().queryForAll();
@@ -179,7 +180,7 @@ public class DbManager {
         return hadithBookList;
     }
 
-    public long getHadithCount(){
+    public long getHadithCount() {
         try {
             return getHelper().getHadithMainDao().countOf();
         } catch (SQLException e) {
@@ -187,12 +188,13 @@ public class DbManager {
         }
         return -1;
     }
-    public List<HadithBookInfo> getAllHadithBookInfo(){
+
+    public List<HadithBookInfo> getAllHadithBookInfo() {
         List<HadithBook> hadithBookList = getAllHadithBooks();
         List<HadithBookInfo> hadithBookInfoList = new ArrayList<>();
 
-        for (HadithBook hadithBook : hadithBookList){
-            long chapterCount = 0, hadithCount= 0;
+        for (HadithBook hadithBook : hadithBookList) {
+            long chapterCount = 0, hadithCount = 0;
             QueryBuilder<HadithChapter, Integer> hadithChapterQueryBuilder = getHelper().getHadithChapterDao().queryBuilder();
             Where<HadithChapter, Integer> whereHadithChapter = hadithChapterQueryBuilder.where();
 
@@ -205,11 +207,132 @@ public class DbManager {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-            hadithBookInfoList.add(new HadithBookInfo(hadithBook.getId(),hadithBook.getNameBengali(),chapterCount,hadithCount));
+            hadithBookInfoList.add(new HadithBookInfo(hadithBook.getId(), hadithBook.getNameBengali(), chapterCount, hadithCount));
         }
 
         return hadithBookInfoList;
     }
+
+    public List<Integer> getHadithIdListForChapter(int chapterId) {
+        List<HadithMain> mainList = new ArrayList<>();
+        QueryBuilder<HadithMain, Integer> hadithMainQueryBuilder = getHelper().getHadithMainDao().queryBuilder();
+        Where<HadithMain, Integer> whereHadithMain = hadithMainQueryBuilder.where();
+        try {
+            whereHadithMain.eq("chapterId", chapterId);
+            mainList = whereHadithMain.query();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        List<Integer> hadithIdList = new ArrayList<>();
+        for (HadithMain main : mainList) {
+            hadithIdList.add(main.getId());
+        }
+        return hadithIdList;
+    }
+
+    public HadithMain getHadithMainWithId(int hadithId) {
+        HadithMain hadithMain = new HadithMain();
+        QueryBuilder<HadithMain, Integer> hadithMainQueryBuilder = getHelper().getHadithMainDao().queryBuilder();
+        Where<HadithMain, Integer> whereHadithMain = hadithMainQueryBuilder.where();
+        try {
+            whereHadithMain.eq("id", hadithId);
+            hadithMain = whereHadithMain.query().get(0);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return hadithMain;
+    }
+
+    public String getRabiBengali(int rabiId) {
+        RabiHadith entity = new RabiHadith();
+        QueryBuilder<RabiHadith, Integer> qb = getHelper().getRabiHadithDao().queryBuilder();
+        Where<RabiHadith, Integer> where = qb.where();
+        try {
+            where.eq("id", rabiId);
+            entity = where.query().get(0);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return entity.getRabiBengali();
+    }
+
+    public String getHadithBookName(int hadithBookId) {
+        HadithBook entity = new HadithBook();
+        QueryBuilder<HadithBook, Integer> qb = getHelper().getHadithBookDao().queryBuilder();
+        Where<HadithBook, Integer> where = qb.where();
+        try {
+            where.eq("id", hadithBookId);
+            entity = where.query().get(0);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return entity.getNameBengali();
+    }
+
+    public String getHadithSectionBengali(int sectionId) {
+        HadithSection entity = new HadithSection();
+        QueryBuilder<HadithSection, Integer> qb = getHelper().getHadithSectionDao().queryBuilder();
+        Where<HadithSection, Integer> where = qb.where();
+        try {
+            where.eq("id", sectionId);
+            entity = where.query().get(0);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return entity.getNameBengali();
+    }
+
+    public HadithChapter getHadithChapter(int chapterId) {
+        HadithChapter entity = new HadithChapter();
+        QueryBuilder<HadithChapter, Integer> qb = getHelper().getHadithChapterDao().queryBuilder();
+        Where<HadithChapter, Integer> where = qb.where();
+        try {
+            where.eq("id", chapterId);
+            entity = where.query().get(0);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return entity;
+    }
+
+    public String getHadithStatusBengali(int statusId){
+        HadithStatus entity = new HadithStatus();
+        QueryBuilder<HadithStatus, Integer> qb = getHelper().getHadithStatusDao().queryBuilder();
+        Where<HadithStatus, Integer> where = qb.where();
+        try {
+            where.eq("id", statusId);
+            entity = where.query().get(0);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return entity.getStatusBengali();
+    }
+
+    public HadithMainInfo getHadithInformationForHadith(int hadithId) {
+        HadithMain main = getHadithMainWithId(hadithId);
+
+        HadithMainInfo mainInfo = new HadithMainInfo();
+        mainInfo.setId(main.getId());
+        mainInfo.setRabiId(main.getRabiId());
+        mainInfo.setRabiBengali(getRabiBengali(main.getRabiId()));
+        mainInfo.setBookId(main.getBookId());
+        mainInfo.setBookName(getHadithBookName(main.getBookId()));
+        mainInfo.setSectionId(main.getSectionId());
+        mainInfo.setSectionBengali(getHadithSectionBengali(main.getSectionId()));
+        mainInfo.setChapterId(main.getChapterId());
+        mainInfo.setChapterArabic(getHadithChapter(main.getChapterId()).getNameArabic());
+        mainInfo.setChapterBengali(getHadithChapter(main.getChapterId()).getNameBengali());
+        mainInfo.setStatusId(main.getStatusId());
+        mainInfo.setStatusBengali(getHadithStatusBengali(main.getStatusId()));
+        mainInfo.setHadithNo(main.getHadithNo());
+        mainInfo.setHadithArabic(main.getHadithArabic());
+        mainInfo.setHadithBengali(main.getHadithBengali());
+        mainInfo.setHadithEnglish(main.getHadithEnglish());
+        mainInfo.setNote(main.getNote());
+        mainInfo.setCheckStatus(main.getCheckStatus());
+
+    return mainInfo;
+}
 }
 
 
