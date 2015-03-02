@@ -17,6 +17,7 @@
     <dimen name="hadith_detail_tab_marker_height">@dimen/dp_4</dimen>
     <dimen name="hadith_detail_tab_divider_width">@dimen/dp_0_5</dimen>
     <dimen name="hadith_detail_tab_divider_height">@dimen/dp_24</dimen>
+    <dimen name="hadith_detail_footer_divider_height">@dimen/dp_0_5</dimen>
     <dimen name="hadith_detail_tab_divider_margin_top">@dimen/dp_8</dimen>
     <dimen name="hadith_detail_menu_strip_height">@dimen/dp_40</dimen>
     <dimen name="hadith_detail_nav_button_width">@dimen/dp_48</dimen>
@@ -24,8 +25,10 @@
     <dimen name="hadith_detail_menu_share_width">@dimen/dp_40</dimen>
     <dimen name="hadith_detail_menu_love_size">@dimen/dp_28</dimen>
     <dimen name="hadith_detail_tick_hadith_size">@dimen/dp_28</dimen>
-    <dimen name="hadith_detail_pane_header_height">@dimen/dp_60</dimen>
-    <dimen name="hadith_detail_report_btn_width">@dimen/dp_130</dimen>
+    <dimen name="hadith_detail_pane_header_height">@dimen/dp_48</dimen>
+    <dimen name="hadith_detail_report_btn_width">@dimen/dp_72</dimen>
     <dimen name="hadith_detail_report_btn_height">@dimen/dp_40</dimen>
-    <dimen name="hadith_detail_report_icon_size">@dimen/dp_14</dimen>
+    <dimen name="hadith_detail_report_icon_size">@dimen/dp_28</dimen>
+    <dimen name="hadith_detail_email_share_width">@dimen/dp_48</dimen>
+    <dimen name="hadith_detail_email_share_height">@dimen/dp_40</dimen>
 </resources>
