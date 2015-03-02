@@ -1,9 +1,24 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black_20"
+    android:orientation="vertical"
     tools:context="com.hadithbd.banglahadith.ui.AboutUsActivity">
 
-    <include android:id="@+id/toolbar"
+    <include
+        android:id="@+id/toolbar"
         layout="@layout/toolbar" />
-</RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:drawableLeft="@drawable/ic_phone"
+        android:drawablePadding="@dimen/about_us_drawable_padding_left"
+        android:gravity="center_vertical"
+        android:text="+8801933841016"
+        android:background="@drawable/list_item_background"
+        android:textColor="@android:color/white" />
+
+
+</LinearLayout>
