@@ -197,8 +197,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="12dp"
-                android:layout_marginStart="12dp"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_marginStart="@dimen/dp_12"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
                 app:banglaText="@string/hadith_number" />
@@ -262,17 +262,31 @@
             <TextView
                 android:id="@+id/textView_chapter_name"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/hadith_detail_pane_header_height"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/hadith_detail_chapter_name_min_height"
                 android:background="@color/hadith_detail_pane_header_color"
-                android:textColor="@android:color/black" />
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/dp_12"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/textView_hadith"
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@id/textView_chapter_name"
-                android:layout_above="@+id/divider_4"
-                android:textColor="@android:color/black" />
+                android:layout_above="@+id/divider_4">
+
+                <TextView
+                    android:id="@+id/textView_hadith"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/dp_12"
+                    android:paddingRight="@dimen/dp_12"
+                    android:paddingTop="@dimen/dp_6"
+                    android:paddingBottom="@dimen/dp_6"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+            </ScrollView>
 
             <View
                 android:id="@+id/divider_4"
@@ -280,9 +294,9 @@
                 android:layout_height="@dimen/hadith_detail_footer_divider_height"
                 android:layout_above="@+id/textView_footnote"
                 android:layout_marginBottom="@dimen/dp_6"
-                android:layout_marginLeft="@dimen/dp_4"
-                android:layout_marginStart="@dimen/dp_4"
-                android:layout_marginRight="@dimen/dp_4"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_marginStart="@dimen/dp_12"
+                android:layout_marginRight="@dimen/dp_12"
                 android:background="@color/footer_divider_color" />
 
             <com.hadithbd.banglahadith.views.BanglaTextView
@@ -291,9 +305,9 @@
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/divider_5"
                 android:layout_marginBottom="@dimen/dp_8"
-                android:layout_marginLeft="@dimen/dp_4"
-                android:layout_marginStart="@dimen/dp_4"
-                android:layout_marginRight="@dimen/dp_4"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_marginStart="@dimen/dp_12"
+                android:layout_marginRight="@dimen/dp_12"
                 android:textColor="@color/footer_text_color"
                 android:textSize="12sp"
                 app:banglaText="* চার মাযহাবের ইমামগন একমত হয়েছেন যে, নিয়ত ব্যাতিত নামায শুদ্ধ হবে না। (কিতাবুল ফিকহে “আলাল মাযাহিবিল আরবাআহ" />
@@ -304,9 +318,9 @@
                 android:layout_height="@dimen/hadith_detail_footer_divider_height"
                 android:layout_above="@+id/textView_hadith_status"
                 android:layout_marginBottom="@dimen/dp_4"
-                android:layout_marginLeft="@dimen/dp_4"
-                android:layout_marginStart="@dimen/dp_4"
-                android:layout_marginRight="@dimen/dp_4"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_marginStart="@dimen/dp_12"
+                android:layout_marginRight="@dimen/dp_12"
                 android:background="@color/footer_divider_color" />
 
             <com.hadithbd.banglahadith.views.BanglaTextView
@@ -326,8 +340,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginRight="@dimen/dp_4"
-                android:layout_marginEnd="@dimen/dp_4"
+                android:layout_marginRight="@dimen/dp_12"
+                android:layout_marginEnd="@dimen/dp_12"
                 android:layout_above="@+id/textView_rabi_name"
                 android:textColor="@android:color/black"
                 app:banglaText="সহিহ" />
@@ -351,8 +365,8 @@
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginRight="@dimen/dp_4"
-                android:layout_marginEnd="@dimen/dp_4"
+                android:layout_marginRight="@dimen/dp_12"
+                android:layout_marginEnd="@dimen/dp_12"
                 android:layout_marginBottom="@dimen/dp_8"
                 android:textColor="@android:color/black"
                 app:banglaText="উমর ইবনুল খাত্তাব (রাঃ)" />
