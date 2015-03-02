@@ -18,14 +18,9 @@ import com.hadithbd.banglahadith.R;
 import com.hadithbd.banglahadith.database.CsvToDbHelper;
 import com.hadithbd.banglahadith.database.DbHelper;
 import com.hadithbd.banglahadith.database.DbManager;
-import com.hadithbd.banglahadith.viewmodel.HadithBookChapterInfo;
-
-import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity {
-
-    private static final int BISMILLAH_MARGIN_TOP = 72;
 
     private RelativeLayout mLayoutAllHadiths;
 
@@ -199,11 +194,17 @@ public class MainActivity extends ActionBarActivity {
         iconBismillah.setGravity(Gravity.CENTER_HORIZONTAL);
         iconBismillah.setGravity(Gravity.TOP);
 
-        Drawable[] drawables = new Drawable[]{blueLayer, iconCaliography, whiteLayer, iconBismillah};
+        BitmapDrawable iconHome = (BitmapDrawable) getResources().getDrawable(R.drawable.ic_hadith_home_top);
+        iconHome.setGravity(Gravity.CENTER_HORIZONTAL);
+        iconHome.setGravity(Gravity.TOP);
+
+        Drawable[] drawables = new Drawable[]{blueLayer, iconCaliography, whiteLayer, iconBismillah,iconHome};
 
 
         LayerDrawable layerDrawable = new LayerDrawable(drawables);
-        layerDrawable.setLayerInset(3, 0, BISMILLAH_MARGIN_TOP, 0, 0);
+        layerDrawable.setLayerInset(3, 0, (int) getResources().getDimension(R.dimen.dp_88), 0, 0);
+        layerDrawable.setLayerInset(4, 0, (int) getResources().getDimension(R.dimen.dp_190), 0, 0);
+
 
         setLayerToBackground(layerDrawable);
 
