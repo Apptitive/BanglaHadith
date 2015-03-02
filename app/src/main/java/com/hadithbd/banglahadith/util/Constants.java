@@ -19,4 +19,6 @@ public class Constants {
 
     public static final String HADITH_CHAPTER_ID = "hadith_chapter_id";
 
+    public static final String LATEST_UPDATE_URL = "http://www.hadithbd.com/";
+
 }
