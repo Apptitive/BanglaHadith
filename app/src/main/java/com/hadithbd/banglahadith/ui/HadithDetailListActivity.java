@@ -5,12 +5,16 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 
 import com.hadithbd.banglahadith.R;
 import com.hadithbd.banglahadith.adapters.HadithDetailListAdapter;
+import com.hadithbd.banglahadith.util.Constants;
 import com.hadithbd.banglahadith.util.Utils;
 
-public class HadithDetailListActivity extends BaseActivity implements HadithDetailListAdapter.HadithDetailItemListener{
+public class HadithDetailListActivity extends BaseActivity implements HadithDetailListAdapter.HadithDetailItemListener {
+
+    public static final String TAG = HadithDetailListActivity.class.getSimpleName();
 
     private static final int NUMBER_OF_COLUMNS = 2;
 
@@ -19,12 +23,15 @@ public class HadithDetailListActivity extends BaseActivity implements HadithDeta
     private HadithDetailListAdapter mHadithDetailListAdapter;
     private Toolbar mToolbar;
 
+    private int mBookId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hadith_detail_list);
         setHomeBackground();
         initViews();
+        getMessageFromBundle();
 
         setUpToolbar();
 
@@ -34,6 +41,14 @@ public class HadithDetailListActivity extends BaseActivity implements HadithDeta
     private void setUpToolbar() {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    private void getMessageFromBundle() {
+        Bundle data = getIntent().getExtras();
+        if (data != null) {
+            mBookId = data.getInt(Constants.BOOK_ID);
+            Log.e(TAG, "Book id: " + mBookId);
+        }
     }
 
     private void initRecyclerAdapter() {
