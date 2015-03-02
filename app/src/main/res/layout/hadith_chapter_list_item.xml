@@ -8,7 +8,7 @@
     android:padding="@dimen/horizontal_margin_8dp">
 
     <com.hadithbd.banglahadith.views.BanglaTextView
-        android:id="@+id/text_drawable"
+        android:id="@+id/hadith_chapter_id"
         android:layout_width="@dimen/text_drawable_width"
         android:layout_height="@dimen/text_drawable_height"
         android:layout_centerVertical="true"
@@ -19,23 +19,22 @@
         app:banglaText="3" />
 
     <com.hadithbd.banglahadith.views.BanglaTextView
-        android:id="@+id/title"
+        android:id="@+id/hadith_chapter_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/activity_vertical_margin"
         android:layout_marginTop="@dimen/vertical_margin_8dp"
-        android:layout_toRightOf="@id/text_drawable"
+        android:layout_toRightOf="@id/hadith_chapter_id"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/abc_text_size_subhead_material"
-        app:banglaText="Headline" />
+        android:textSize="@dimen/abc_text_size_subhead_material"/>
 
     <com.hadithbd.banglahadith.views.BanglaTextView
+        android:id="@+id/hadith_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/title"
-        android:layout_below="@id/title"
+        android:layout_alignLeft="@id/hadith_chapter_name"
+        android:layout_below="@id/hadith_chapter_name"
         android:layout_marginBottom="@dimen/vertical_margin_8dp"
         android:textColor="@android:color/white"
-        android:textSize="14sp"
-        app:banglaText="Sub Headline" />
+        android:textSize="14sp" />
 </RelativeLayout>
