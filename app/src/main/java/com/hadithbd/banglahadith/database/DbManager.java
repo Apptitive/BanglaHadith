@@ -15,6 +15,7 @@ import com.hadithbd.banglahadith.database.tables.hadith.HadithPublisher;
 import com.hadithbd.banglahadith.database.tables.hadith.HadithSection;
 import com.hadithbd.banglahadith.database.tables.hadith.HadithStatus;
 import com.hadithbd.banglahadith.database.tables.hadith.RabiHadith;
+import com.hadithbd.banglahadith.viewmodel.BookInfo;
 import com.hadithbd.banglahadith.viewmodel.BookTypeInfo;
 import com.hadithbd.banglahadith.viewmodel.HadithBookChapterInfo;
 import com.hadithbd.banglahadith.viewmodel.HadithBookInfo;
@@ -400,6 +401,39 @@ public class DbManager {
         }
 
         return bookTypeInfoList;
+    }
+
+    public List<BookName> getAllBookNamesForTypeId(int typeId){
+        List<BookName> mainList = new ArrayList<>();
+        QueryBuilder<BookName, Integer> qb = getHelper().getBookNameDao().queryBuilder();
+        Where<BookName, Integer> where = qb.where();
+        try {
+            where.eq("typeId", typeId);
+            mainList = where.query();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return mainList;
+    }
+    public List<BookInfo> getAllBookInfoForType(int typeId){
+        List<BookName> bookList = getAllBookNamesForTypeId(typeId);
+        List<BookInfo> bookInfoList = new ArrayList<>();
+
+        for (BookName book : bookList) {
+            long questionCount = 0;
+            QueryBuilder<BookContent, Integer> qb = getHelper().getBookContentDao().queryBuilder();
+            Where<BookContent, Integer> where = qb.where();
+
+            try {
+                questionCount = where.eq("bookId", book.getId()).countOf();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            bookInfoList.add(new BookInfo(book.getId(),book.getNameBengali(),questionCount));
+        }
+
+        return bookInfoList;
     }
 }
 

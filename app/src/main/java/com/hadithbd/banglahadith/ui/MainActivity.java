@@ -18,6 +18,7 @@ import com.hadithbd.banglahadith.R;
 import com.hadithbd.banglahadith.database.CsvToDbHelper;
 import com.hadithbd.banglahadith.database.DbHelper;
 import com.hadithbd.banglahadith.database.DbManager;
+import com.hadithbd.banglahadith.viewmodel.BookInfo;
 import com.hadithbd.banglahadith.viewmodel.BookTypeInfo;
 import com.hadithbd.banglahadith.viewmodel.HadithBookChapterInfo;
 
@@ -73,6 +74,12 @@ public class MainActivity extends ActionBarActivity {
         } finally {
             mDatabase.endTransaction();
         }
+
+        List<BookInfo> list = DbManager.getInstance().getAllBookInfoForType(7);
+        for (BookInfo book : list) {
+            Log.e("Chapter info ", book.getBookId() + " _ " + book.getBookName() + " _ " + book.getQuestionCount());
+        }
+
 
         /*List<BookTypeInfo> list = DbManager.getInstance().getAllBookTypeInfo();
         for (BookTypeInfo book : list) {
