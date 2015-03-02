@@ -15,11 +15,14 @@
     <string name="arabic">العربية</string>
     <string name="explanation">ব্যাখ্যা</string>
     <string name="hadith_number">হাদিস নম্বরঃ  ৭</string>
+    <string name="report_hadith">রিপোর্ট করুন</string>
     <string name="action_about_us">About Us</string>
     <string name="action_favorite">Favorite</string>
     <string name="action_data_sync">Data Sync</string>
     <string name="action_donation">Donation</string>
     <string name="action_latest_update">Latest Update</string>
+    <string name="share_hadith">একটি হাদিস</string>
+    <string name="share_title">হাদিসটি কিভাবে শেয়ার করতে চান?</string>
     <string name="text_internet_connection_failed">Internet connection is not available right now, please try again later.</string>
     <string name="title_activity_menu">MenuActivity</string>
     <string name="title_activity_book_list">BookListActivity</string>

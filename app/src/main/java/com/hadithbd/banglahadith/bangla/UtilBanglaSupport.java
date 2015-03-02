@@ -7,6 +7,9 @@ import android.text.SpannableString;
 import android.text.style.RelativeSizeSpan;
 import android.util.Log;
 
+import com.hadithbd.banglahadith.BanglaHadithApp;
+import com.hadithbd.banglahadith.util.Utils;
+
 import androidbangladesh.bengali.support.BengaliUnicodeString;
 
 /**
@@ -39,6 +42,21 @@ public class UtilBanglaSupport {
                     Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         }
         return retVal;
+    }
+
+    public static SpannableString getBanglaSpannableString(String banglaText) {
+        if (banglaText == null) {
+            return new SpannableString("");
+        }
+        if (Utils.IS_BUILD_ABOVE_HONEYCOMB) {
+            SpannableString spannableString = new SpannableString(banglaText);
+            if (Utils.isLocaleAvailable("bengali")) {
+                TypefaceSpan span = new TypefaceSpan(BanglaHadithApp.typefaceBangla);
+                spannableString.setSpan(span, 0, spannableString.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            }
+            return spannableString;
+        }
+        return AndroidCustomFontSupport.getCorrectedBengaliFormat(banglaText, BanglaHadithApp.typefaceBangla, -1);
     }
 
     /**
