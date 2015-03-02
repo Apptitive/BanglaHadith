@@ -1,5 +1,6 @@
 package com.hadithbd.banglahadith.adapters;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,12 +18,15 @@ import java.util.List;
 public class HadithChapterListAdapter extends RecyclerView.Adapter<HadithChapterListAdapter.ViewHolder>
         implements View.OnClickListener {
 
+    private String mHadith, mCountSuffix;
     private List<HadithBookChapterInfo> mHadithBookChapterInfoList;
 
     private HadithChapterItemClickListener mHadithChapterItemClickListener;
 
-    public HadithChapterListAdapter(List<HadithBookChapterInfo> hadithBookChapterInfoList) {
+    public HadithChapterListAdapter(Context context,List<HadithBookChapterInfo> hadithBookChapterInfoList) {
         mHadithBookChapterInfoList = hadithBookChapterInfoList;
+        mHadith = context.getResources().getString(R.string.hadith_bangla);
+        mCountSuffix = context.getResources().getString(R.string.text_count_suffix);
     }
 
     public void setmHadithChapterItemClickListener(HadithChapterItemClickListener hadithChapterItemClickListener) {
@@ -45,7 +49,7 @@ public class HadithChapterListAdapter extends RecyclerView.Adapter<HadithChapter
 
         viewHolder.hadithChapterId.setBanglaText(String.valueOf(hadithBookChapterInfo.getChapterId()));
         viewHolder.hadithChapterName.setBanglaText(hadithBookChapterInfo.getChapterName());
-        viewHolder.hadithCount.setBanglaText(String.valueOf(hadithBookChapterInfo.getHadithCount()));
+        viewHolder.hadithCount.setBanglaText(mHadith + " " + String.valueOf(hadithBookChapterInfo.getHadithCount() + mCountSuffix));
         viewHolder.itemView.setTag(position);
     }
 

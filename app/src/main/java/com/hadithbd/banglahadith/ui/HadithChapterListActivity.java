@@ -62,7 +62,7 @@ public class HadithChapterListActivity extends BaseActivity implements HadithCha
 
     private void initRecyclerAdapter() {
         mRecyclerView.setHasFixedSize(true);
-        mHadithDetailListAdapter = new HadithChapterListAdapter(mHadithBookChapterInfoList);
+        mHadithDetailListAdapter = new HadithChapterListAdapter(this, mHadithBookChapterInfoList);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, NUMBER_OF_COLUMNS));
         mHadithDetailListAdapter.setmHadithChapterItemClickListener(this);
         mRecyclerView.setAdapter(mHadithDetailListAdapter);
