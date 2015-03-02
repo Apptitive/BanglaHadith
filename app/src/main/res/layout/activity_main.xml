@@ -42,7 +42,7 @@
                 android:id="@+id/ic_all_hadiths"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/ic_books_home" />
+                android:background="@drawable/ic_hadiths_home" />
 
             <com.hadithbd.banglahadith.views.BanglaTextView
                 android:layout_width="match_parent"
@@ -70,7 +70,7 @@
                 android:id="@+id/ic_all_books"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_hadiths_home" />
+                android:src="@drawable/ic_books_home" />
 
             <com.hadithbd.banglahadith.views.BanglaTextView
                 android:layout_width="wrap_content"

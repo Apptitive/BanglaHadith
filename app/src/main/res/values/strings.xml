@@ -15,7 +15,9 @@
     <string name="arabic">العربية</string>
     <string name="explanation">ব্যাখ্যা</string>
     <string name="hadith_number">হাদিস নম্বরঃ  ৭</string>
-    <string name="report_hadith">রিপোর্ট করুন</string>
+    <string name="report_hadith">রিপোর্ট</string>
+    <string name="rabi">রাবীঃ</string>
+    <string name="hadith_status">হাদিসের মানঃ</string>
     <string name="action_about_us">About Us</string>
     <string name="action_favorite">Favorite</string>
     <string name="action_data_sync">Data Sync</string>
