@@ -59,7 +59,7 @@ public class HadithListActivity extends BaseActivity implements HadithListAdapte
     public void onHadithItemClicked(int position) {
         final HadithBookInfo bookInfo = mBookInfoList.get(position);
 
-        Intent intent = new Intent(this, HadithDetailListActivity.class);
+        Intent intent = new Intent(this, HadithChapterListActivity.class);
         intent.putExtra(Constants.BOOK_ID, bookInfo.getBookId());
         startActivity(intent);
     }

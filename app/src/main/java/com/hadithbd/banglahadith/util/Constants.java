@@ -17,4 +17,6 @@ public class Constants {
 
     public static final String BOOK_ID = "book_id";
 
+    public static final String HADITH_CHAPTER_ID = "hadith_chapter_id";
+
 }
