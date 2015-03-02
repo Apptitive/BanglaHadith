@@ -15,6 +15,7 @@ import com.hadithbd.banglahadith.database.tables.hadith.HadithPublisher;
 import com.hadithbd.banglahadith.database.tables.hadith.HadithSection;
 import com.hadithbd.banglahadith.database.tables.hadith.HadithStatus;
 import com.hadithbd.banglahadith.database.tables.hadith.RabiHadith;
+import com.hadithbd.banglahadith.viewmodel.BookTypeInfo;
 import com.hadithbd.banglahadith.viewmodel.HadithBookChapterInfo;
 import com.hadithbd.banglahadith.viewmodel.HadithBookInfo;
 import com.hadithbd.banglahadith.viewmodel.HadithMainInfo;
@@ -379,6 +380,27 @@ public class DbManager {
 
     return mainInfo;
 }
+
+    public List<BookTypeInfo> getAllBookTypeInfo(){
+        List<BookType> bookTypeList = getAllBookTypes();
+        List<BookTypeInfo> bookTypeInfoList = new ArrayList<>();
+
+        for (BookType bookType : bookTypeList) {
+            long bookCount = 0;
+            QueryBuilder<BookName, Integer> bookNameQueryBuilder = getHelper().getBookNameDao().queryBuilder();
+            Where<BookName, Integer> whereBookName = bookNameQueryBuilder.where();
+
+            try {
+                bookCount = whereBookName.eq("typeId", bookType.getId()).countOf();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            bookTypeInfoList.add(new BookTypeInfo(bookType.getId(),bookType.getCategoryName(),bookCount));
+        }
+
+        return bookTypeInfoList;
+    }
 }
 
 
