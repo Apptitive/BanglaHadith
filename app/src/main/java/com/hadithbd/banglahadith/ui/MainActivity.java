@@ -18,7 +18,7 @@ import com.hadithbd.banglahadith.R;
 import com.hadithbd.banglahadith.database.CsvToDbHelper;
 import com.hadithbd.banglahadith.database.DbHelper;
 import com.hadithbd.banglahadith.database.DbManager;
-import com.hadithbd.banglahadith.viewmodel.HadithMainInfo;
+import com.hadithbd.banglahadith.viewmodel.HadithBookChapterInfo;
 
 import java.util.List;
 
@@ -72,16 +72,19 @@ public class MainActivity extends ActionBarActivity {
         } finally {
             mDatabase.endTransaction();
         }
+        /*List<HadithBookChapterInfo> list = DbManager.getInstance().getHadithBookChapterInfo(1);
+        for (HadithBookChapterInfo book : list) {
+            Log.e("Chapter info ", book.getChapterId() + " _ " + book.getChapterName() + " _ " + book.getHadithCount());
+        }
 
-
-        /*List<HadithBookInfo> list = DbManager.getInstance().getAllHadithBookInfo();
+        List<HadithBookInfo> list = DbManager.getInstance().getAllHadithBookInfo();
         for(HadithBookInfo book : list){
             Log.e("Book Name : ", book.getBookName());
             Log.e("Chapter : ", ""+book.getChapterCount());
             Log.e("Hadith : ", ""+book.getHadithCount());
-        }*/
+        }
         List<Integer> idList = DbManager.getInstance().getHadithIdListForChapter(162);
-        HadithMainInfo info = DbManager.getInstance().getHadithInformationForHadith(idList.get(0));
+        HadithMainInfo info = DbManager.getInstance().getHadithInformationForHadith(idList.get(0));*/
 
 
        /* List<BookType> list = DbManager.getInstance().getAllBookTypes();
