@@ -25,7 +25,7 @@
     <dimen name="hadith_detail_menu_share_width">@dimen/dp_40</dimen>
     <dimen name="hadith_detail_menu_love_size">@dimen/dp_28</dimen>
     <dimen name="hadith_detail_tick_hadith_size">@dimen/dp_28</dimen>
-    <dimen name="hadith_detail_pane_header_height">@dimen/dp_48</dimen>
+    <dimen name="hadith_detail_chapter_name_min_height">@dimen/dp_36</dimen>
     <dimen name="hadith_detail_report_btn_width">@dimen/dp_72</dimen>
     <dimen name="hadith_detail_report_btn_height">@dimen/dp_40</dimen>
     <dimen name="hadith_detail_report_icon_size">@dimen/dp_28</dimen>
