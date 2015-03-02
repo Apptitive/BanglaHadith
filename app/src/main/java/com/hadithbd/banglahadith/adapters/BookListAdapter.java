@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import com.hadithbd.banglahadith.BanglaHadithApp;
 import com.hadithbd.banglahadith.R;
-import com.hadithbd.banglahadith.viewmodel.BookInfo;
+import com.hadithbd.banglahadith.viewmodel.HadithBookInfo;
 
 import java.util.List;
 
@@ -19,9 +19,9 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ViewHo
 
     private BookItemClickListener mBookItemClickListener;
 
-    private List<BookInfo>mBookInfoList;
+    private List<HadithBookInfo>mBookInfoList;
 
-    public BookListAdapter(List<BookInfo> bookInfoList) {
+    public BookListAdapter(List<HadithBookInfo> bookInfoList) {
         mBookInfoList = bookInfoList;
     }
 

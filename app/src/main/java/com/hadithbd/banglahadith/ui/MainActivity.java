@@ -31,6 +31,7 @@ import com.hadithbd.banglahadith.database.tables.hadith.HadithPublisher;
 import com.hadithbd.banglahadith.database.tables.hadith.HadithSection;
 import com.hadithbd.banglahadith.database.tables.hadith.HadithStatus;
 import com.hadithbd.banglahadith.database.tables.hadith.RabiHadith;
+import com.hadithbd.banglahadith.viewmodel.HadithBookInfo;
 
 import java.util.List;
 
@@ -84,6 +85,7 @@ public class MainActivity extends ActionBarActivity {
         } finally {
             mDatabase.endTransaction();
         }
+
 
        /* List<BookType> list = DbManager.getInstance().getAllBookTypes();
         Log.e("Size", ""+list.size());
@@ -155,13 +157,13 @@ public class MainActivity extends ActionBarActivity {
         Log.e("Hadith Book Size", ""+books.size());
         for(HadithBook book : books){
             Log.e("Hadith Book : ", book.getNameBengali());
-        }*/
+        }
 
         List<HadithMain> mains = DbManager.getInstance().getAllHadithMains();
         Log.e("Hadith Main Size", "" + mains.size());
         for(HadithMain main : mains) {
             Log.e("Hadith Main : ", main.getHadithBengali());
-        }
+        }*/
         initLayouts();
 
         mLayoutAllHadiths.setOnClickListener(new View.OnClickListener() {
