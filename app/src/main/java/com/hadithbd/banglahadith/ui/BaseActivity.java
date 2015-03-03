@@ -15,6 +15,7 @@ import android.view.ViewConfiguration;
 import android.widget.Toast;
 
 import com.hadithbd.banglahadith.R;
+import com.hadithbd.banglahadith.bangla.UtilBanglaSupport;
 import com.hadithbd.banglahadith.util.Constants;
 import com.hadithbd.banglahadith.util.Utils;
 
@@ -69,6 +70,12 @@ public class BaseActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        menu.findItem(R.id.action_latest_update).setTitle(UtilBanglaSupport.getBanglaSpannableString(getString(R.string.action_latest_update)));
+        menu.findItem(R.id.action_favorite).setTitle(UtilBanglaSupport.getBanglaSpannableString(getString(R.string.action_favorite)));
+        menu.findItem(R.id.action_data_sync).setTitle(UtilBanglaSupport.getBanglaSpannableString(getString(R.string.action_data_sync)));
+        menu.findItem(R.id.action_donation).setTitle(UtilBanglaSupport.getBanglaSpannableString(getString(R.string.action_donation)));
+        menu.findItem(R.id.action_settings).setTitle(UtilBanglaSupport.getBanglaSpannableString(getString(R.string.action_settings)));
+        menu.findItem(R.id.action_about_us).setTitle(UtilBanglaSupport.getBanglaSpannableString(getString(R.string.action_about_us)));
         return true;
     }
 
