@@ -31,8 +31,9 @@
     <string name="title_activity_book_list">BookListActivity</string>
     <string name="title_activity_about_us">AboutUsActivity</string>
     <string name="chapter_bangla">অধ্যায়ঃ</string>
-    <string name="hadith_bangla">হাদিসঃ</string>
-    <string name="text_count_suffix">টি</string>
+    <string name="book_list_prefix_text">অনুচ্ছেদঃ</string>
+    <string name="hadith_list_prefix_text">হাদিসঃ</string>
+    <string name="text_count_suffix">" টি"</string>
     <string name="communication_title">আমাদের সাথে যোগাযোগ করুন</string>
     <string name="communication_name_bangla">খোন্দকার রোকন-উল-হক</string>
     <string name="communication_name_english">Kh. Rokon-UL-Haque</string>

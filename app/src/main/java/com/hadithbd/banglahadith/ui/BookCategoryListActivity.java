@@ -2,12 +2,13 @@ package com.hadithbd.banglahadith.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 
 import com.hadithbd.banglahadith.R;
 import com.hadithbd.banglahadith.adapters.BookCategoryListAdapter;
+import com.hadithbd.banglahadith.bangla.UtilBanglaSupport;
 import com.hadithbd.banglahadith.database.DbManager;
 import com.hadithbd.banglahadith.util.Constants;
 import com.hadithbd.banglahadith.viewmodel.BookTypeInfo;
@@ -16,7 +17,6 @@ import java.util.List;
 
 public class BookCategoryListActivity extends BaseActivity implements BookCategoryListAdapter.BookCategoryItemClickListener{
 
-    private Toolbar mToolbar;
     private RecyclerView mRecyclerView;
     private List<BookTypeInfo> mBookTypeInfoList;
     private BookCategoryListAdapter mBookCategoryListAdapter;
@@ -31,10 +31,16 @@ public class BookCategoryListActivity extends BaseActivity implements BookCatego
         setHomeBackground();
 
         initViews();
-
-        setUpToolbar();
+        setupActionBar();
 
         initRecyclerAdapter();
+    }
+
+    public void setupActionBar(){
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle(UtilBanglaSupport.getBanglaSpannableString(""));
+        actionBar.setSubtitle(UtilBanglaSupport.getBanglaSpannableString(""));
+        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
     private void initRecyclerAdapter() {
@@ -46,14 +52,9 @@ public class BookCategoryListActivity extends BaseActivity implements BookCatego
     }
 
     private void initViews() {
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
     }
 
-    private void setUpToolbar() {
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
 
     @Override
     public void onCategoryItemClicked(int position) {

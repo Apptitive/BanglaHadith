@@ -1,14 +1,15 @@
 package com.hadithbd.banglahadith.ui;
 
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import com.hadithbd.banglahadith.R;
 import com.hadithbd.banglahadith.adapters.BookQuestionListAdapter;
+import com.hadithbd.banglahadith.bangla.UtilBanglaSupport;
 import com.hadithbd.banglahadith.database.DbManager;
 import com.hadithbd.banglahadith.util.Constants;
 import com.hadithbd.banglahadith.viewmodel.BookContentTitleInfo;
@@ -20,7 +21,6 @@ public class BookQuestionListActivity extends BaseActivity
         implements BookQuestionListAdapter.BookQuestionItemClickListener {
 
     public static final String TAG = BookQuestionListActivity.class.getSimpleName();
-    private Toolbar mToolbar;
 
     private BookQuestionListAdapter mBookChapterListAdapter;
 
@@ -40,31 +40,33 @@ public class BookQuestionListActivity extends BaseActivity
         mContentTitleInfoList = DbManager.getInstance().getContentTitleInfoForBook(mBookId);
 
         initViews();
+        setupActionBar();
 
-        setUpToolbar();
 
         initRecyclerAdapter();
 
 
     }
 
+    public void setupActionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle(UtilBanglaSupport.getBanglaSpannableString(""));
+        actionBar.setSubtitle(UtilBanglaSupport.getBanglaSpannableString(""));
+        actionBar.setDisplayHomeAsUpEnabled(true);
+    }
+
     private void getMessageFromBundle() {
-        Bundle data= getIntent().getExtras();
-        if (data!=null){
+        Bundle data = getIntent().getExtras();
+        if (data != null) {
             mBookId = data.getInt(Constants.BOOK_ID);
-            Log.e(TAG, "Book id: "+ mBookId);
+            Log.e(TAG, "Book id: " + mBookId);
         }
     }
 
     private void initViews() {
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
     }
 
-    private void setUpToolbar() {
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
 
     private void initRecyclerAdapter() {
 
