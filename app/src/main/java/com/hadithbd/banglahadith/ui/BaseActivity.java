@@ -59,10 +59,6 @@ public class BaseActivity extends ActionBarActivity {
             startActivity(intent);
         }
 
-        if (item.getItemId() == android.R.id.home){
-           onBackPressed();
-        }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -79,11 +75,5 @@ public class BaseActivity extends ActionBarActivity {
 
         }
 
-    }
-
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
     }
 }

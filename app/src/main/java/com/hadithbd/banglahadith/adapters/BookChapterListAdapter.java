@@ -2,12 +2,13 @@ package com.hadithbd.banglahadith.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.hadithbd.banglahadith.R;
-import com.hadithbd.banglahadith.util.Utils;
+import com.hadithbd.banglahadith.bangla.UtilBanglaSupport;
 import com.hadithbd.banglahadith.viewmodel.BookContentTitleInfo;
 import com.hadithbd.banglahadith.views.BanglaTextView;
 
@@ -23,13 +24,12 @@ public class BookChapterListAdapter extends RecyclerView.Adapter<BookChapterList
 
     private List<BookContentTitleInfo> mContentTitleInfoList;
     private String mQuestionPrefix;
-    private int mColorCode;
-
+    private int chapterPrefixColor;
 
     public BookChapterListAdapter(Context context, List<BookContentTitleInfo> contentTitleInfoList) {
         mContentTitleInfoList = contentTitleInfoList;
         mQuestionPrefix = context.getString(R.string.book_question_prefix);
-        mColorCode = context.getResources().getColor(R.color.hadith_detail_title_color);
+        chapterPrefixColor = context.getResources().getColor(R.color.book_chapter_prefix_color);
     }
 
     public void setBookChapterItemClickListener(BookChapterItemClickListener bookChapterItemClickListener) {
@@ -47,7 +47,13 @@ public class BookChapterListAdapter extends RecyclerView.Adapter<BookChapterList
     public void onBindViewHolder(ViewHolder holder, int position) {
         final BookContentTitleInfo bookContentTitleInfo = mContentTitleInfoList.get(position);
         holder.itemView.setTag(position);
-        holder.bookContentQuestion.setBanglaText(Utils.getColoredSpannable(mQuestionPrefix +" " +bookContentTitleInfo.getBookContentId(), mColorCode) +" "+ bookContentTitleInfo.getQuestion());
+        final String data = getColoredText(bookContentTitleInfo);
+        holder.bookContentQuestion.setText(Html.fromHtml(UtilBanglaSupport.getBanglaSpannableString(data).toString()));
+    }
+
+
+    private String getColoredText(BookContentTitleInfo bookContentTitleInfo) {
+        return "<font color="+chapterPrefixColor+">" + mQuestionPrefix + " " + bookContentTitleInfo.getBookContentId() + "</font>" + " " + bookContentTitleInfo.getQuestion();
     }
 
     @Override

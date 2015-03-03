@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 
 import com.hadithbd.banglahadith.R;
 import com.hadithbd.banglahadith.adapters.BookListAdapter;
@@ -28,14 +29,11 @@ public class BookListActivity extends BaseActivity implements BookListAdapter.Bo
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_list);
+        setHomeBackground();
 
         getMessageFromBundle();
 
         mBookInfoList = DbManager.getInstance().getAllBookInfoForType(mBookTypeId);
-
-
-
-        setHomeBackground();
 
         initViews();
 
@@ -48,6 +46,7 @@ public class BookListActivity extends BaseActivity implements BookListAdapter.Bo
             Bundle data = getIntent().getExtras();
             if (data != null) {
                 mBookTypeId = data.getInt(Constants.BOOK_TYPE_ID);
+                Log.e("TAG", "mBookTypeId id: " + mBookTypeId);
             }
         }
 
@@ -69,7 +68,6 @@ public class BookListActivity extends BaseActivity implements BookListAdapter.Bo
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
     }
-
 
     @Override
     public void onBookItemClicked(int position) {

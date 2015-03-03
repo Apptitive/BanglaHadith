@@ -33,7 +33,6 @@ public class BookChapterListActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_chapter_list);
-
         setHomeBackground();
 
         getMessageFromBundle();
@@ -42,11 +41,11 @@ public class BookChapterListActivity extends BaseActivity
 
         initViews();
 
-
-
-        initToolbar();
+        setUpToolbar();
 
         initRecyclerAdapter();
+
+
     }
 
     private void getMessageFromBundle() {
@@ -62,7 +61,7 @@ public class BookChapterListActivity extends BaseActivity
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
     }
 
-    private void initToolbar() {
+    private void setUpToolbar() {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
@@ -70,11 +69,11 @@ public class BookChapterListActivity extends BaseActivity
     private void initRecyclerAdapter() {
 
         mRecyclerView.setHasFixedSize(true);
+
         RecyclerView.ItemDecoration itemDecoration =
                 new SimpleItemDecoration(getResources().getDrawable(android.R.drawable.divider_horizontal_dark));
         mRecyclerView.addItemDecoration(itemDecoration);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-
         mBookChapterListAdapter = new BookChapterListAdapter(this, mContentTitleInfoList);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mBookChapterListAdapter.setBookChapterItemClickListener(this);
