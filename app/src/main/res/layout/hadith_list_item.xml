@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/vertical_margin_8dp"
@@ -13,8 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/abc_text_size_headline_material"
-        app:banglaText="Headline" />
+        android:textSize="@dimen/abc_text_size_subhead_material" />
 
     <com.hadithbd.banglahadith.views.BanglaTextView
         android:id="@+id/hadith_chapter_count"
@@ -22,8 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/hadith_name"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/abc_text_size_subhead_material"
-        app:banglaText="Subheadline" />
+        android:textSize="@dimen/abc_text_size_caption_material" />
 
     <com.hadithbd.banglahadith.views.BanglaTextView
         android:id="@+id/hadith_count"
@@ -31,8 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/hadith_chapter_count"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/abc_text_size_subhead_material"
-        app:banglaText="Subheadline" />
+        android:textSize="@dimen/abc_text_size_caption_material" />
 
 
     <View
@@ -40,6 +36,5 @@
         android:layout_width="@dimen/hadith_item_color_width"
         android:layout_height="@dimen/hadith_item_color_height"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="40dp"
-        android:background="#29abe2" />
+        android:layout_marginTop="40dp"/>
 </RelativeLayout>

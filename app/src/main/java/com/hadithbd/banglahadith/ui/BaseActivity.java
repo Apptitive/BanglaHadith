@@ -58,6 +58,11 @@ public class BaseActivity extends ActionBarActivity {
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         }
+
+        if (item.getItemId() == android.R.id.home){
+           onBackPressed();
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -77,4 +82,8 @@ public class BaseActivity extends ActionBarActivity {
     }
 
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 }

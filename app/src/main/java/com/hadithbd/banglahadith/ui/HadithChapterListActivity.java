@@ -2,7 +2,7 @@ package com.hadithbd.banglahadith.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -28,6 +28,7 @@ public class HadithChapterListActivity extends BaseActivity implements HadithCha
 
     private int mBookId;
     private List<HadithBookChapterInfo> mHadithBookChapterInfoList;
+    private String mBookTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +49,8 @@ public class HadithChapterListActivity extends BaseActivity implements HadithCha
     }
 
     private void setUpToolbar() {
+      //  mToolbar.setTitle(UtilBanglaSupport.getBanglaSpannableString(mBookTitle));
+        mToolbar.setTitleTextColor(getResources().getColor(R.color.hadith_detail_title_color));
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
@@ -56,14 +59,16 @@ public class HadithChapterListActivity extends BaseActivity implements HadithCha
         Bundle data = getIntent().getExtras();
         if (data != null) {
             mBookId = data.getInt(Constants.BOOK_ID);
-            Log.e(TAG, "Book id: " + mBookId);
+            mBookTitle = data.getString(Constants.HADITH_TITLE);
+            Log.i(TAG, "Book id: " + mBookTitle);
         }
     }
 
     private void initRecyclerAdapter() {
         mRecyclerView.setHasFixedSize(true);
         mHadithDetailListAdapter = new HadithChapterListAdapter(this, mHadithBookChapterInfoList);
-        mRecyclerView.setLayoutManager(new GridLayoutManager(this, NUMBER_OF_COLUMNS));
+        //mRecyclerView.setLayoutManager(new GridLayoutManager(this, NUMBER_OF_COLUMNS));
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mHadithDetailListAdapter.setmHadithChapterItemClickListener(this);
         mRecyclerView.setAdapter(mHadithDetailListAdapter);
     }

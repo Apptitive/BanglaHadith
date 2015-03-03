@@ -37,6 +37,7 @@ public class HadithListActivity extends BaseActivity implements HadithListAdapte
     }
 
     private void setUpToolbar() {
+        //mToolbar.setTitle(UtilBanglaSupport.getBanglaSpannableString(getString(R.string.title_activity_hadith_list)));
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
@@ -61,6 +62,7 @@ public class HadithListActivity extends BaseActivity implements HadithListAdapte
 
         Intent intent = new Intent(this, HadithChapterListActivity.class);
         intent.putExtra(Constants.BOOK_ID, bookInfo.getBookId());
+        intent.putExtra(Constants.HADITH_TITLE, bookInfo.getBookName());
         startActivity(intent);
     }
 }

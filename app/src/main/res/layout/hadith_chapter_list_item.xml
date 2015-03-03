@@ -11,7 +11,6 @@
         android:id="@+id/hadith_chapter_id"
         android:layout_width="@dimen/text_drawable_width"
         android:layout_height="@dimen/text_drawable_height"
-        android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/horizontal_margin_8dp"
         android:background="@drawable/text_drawable_background"
         android:gravity="center"
@@ -23,7 +22,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/activity_vertical_margin"
-        android:layout_marginTop="@dimen/vertical_margin_8dp"
         android:layout_toRightOf="@id/hadith_chapter_id"
         android:textColor="@android:color/white"
         android:textSize="@dimen/abc_text_size_subhead_material"/>

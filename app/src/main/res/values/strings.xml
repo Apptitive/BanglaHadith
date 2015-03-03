@@ -7,7 +7,7 @@
     <string name="text_all_books">গ্রন্থ সমূহ</string>
     <string name="title_activity_hadith_detail_list">HadithDetailList</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_hadith_list">HadithListActivity</string>
+    <string name="title_activity_hadith_list">হাদিস সমূহ</string>
     <string name="title_activity_book_chapter_list">BookChapterListActivity</string>
     <string name="title_activity_hadith_detail">HadithDetailActivity</string>
     <string name="bangla">বাংলা</string>
