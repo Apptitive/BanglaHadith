@@ -15,6 +15,7 @@ import com.hadithbd.banglahadith.database.tables.hadith.HadithPublisher;
 import com.hadithbd.banglahadith.database.tables.hadith.HadithSection;
 import com.hadithbd.banglahadith.database.tables.hadith.HadithStatus;
 import com.hadithbd.banglahadith.database.tables.hadith.RabiHadith;
+import com.hadithbd.banglahadith.viewmodel.BookContentInfo;
 import com.hadithbd.banglahadith.viewmodel.BookContentTitleInfo;
 import com.hadithbd.banglahadith.viewmodel.BookInfo;
 import com.hadithbd.banglahadith.viewmodel.BookTypeInfo;
@@ -457,6 +458,60 @@ public class DbManager {
         return contentInfoList;
     }
 
+    public BookContent getBookContentWithId(int contentId) {
+        BookContent bookContent = new BookContent();
+        QueryBuilder<BookContent, Integer> qb = getHelper().getBookContentDao().queryBuilder();
+        Where<BookContent, Integer> where = qb.where();
+        try {
+            where.eq("id", contentId);
+            bookContent = where.query().get(0);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return bookContent;
+    }
+
+    public String getBookNameWithId(int bookId) {
+        BookName entity = new BookName();
+        QueryBuilder<BookName, Integer> qb = getHelper().getBookNameDao().queryBuilder();
+        Where<BookName, Integer> where = qb.where();
+        try {
+            where.eq("id", bookId);
+            entity = where.query().get(0);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return entity.getNameBengali();
+    }
+
+    public String getBookSectionNameWithId(int sectionId) {
+        BookSection entity = new BookSection();
+        QueryBuilder<BookSection, Integer> qb = getHelper().getBookSectionDao().queryBuilder();
+        Where<BookSection, Integer> where = qb.where();
+        try {
+            where.eq("id", sectionId);
+            entity = where.query().get(0);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return entity.getName();
+    }
+
+    public BookContentInfo getBookContentInfo(int contentId) {
+        BookContent content = getBookContentWithId(contentId);
+        BookContentInfo contentInfo = new BookContentInfo();
+
+        contentInfo.setId(content.getId());
+        contentInfo.setBookId(content.getBookId());
+        contentInfo.setBookName(getBookNameWithId(content.getBookId()));
+        contentInfo.setSectionId(content.getSectionId());
+        contentInfo.setSectionName(getBookSectionNameWithId(content.getSectionId()));
+        contentInfo.setQuestion(content.getQuestion());
+        contentInfo.setAnswer(content.getAnswer());
+        contentInfo.setNote(content.getNote());
+
+        return contentInfo;
+    }
 
 }
 
