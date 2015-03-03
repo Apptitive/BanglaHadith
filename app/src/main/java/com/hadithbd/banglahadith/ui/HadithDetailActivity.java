@@ -56,7 +56,7 @@ public class HadithDetailActivity extends BaseActivity implements View.OnClickLi
         setContentView(R.layout.activity_hadith_detail);
         DbManager.init(this);
 
-        hadithIdList = DbManager.getInstance().getHadithIdListForChapter(162);
+        hadithIdList = DbManager.getInstance().getHadithNoListForChapter(162);
         hadithInView = DbManager.getInstance().getHadithInformationForHadith(hadithIdList.get(0));
 
         setHomeBackground();
