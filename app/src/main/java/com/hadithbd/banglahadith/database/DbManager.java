@@ -359,17 +359,19 @@ public class DbManager {
         return entity.getStatusBengali();
     }
 
-    public String getHadithExplanation(int hadithId){
-        HadithExplanation entity = new HadithExplanation();
+    public String getHadithExplanation(int hadithId) {
+        List<HadithExplanation> explanations = new ArrayList<>();
         QueryBuilder<HadithExplanation, Integer> qb = getHelper().getHadithExplanationDao().queryBuilder();
         Where<HadithExplanation, Integer> where = qb.where();
         try {
             where.eq("hadithId", hadithId);
-            entity = where.query().get(0);
+            explanations = where.query();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return entity.getExplanation();
+        if (explanations == null || explanations.size() == 0)
+            return "";
+        return explanations.get(0).getExplanation();
     }
 
     public HadithMainInfo getHadithInformationForHadith(int hadithNo) {
