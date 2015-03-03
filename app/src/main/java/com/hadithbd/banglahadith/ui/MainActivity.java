@@ -18,8 +18,10 @@ import com.hadithbd.banglahadith.R;
 import com.hadithbd.banglahadith.database.CsvToDbHelper;
 import com.hadithbd.banglahadith.database.DbHelper;
 import com.hadithbd.banglahadith.database.DbManager;
-import com.hadithbd.banglahadith.viewmodel.BookContentInfo;
-import com.hadithbd.banglahadith.viewmodel.BookInfo;
+import com.hadithbd.banglahadith.viewmodel.HadithBookInfo;
+import com.hadithbd.banglahadith.viewmodel.HadithMainInfo;
+
+import java.util.List;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -69,6 +71,13 @@ public class MainActivity extends ActionBarActivity {
             mDatabase.endTransaction();
         }
 
+        List<Integer> idList = DbManager.getInstance().getHadithNoListForChapter(166);
+        for (Integer i : idList) {
+            Log.e("Hadith Id", "" + i);
+        }
+        HadithMainInfo info = DbManager.getInstance().getHadithInformationForHadith(idList.get(0));
+        Log.e("called","");
+
         /*BookContentInfo info = DbManager.getInstance().getBookContentInfo(108);
         Log.e("Content Info ", info.getBookName() + " _ " + info.getSectionName() + " _ " + info.getQuestion() + " _ " + info.getAnswer() + " _ " + info.getBookName() + " _ ");
         List<BookInfo> list = DbManager.getInstance().getAllBookInfoForType(7);
@@ -93,7 +102,7 @@ public class MainActivity extends ActionBarActivity {
             Log.e("Chapter : ", ""+book.getChapterCount());
             Log.e("Hadith : ", ""+book.getHadithCount());
         }
-        List<Integer> idList = DbManager.getInstance().getHadithIdListForChapter(162);
+        List<Integer> idList = DbManager.getInstance().getHadithNoListForChapter(162);
         HadithMainInfo info = DbManager.getInstance().getHadithInformationForHadith(idList.get(0));*/
 
 
@@ -214,8 +223,6 @@ public class MainActivity extends ActionBarActivity {
         iconHome.setGravity(Gravity.TOP);
 
         Drawable[] drawables = new Drawable[]{blueLayer, iconCaliography, whiteLayer, iconBismillah, iconHome};
-
-
 
 
         LayerDrawable layerDrawable = new LayerDrawable(drawables);

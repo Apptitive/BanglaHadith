@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.hadithbd.banglahadith.BanglaHadithApp;
 import com.hadithbd.banglahadith.R;
 import com.hadithbd.banglahadith.bangla.AndroidCustomFontSupport;
+import com.hadithbd.banglahadith.util.Constants;
 import com.hadithbd.banglahadith.util.Utils;
 
 /**
@@ -15,7 +16,7 @@ import com.hadithbd.banglahadith.util.Utils;
  */
 public class BanglaTextView extends TextView {
 
-    public static final boolean IS_BANGLA_AVAILABLE = Utils.isLocaleAvailable("bengali");
+    public static final boolean IS_BANGLA_AVAILABLE = Utils.isLocaleAvailable(Constants.LOCALE_BENGALI);
 
     private TypedArray typedArray;
     private String banglaText;

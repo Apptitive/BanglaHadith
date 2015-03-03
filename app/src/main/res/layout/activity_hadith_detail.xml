@@ -184,7 +184,8 @@
                 android:background="@drawable/bg_menu_overflow"
                 android:padding="@dimen/dp_14"
                 android:scaleType="fitCenter"
-                android:src="@drawable/menu_overflow" />
+                android:src="@drawable/menu_overflow"
+                android:onClick="onClick" />
         </RelativeLayout>
 
         <RelativeLayout

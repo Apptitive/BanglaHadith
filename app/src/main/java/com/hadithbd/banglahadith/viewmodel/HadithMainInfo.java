@@ -22,6 +22,7 @@ public class HadithMainInfo {
     private String hadithArabic;
     private String hadithBengali;
     private String hadithEnglish;
+    private String hadithExplanation;
     private String note;
     private int checkStatus;
 
@@ -151,6 +152,14 @@ public class HadithMainInfo {
 
     public void setHadithEnglish(String hadithEnglish) {
         this.hadithEnglish = hadithEnglish;
+    }
+
+    public String getHadithExplanation() {
+        return hadithExplanation;
+    }
+
+    public void setHadithExplanation(String hadithExplanation) {
+        this.hadithExplanation = hadithExplanation;
     }
 
     public String getNote() {

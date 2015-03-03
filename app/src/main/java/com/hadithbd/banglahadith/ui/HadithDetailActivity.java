@@ -2,13 +2,19 @@ package com.hadithbd.banglahadith.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.TextView;
 
 import com.hadithbd.banglahadith.R;
 import com.hadithbd.banglahadith.bangla.UtilBanglaSupport;
 import com.hadithbd.banglahadith.database.DbManager;
+import com.hadithbd.banglahadith.util.Constants;
+import com.hadithbd.banglahadith.util.Utils;
 import com.hadithbd.banglahadith.viewmodel.HadithMainInfo;
 import com.hadithbd.banglahadith.views.BanglaTextView;
 
@@ -22,6 +28,7 @@ public class HadithDetailActivity extends BaseActivity implements View.OnClickLi
     private View currentVisibleTabMarker;
     private TextView textViewChapter;
     private TextView textViewHadith;
+    private PopupMenu hadithListPopupMenu;
     private List<Integer> hadithIdList;
 
     private void initTabMarkers() {
@@ -50,13 +57,32 @@ public class HadithDetailActivity extends BaseActivity implements View.OnClickLi
         startActivity(Intent.createChooser(shareIntent, getString(R.string.share_title)));
     }
 
+    private void createHadithListPopupMenu(View anchorView, List<Integer> hadithIdList) {
+        hadithListPopupMenu = new PopupMenu(this, anchorView);
+        Menu menu = hadithListPopupMenu.getMenu();
+        for (int hadithId : hadithIdList) {
+            Log.i("id", "" + hadithId);
+            menu.add(UtilBanglaSupport.getBanglaSpannableString(getString(R.string.hadith_number)
+                    + " " + Utils.translateNumber(hadithId)));
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hadith_detail);
         DbManager.init(this);
 
-        hadithIdList = DbManager.getInstance().getHadithIdListForChapter(162);
+        int chapter_id = 0;
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            chapter_id = extras.getInt(Constants.HADITH_CHAPTER_ID);
+        }
+
+        hadithIdList = DbManager.getInstance().getHadithNoListForChapter(chapter_id);
+        if (hadithIdList == null || hadithIdList.isEmpty()) {
+            return;
+        }
         hadithInView = DbManager.getInstance().getHadithInformationForHadith(hadithIdList.get(0));
 
         setHomeBackground();
@@ -86,14 +112,43 @@ public class HadithDetailActivity extends BaseActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-        if (v instanceof TextView) {
-            switchTabMarkerVisibilty(v.getId());
+        if (hadithInView == null) {
             return;
         }
         int id = v.getId();
+        if (v instanceof TextView) {
+            switchTabMarkerVisibilty(v.getId());
+            switch (id) {
+                case R.id.tab_text_bangla:
+                    textViewHadith.setText(UtilBanglaSupport.getBanglaSpannableString(hadithInView.getHadithBengali()));
+                    break;
+                case R.id.tab_text_english:
+                    textViewChapter.setVisibility(View.GONE);
+                    textViewHadith.setText(hadithInView.getHadithEnglish());
+                    return;
+                case R.id.tab_text_arabic:
+                    textViewHadith.setText(UtilBanglaSupport.getArabicSpannableString(hadithInView.getHadithArabic()));
+                    break;
+                case R.id.tab_hadith_explanation:
+                    textViewHadith.setText(UtilBanglaSupport.getBanglaSpannableString(hadithInView.getHadithExplanation()));
+                    break;
+            }
+            if (textViewChapter.getVisibility() == View.GONE) {
+                textViewChapter.setVisibility(View.VISIBLE);
+            }
+            return;
+        }
         switch (id) {
             case R.id.menu_share:
                 createShareIntent();
+                break;
+            case R.id.menu_overflow:
+                if (hadithListPopupMenu == null) {
+                    createHadithListPopupMenu(v, hadithIdList);
+                }
+                MenuInflater inflater = hadithListPopupMenu.getMenuInflater();
+                inflater.inflate(R.menu.hadith_detail_popup_menu, hadithListPopupMenu.getMenu());
+                hadithListPopupMenu.show();
                 break;
         }
     }

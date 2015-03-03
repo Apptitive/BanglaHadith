@@ -264,7 +264,7 @@ public class DbManager {
         return hadithBookInfoList;
     }
 
-    public List<Integer> getHadithIdListForChapter(int chapterId) {
+    public List<Integer> getHadithNoListForChapter(int chapterId) {
         List<HadithMain> mainList = new ArrayList<>();
         QueryBuilder<HadithMain, Integer> hadithMainQueryBuilder = getHelper().getHadithMainDao().queryBuilder();
         Where<HadithMain, Integer> whereHadithMain = hadithMainQueryBuilder.where();
@@ -276,17 +276,17 @@ public class DbManager {
         }
         List<Integer> hadithIdList = new ArrayList<>();
         for (HadithMain main : mainList) {
-            hadithIdList.add(main.getId());
+            hadithIdList.add(main.getHadithNo());
         }
         return hadithIdList;
     }
 
-    public HadithMain getHadithMainWithId(int hadithId) {
+    public HadithMain getHadithMainWithHadithNo(int hadithNo) {
         HadithMain hadithMain = new HadithMain();
         QueryBuilder<HadithMain, Integer> hadithMainQueryBuilder = getHelper().getHadithMainDao().queryBuilder();
         Where<HadithMain, Integer> whereHadithMain = hadithMainQueryBuilder.where();
         try {
-            whereHadithMain.eq("id", hadithId);
+            whereHadithMain.eq("hadithNo", hadithNo);
             hadithMain = whereHadithMain.query().get(0);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -359,8 +359,23 @@ public class DbManager {
         return entity.getStatusBengali();
     }
 
-    public HadithMainInfo getHadithInformationForHadith(int hadithId) {
-        HadithMain main = getHadithMainWithId(hadithId);
+    public String getHadithExplanation(int hadithId) {
+        List<HadithExplanation> explanations = new ArrayList<>();
+        QueryBuilder<HadithExplanation, Integer> qb = getHelper().getHadithExplanationDao().queryBuilder();
+        Where<HadithExplanation, Integer> where = qb.where();
+        try {
+            where.eq("hadithId", hadithId);
+            explanations = where.query();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        if (explanations == null || explanations.size() == 0)
+            return "";
+        return explanations.get(0).getExplanation();
+    }
+
+    public HadithMainInfo getHadithInformationForHadith(int hadithNo) {
+        HadithMain main = getHadithMainWithHadithNo(hadithNo);
 
         HadithMainInfo mainInfo = new HadithMainInfo();
         mainInfo.setId(main.getId());
@@ -379,6 +394,7 @@ public class DbManager {
         mainInfo.setHadithArabic(main.getHadithArabic());
         mainInfo.setHadithBengali(main.getHadithBengali());
         mainInfo.setHadithEnglish(main.getHadithEnglish());
+        mainInfo.setHadithExplanation(getHadithExplanation(main.getId()));
         mainInfo.setNote(main.getNote());
         mainInfo.setCheckStatus(main.getCheckStatus());
 

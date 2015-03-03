@@ -5,6 +5,10 @@ package com.hadithbd.banglahadith.util;
  */
 public class Constants {
 
+    public static final String LOCALE_BENGALI = "bengali";
+
+    public static final String LOCALE_ARABIC = "arabic";
+
     public static final String FONT_FOLDER_LOCATION = "fonts/";
 
     public static final String FONT_NAME_BANGLA = "solaimanlipinormal.ttf";
