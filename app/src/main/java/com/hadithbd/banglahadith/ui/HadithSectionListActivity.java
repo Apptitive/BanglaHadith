@@ -2,13 +2,14 @@ package com.hadithbd.banglahadith.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import com.hadithbd.banglahadith.R;
 import com.hadithbd.banglahadith.adapters.HadithSectionListAdapter;
+import com.hadithbd.banglahadith.bangla.UtilBanglaSupport;
 import com.hadithbd.banglahadith.database.DbManager;
 import com.hadithbd.banglahadith.util.Constants;
 import com.hadithbd.banglahadith.viewmodel.HadithBookSectionInfo;
@@ -25,8 +26,6 @@ public class HadithSectionListActivity extends BaseActivity
     private RecyclerView mRecyclerView;
 
     private HadithSectionListAdapter mHadithDetailListAdapter;
-    private Toolbar mToolbar;
-
     private int mBookId;
     private List<HadithBookSectionInfo> mHadithBookSectionInfoList;
     private String mBookTitle;
@@ -43,17 +42,9 @@ public class HadithSectionListActivity extends BaseActivity
         setHomeBackground();
         initViews();
 
-
-        setUpToolbar();
+        setupActionBar();
 
         initRecyclerAdapter();
-    }
-
-    private void setUpToolbar() {
-      //  mToolbar.setTitle(UtilBanglaSupport.getBanglaSpannableString(mBookTitle));
-        mToolbar.setTitleTextColor(getResources().getColor(R.color.hadith_detail_title_color));
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void getMessageFromBundle() {
@@ -75,7 +66,13 @@ public class HadithSectionListActivity extends BaseActivity
 
     private void initViews() {
         mRecyclerView = (RecyclerView) findViewById(R.id.hadith_detail_recycler_view);
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+    }
+
+    public void setupActionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle(UtilBanglaSupport.getBanglaSpannableString(""));
+        actionBar.setSubtitle(UtilBanglaSupport.getBanglaSpannableString(""));
+        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
     @Override

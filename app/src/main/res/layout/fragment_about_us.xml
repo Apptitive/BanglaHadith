@@ -6,9 +6,6 @@
     android:orientation="vertical"
     tools:context="com.hadithbd.banglahadith.ui.AboutUsActivity">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
 
     <TextView
         android:layout_width="match_parent"

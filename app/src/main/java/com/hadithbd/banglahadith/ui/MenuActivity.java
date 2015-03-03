@@ -2,7 +2,6 @@ package com.hadithbd.banglahadith.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 
@@ -16,25 +15,14 @@ public class MenuActivity extends BaseActivity {
 
     private int mMenuId;
 
-    private Toolbar mToolbar;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
-
         initMessageFromBundle();
 
-        initToolbar();
-
         addMenuFragmentToThisLayout();
-    }
-
-    private void initToolbar() {
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void addMenuFragmentToThisLayout() {
