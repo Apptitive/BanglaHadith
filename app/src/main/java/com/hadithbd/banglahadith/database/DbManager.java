@@ -15,6 +15,7 @@ import com.hadithbd.banglahadith.database.tables.hadith.HadithPublisher;
 import com.hadithbd.banglahadith.database.tables.hadith.HadithSection;
 import com.hadithbd.banglahadith.database.tables.hadith.HadithStatus;
 import com.hadithbd.banglahadith.database.tables.hadith.RabiHadith;
+import com.hadithbd.banglahadith.viewmodel.BookContentTitleInfo;
 import com.hadithbd.banglahadith.viewmodel.BookInfo;
 import com.hadithbd.banglahadith.viewmodel.BookTypeInfo;
 import com.hadithbd.banglahadith.viewmodel.HadithBookChapterInfo;
@@ -183,7 +184,7 @@ public class DbManager {
         return hadithBookList;
     }
 
-    public HadithBook getHadithBook(int hadithBookId){
+    public HadithBook getHadithBook(int hadithBookId) {
         HadithBook entity = new HadithBook();
         QueryBuilder<HadithBook, Integer> qb = getHelper().getHadithBookDao().queryBuilder();
         Where<HadithBook, Integer> where = qb.where();
@@ -196,7 +197,7 @@ public class DbManager {
         return entity;
     }
 
-    public List<HadithChapter> getHadithChaptersForBook(int bookId){
+    public List<HadithChapter> getHadithChaptersForBook(int bookId) {
         List<HadithChapter> chapterList = new ArrayList<>();
         QueryBuilder<HadithChapter, Integer> qb = getHelper().getHadithChapterDao().queryBuilder();
         Where<HadithChapter, Integer> where = qb.where();
@@ -208,7 +209,8 @@ public class DbManager {
         }
         return chapterList;
     }
-    public List<HadithBookChapterInfo> getHadithBookChapterInfo(int bookId){
+
+    public List<HadithBookChapterInfo> getHadithBookChapterInfo(int bookId) {
         List<HadithChapter> chapterList = getHadithChaptersForBook(bookId);
         List<HadithBookChapterInfo> hadithBookChapterInfoList = new ArrayList<>();
 
@@ -222,7 +224,7 @@ public class DbManager {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-            hadithBookChapterInfoList.add(new HadithBookChapterInfo(chapter.getId(),chapter.getNameBengali(),hadithCount));
+            hadithBookChapterInfoList.add(new HadithBookChapterInfo(chapter.getId(), chapter.getNameBengali(), hadithCount));
         }
 
         return hadithBookChapterInfoList;
@@ -343,7 +345,7 @@ public class DbManager {
         return entity;
     }
 
-    public String getHadithStatusBengali(int statusId){
+    public String getHadithStatusBengali(int statusId) {
         HadithStatus entity = new HadithStatus();
         QueryBuilder<HadithStatus, Integer> qb = getHelper().getHadithStatusDao().queryBuilder();
         Where<HadithStatus, Integer> where = qb.where();
@@ -379,10 +381,10 @@ public class DbManager {
         mainInfo.setNote(main.getNote());
         mainInfo.setCheckStatus(main.getCheckStatus());
 
-    return mainInfo;
-}
+        return mainInfo;
+    }
 
-    public List<BookTypeInfo> getAllBookTypeInfo(){
+    public List<BookTypeInfo> getAllBookTypeInfo() {
         List<BookType> bookTypeList = getAllBookTypes();
         List<BookTypeInfo> bookTypeInfoList = new ArrayList<>();
 
@@ -397,13 +399,13 @@ public class DbManager {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-            bookTypeInfoList.add(new BookTypeInfo(bookType.getId(),bookType.getCategoryName(),bookCount));
+            bookTypeInfoList.add(new BookTypeInfo(bookType.getId(), bookType.getCategoryName(), bookCount));
         }
 
         return bookTypeInfoList;
     }
 
-    public List<BookName> getAllBookNamesForTypeId(int typeId){
+    public List<BookName> getAllBookNamesForTypeId(int typeId) {
         List<BookName> mainList = new ArrayList<>();
         QueryBuilder<BookName, Integer> qb = getHelper().getBookNameDao().queryBuilder();
         Where<BookName, Integer> where = qb.where();
@@ -415,7 +417,8 @@ public class DbManager {
         }
         return mainList;
     }
-    public List<BookInfo> getAllBookInfoForType(int typeId){
+
+    public List<BookInfo> getAllBookInfoForType(int typeId) {
         List<BookName> bookList = getAllBookNamesForTypeId(typeId);
         List<BookInfo> bookInfoList = new ArrayList<>();
 
@@ -430,11 +433,31 @@ public class DbManager {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-            bookInfoList.add(new BookInfo(book.getId(),book.getNameBengali(),questionCount));
+            bookInfoList.add(new BookInfo(book.getId(), book.getNameBengali(), questionCount));
         }
 
         return bookInfoList;
     }
+
+    public List<BookContentTitleInfo> getContentTitleInfoForBook(int bookId) {
+        List<BookContent> contentList = new ArrayList<>();
+        List<BookContentTitleInfo> contentInfoList = new ArrayList<>();
+        QueryBuilder<BookContent, Integer> qb = getHelper().getBookContentDao().queryBuilder();
+        Where<BookContent, Integer> where = qb.where();
+        try {
+            where.eq("bookId", bookId);
+            contentList = where.query();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        for (BookContent content : contentList) {
+            contentInfoList.add(new BookContentTitleInfo(content.getId(), content.getQuestion()));
+        }
+        return contentInfoList;
+    }
+
+
 }
 
 
