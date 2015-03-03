@@ -2,7 +2,7 @@ package com.hadithbd.banglahadith.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -15,7 +15,8 @@ import com.hadithbd.banglahadith.viewmodel.HadithBookChapterInfo;
 
 import java.util.List;
 
-public class HadithChapterListActivity extends BaseActivity implements HadithChapterListAdapter.HadithChapterItemClickListener {
+public class HadithChapterListActivity extends BaseActivity
+        implements HadithChapterListAdapter.HadithChapterItemClickListener {
 
     public static final String TAG = HadithChapterListActivity.class.getSimpleName();
 
@@ -67,8 +68,7 @@ public class HadithChapterListActivity extends BaseActivity implements HadithCha
     private void initRecyclerAdapter() {
         mRecyclerView.setHasFixedSize(true);
         mHadithDetailListAdapter = new HadithChapterListAdapter(this, mHadithBookChapterInfoList);
-        //mRecyclerView.setLayoutManager(new GridLayoutManager(this, NUMBER_OF_COLUMNS));
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this, NUMBER_OF_COLUMNS));
         mHadithDetailListAdapter.setmHadithChapterItemClickListener(this);
         mRecyclerView.setAdapter(mHadithDetailListAdapter);
     }

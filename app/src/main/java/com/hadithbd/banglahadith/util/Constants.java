@@ -23,4 +23,6 @@ public class Constants {
 
     public static final String HADITH_TITLE="hadith_title";
 
+    public static final String BOOK_TYPE_ID = "book_type_id";
+
 }

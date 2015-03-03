@@ -19,8 +19,6 @@ import com.hadithbd.banglahadith.database.CsvToDbHelper;
 import com.hadithbd.banglahadith.database.DbHelper;
 import com.hadithbd.banglahadith.database.DbManager;
 import com.hadithbd.banglahadith.viewmodel.BookInfo;
-import com.hadithbd.banglahadith.viewmodel.BookTypeInfo;
-import com.hadithbd.banglahadith.viewmodel.HadithBookChapterInfo;
 
 import java.util.List;
 
@@ -187,7 +185,7 @@ public class MainActivity extends ActionBarActivity {
         mLayoutAllBooks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(), BookListActivity.class));
+                startActivity(new Intent(getBaseContext(), BookCategoryListActivity.class));
             }
         });
 
@@ -215,6 +213,8 @@ public class MainActivity extends ActionBarActivity {
         iconHome.setGravity(Gravity.TOP);
 
         Drawable[] drawables = new Drawable[]{blueLayer, iconCaliography, whiteLayer, iconBismillah,iconHome};
+
+
 
 
         LayerDrawable layerDrawable = new LayerDrawable(drawables);

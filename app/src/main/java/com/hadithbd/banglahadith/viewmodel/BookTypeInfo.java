@@ -18,7 +18,7 @@ public class BookTypeInfo {
         return typeId;
     }
 
-    public String getCategoryNae() {
+    public String getCategoryName() {
         return categoryName;
     }
 

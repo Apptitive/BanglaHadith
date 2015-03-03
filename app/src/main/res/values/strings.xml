@@ -40,4 +40,6 @@
     <string name="communication_website">www.hadithbd.com</string>
     <string name="developed_by">apptitive</string>
     <string name="copyright_text">All right reserved</string>
+    <string name="title_activity_book_category_list">BookCategoryListActivity</string>
+    <string name="book_category_preffix_text">বইঃ</string>
 </resources>
