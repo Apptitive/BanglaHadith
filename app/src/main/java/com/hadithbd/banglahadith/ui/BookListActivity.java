@@ -46,7 +46,7 @@ public class BookListActivity extends BaseActivity implements BookListAdapter.Bo
             Bundle data = getIntent().getExtras();
             if (data != null) {
                 mBookTypeId = data.getInt(Constants.BOOK_TYPE_ID);
-                Log.e("TAG", "mBookTypeId id: " + mBookTypeId);
+                Log.i("TAG", "mBookTypeId id: " + mBookTypeId);
             }
         }
 
