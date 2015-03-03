@@ -8,6 +8,7 @@ import android.text.style.RelativeSizeSpan;
 import android.util.Log;
 
 import com.hadithbd.banglahadith.BanglaHadithApp;
+import com.hadithbd.banglahadith.util.Constants;
 import com.hadithbd.banglahadith.util.Utils;
 
 import androidbangladesh.bengali.support.BengaliUnicodeString;
@@ -50,13 +51,28 @@ public class UtilBanglaSupport {
         }
         if (Utils.IS_BUILD_ABOVE_HONEYCOMB) {
             SpannableString spannableString = new SpannableString(banglaText);
-            if (Utils.isLocaleAvailable("bengali")) {
+            if (Utils.isLocaleAvailable(Constants.LOCALE_BENGALI)) {
                 TypefaceSpan span = new TypefaceSpan(BanglaHadithApp.typefaceBangla);
                 spannableString.setSpan(span, 0, spannableString.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             }
             return spannableString;
         }
         return AndroidCustomFontSupport.getCorrectedBengaliFormat(banglaText, BanglaHadithApp.typefaceBangla, -1);
+    }
+
+    public static SpannableString getArabicSpannableString(String arabicText) {
+        if (arabicText == null) {
+            return new SpannableString("");
+        }
+        if (Utils.IS_BUILD_ABOVE_HONEYCOMB) {
+            SpannableString spannableString = new SpannableString(arabicText);
+            if (Utils.isLocaleAvailable(Constants.LOCALE_ARABIC)) {
+                TypefaceSpan span = new TypefaceSpan(BanglaHadithApp.typefaceArabic);
+                spannableString.setSpan(span, 0, spannableString.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            }
+            return spannableString;
+        }
+        return AndroidCustomFontSupport.getCorrectedBengaliFormat(arabicText, BanglaHadithApp.typefaceArabic, -1);
     }
 
     /**
