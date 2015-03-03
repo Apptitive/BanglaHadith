@@ -3,14 +3,14 @@ package com.hadithbd.banglahadith.viewmodel;
 /**
  * Created by rayhan on 03/02/2015.
  */
-public class HadithBookChapterInfo {
+public class HadithBookSectionInfo {
     private int chapterId;
-    private String chapterName;
+    private String sectionName;
     private long hadithCount;
 
-    public HadithBookChapterInfo(int chapterId, String chapterName, long hadithCount) {
+    public HadithBookSectionInfo(int chapterId, String sectionName, long hadithCount) {
         this.chapterId = chapterId;
-        this.chapterName = chapterName;
+        this.sectionName = sectionName;
         this.hadithCount = hadithCount;
     }
 
@@ -22,7 +22,7 @@ public class HadithBookChapterInfo {
         return chapterId;
     }
 
-    public String getChapterName() {
-        return chapterName;
+    public String getSectionName() {
+        return sectionName;
     }
 }

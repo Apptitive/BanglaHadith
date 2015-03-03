@@ -53,7 +53,7 @@ public class HadithListAdapter extends RecyclerView.Adapter<HadithListAdapter.Vi
         final HadithBookInfo bookInfo = mBookInfoList.get(position);
 
         viewHolder.hadithName.setBanglaText(bookInfo.getBookName());
-        viewHolder.hadithChapterCount.setBanglaText(mChapter + " " + String.valueOf(bookInfo.getChapterCount()) + mCountSuffix);
+        viewHolder.hadithChapterCount.setBanglaText(mChapter + " " + String.valueOf(bookInfo.getSectionCount()) + mCountSuffix);
         viewHolder.hadithCount.setBanglaText(mHadith + " " + String.valueOf(bookInfo.getHadithCount()) + mCountSuffix);
         viewHolder.hadithItemColor.setBackgroundColor(BanglaHadithApp.itemStripColors.get(position % 8));
         viewHolder.itemView.setTag(position);

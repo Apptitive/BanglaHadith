@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.hadithbd.banglahadith.R;
-import com.hadithbd.banglahadith.viewmodel.HadithBookChapterInfo;
+import com.hadithbd.banglahadith.viewmodel.HadithBookSectionInfo;
 import com.hadithbd.banglahadith.views.BanglaTextView;
 
 import java.util.List;
@@ -19,12 +19,12 @@ public class HadithChapterListAdapter extends RecyclerView.Adapter<HadithChapter
         implements View.OnClickListener {
 
     private String mHadith, mCountSuffix;
-    private List<HadithBookChapterInfo> mHadithBookChapterInfoList;
+    private List<HadithBookSectionInfo> mHadithBookSectionInfoList;
 
     private HadithChapterItemClickListener mHadithChapterItemClickListener;
 
-    public HadithChapterListAdapter(Context context,List<HadithBookChapterInfo> hadithBookChapterInfoList) {
-        mHadithBookChapterInfoList = hadithBookChapterInfoList;
+    public HadithChapterListAdapter(Context context,List<HadithBookSectionInfo> hadithBookSectionInfoList) {
+        mHadithBookSectionInfoList = hadithBookSectionInfoList;
         mHadith = context.getResources().getString(R.string.hadith_bangla);
         mCountSuffix = context.getResources().getString(R.string.text_count_suffix);
     }
@@ -45,17 +45,17 @@ public class HadithChapterListAdapter extends RecyclerView.Adapter<HadithChapter
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
-        final HadithBookChapterInfo hadithBookChapterInfo = mHadithBookChapterInfoList.get(position);
+        final HadithBookSectionInfo hadithBookSectionInfo = mHadithBookSectionInfoList.get(position);
 
-        viewHolder.hadithChapterId.setBanglaText(String.valueOf(hadithBookChapterInfo.getChapterId()));
-        viewHolder.hadithChapterName.setBanglaText(hadithBookChapterInfo.getChapterName());
-        viewHolder.hadithCount.setBanglaText(mHadith + " " + String.valueOf(hadithBookChapterInfo.getHadithCount() + mCountSuffix));
+        viewHolder.hadithChapterId.setBanglaText(String.valueOf(hadithBookSectionInfo.getChapterId()));
+        viewHolder.hadithChapterName.setBanglaText(hadithBookSectionInfo.getSectionName());
+        viewHolder.hadithCount.setBanglaText(mHadith + " " + String.valueOf(hadithBookSectionInfo.getHadithCount() + mCountSuffix));
         viewHolder.itemView.setTag(position);
     }
 
     @Override
     public int getItemCount() {
-        return mHadithBookChapterInfoList != null ? mHadithBookChapterInfoList.size() : 0;
+        return mHadithBookSectionInfoList != null ? mHadithBookSectionInfoList.size() : 0;
     }
 
     @Override

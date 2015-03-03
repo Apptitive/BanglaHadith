@@ -11,7 +11,7 @@ import com.hadithbd.banglahadith.R;
 import com.hadithbd.banglahadith.adapters.HadithChapterListAdapter;
 import com.hadithbd.banglahadith.database.DbManager;
 import com.hadithbd.banglahadith.util.Constants;
-import com.hadithbd.banglahadith.viewmodel.HadithBookChapterInfo;
+import com.hadithbd.banglahadith.viewmodel.HadithBookSectionInfo;
 
 import java.util.List;
 
@@ -28,7 +28,7 @@ public class HadithChapterListActivity extends BaseActivity
     private Toolbar mToolbar;
 
     private int mBookId;
-    private List<HadithBookChapterInfo> mHadithBookChapterInfoList;
+    private List<HadithBookSectionInfo> mHadithBookSectionInfoList;
     private String mBookTitle;
 
     @Override
@@ -38,7 +38,7 @@ public class HadithChapterListActivity extends BaseActivity
 
         getMessageFromBundle();
 
-        mHadithBookChapterInfoList = DbManager.getInstance().getHadithBookChapterInfo(mBookId);
+        mHadithBookSectionInfoList = DbManager.getInstance().getHadithBookSectionInfo(mBookId);
 
         setHomeBackground();
         initViews();
@@ -67,7 +67,7 @@ public class HadithChapterListActivity extends BaseActivity
 
     private void initRecyclerAdapter() {
         mRecyclerView.setHasFixedSize(true);
-        mHadithDetailListAdapter = new HadithChapterListAdapter(this, mHadithBookChapterInfoList);
+        mHadithDetailListAdapter = new HadithChapterListAdapter(this, mHadithBookSectionInfoList);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, NUMBER_OF_COLUMNS));
         mHadithDetailListAdapter.setmHadithChapterItemClickListener(this);
         mRecyclerView.setAdapter(mHadithDetailListAdapter);
@@ -80,10 +80,10 @@ public class HadithChapterListActivity extends BaseActivity
 
     @Override
     public void onHadithChapterItemClicked(int position) {
-        final HadithBookChapterInfo hadithBookChapterInfo = mHadithBookChapterInfoList.get(position);
+        final HadithBookSectionInfo hadithBookSectionInfo = mHadithBookSectionInfoList.get(position);
 
         Intent intent = new Intent(HadithChapterListActivity.this, HadithDetailActivity.class);
-        intent.putExtra(Constants.HADITH_CHAPTER_ID, hadithBookChapterInfo.getChapterId());
+        intent.putExtra(Constants.HADITH_CHAPTER_ID, hadithBookSectionInfo.getChapterId());
         startActivity(intent);
     }
 }
