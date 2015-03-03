@@ -16,7 +16,7 @@ public class AboutUsFragment extends Fragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.book_chapter_list_item, container, false);
+        return inflater.inflate(R.layout.fragment_about_us, container, false);
     }
 
     @Override

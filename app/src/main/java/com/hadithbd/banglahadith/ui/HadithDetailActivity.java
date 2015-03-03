@@ -7,13 +7,22 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.hadithbd.banglahadith.R;
+import com.hadithbd.banglahadith.bangla.UtilBanglaSupport;
+import com.hadithbd.banglahadith.database.DbManager;
+import com.hadithbd.banglahadith.viewmodel.HadithMainInfo;
+import com.hadithbd.banglahadith.views.BanglaTextView;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class HadithDetailActivity extends BaseActivity implements View.OnClickListener {
 
+    private HadithMainInfo hadithInView;
     private HashMap<Integer, View> tabToMarkerMap;
     private View currentVisibleTabMarker;
+    private TextView textViewChapter;
+    private TextView textViewHadith;
+    private List<Integer> hadithIdList;
 
     private void initTabMarkers() {
         tabToMarkerMap = new HashMap<>();
@@ -45,13 +54,34 @@ public class HadithDetailActivity extends BaseActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hadith_detail);
+        DbManager.init(this);
+
+        hadithIdList = DbManager.getInstance().getHadithIdListForChapter(162);
+        hadithInView = DbManager.getInstance().getHadithInformationForHadith(hadithIdList.get(0));
+
         setHomeBackground();
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setBackgroundColor(getResources().getColor(R.color.black_20));
+        toolbar.setTitle(UtilBanglaSupport.getBanglaSpannableString(hadithInView.getBookName()));
+        toolbar.setTitleTextColor(getResources().getColor(R.color.hadith_detail_title_color));
+        toolbar.setSubtitle(UtilBanglaSupport.getBanglaSpannableString(hadithInView.getSectionBengali()));
+        toolbar.setSubtitleTextColor(getResources().getColor(android.R.color.white));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         initTabMarkers();
+
+        textViewChapter = (TextView) findViewById(R.id.textView_chapter_name);
+        textViewChapter.setText(UtilBanglaSupport.getBanglaSpannableString(hadithInView.getChapterBengali()));
+        textViewHadith = (TextView) findViewById(R.id.textView_hadith);
+        textViewHadith.setText(UtilBanglaSupport.getBanglaSpannableString(hadithInView.getHadithBengali()));
+        BanglaTextView footNote = (BanglaTextView) findViewById(R.id.textView_footnote);
+        footNote.setBanglaText(hadithInView.getNote());
+        BanglaTextView hadithStatus = (BanglaTextView) findViewById(R.id.textView_hadith_status);
+        hadithStatus.setBanglaText(hadithInView.getStatusBengali());
+        BanglaTextView rabiName = (BanglaTextView) findViewById(R.id.textView_rabi_name);
+        rabiName.setBanglaText(hadithInView.getRabiBengali());
     }
 
     @Override
