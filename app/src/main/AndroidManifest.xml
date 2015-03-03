@@ -51,7 +51,7 @@
             android:parentActivityName=".ui.BookListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.BookListActivity" />
+                android:value="ui.BookListActivity" />
         </activity>
         <activity
             android:name=".ui.BookListActivity"
@@ -59,7 +59,7 @@
             android:parentActivityName=".ui.BookCategoryListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.hadithbd.banglahadith.ui.BookCategoryListActivity" />
+                android:value="ui.BookCategoryListActivity" />
         </activity>
         <activity
             android:name=".ui.MenuActivity"
