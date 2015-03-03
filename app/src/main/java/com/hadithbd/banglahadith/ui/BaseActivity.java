@@ -5,22 +5,32 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.widget.Toast;
 
 import com.hadithbd.banglahadith.R;
+import com.hadithbd.banglahadith.bangla.UtilBanglaSupport;
 import com.hadithbd.banglahadith.util.Constants;
 import com.hadithbd.banglahadith.util.Utils;
+
+import java.lang.reflect.Field;
 
 /**
  * Created by Sharif on 2/28/2015.
  */
 public class BaseActivity extends ActionBarActivity {
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getOverflowMenu();
+    }
 
     public void setHomeBackground() {
         BitmapDrawable whiteLayer = (BitmapDrawable) getResources().getDrawable(R.drawable.home_white_layer);
@@ -30,6 +40,19 @@ public class BaseActivity extends ActionBarActivity {
         Drawable[] drawables = new Drawable[]{blueLayer, iconCaliography, whiteLayer};
         LayerDrawable layerDrawable = new LayerDrawable(drawables);
         setLayerToBackground(layerDrawable);
+    }
+
+    private void getOverflowMenu() {
+        try {
+            ViewConfiguration config = ViewConfiguration.get(this);
+            Field menuKeyField = ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
+            if (menuKeyField != null) {
+                menuKeyField.setAccessible(true);
+                menuKeyField.setBoolean(config, false);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -47,12 +70,18 @@ public class BaseActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        menu.findItem(R.id.action_latest_update).setTitle(UtilBanglaSupport.getBanglaSpannableString(getString(R.string.action_latest_update)));
+        menu.findItem(R.id.action_favorite).setTitle(UtilBanglaSupport.getBanglaSpannableString(getString(R.string.action_favorite)));
+        menu.findItem(R.id.action_data_sync).setTitle(UtilBanglaSupport.getBanglaSpannableString(getString(R.string.action_data_sync)));
+        menu.findItem(R.id.action_donation).setTitle(UtilBanglaSupport.getBanglaSpannableString(getString(R.string.action_donation)));
+        menu.findItem(R.id.action_settings).setTitle(UtilBanglaSupport.getBanglaSpannableString(getString(R.string.action_settings)));
+        menu.findItem(R.id.action_about_us).setTitle(UtilBanglaSupport.getBanglaSpannableString(getString(R.string.action_about_us)));
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId()!=android.R.id.home){
+        if (item.getItemId() != android.R.id.home) {
             Intent intent = new Intent(this, MenuActivity.class);
             intent.putExtra(Constants.MENU_ITEM_ID, item.getItemId());
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
