@@ -18,9 +18,8 @@ import com.hadithbd.banglahadith.R;
 import com.hadithbd.banglahadith.database.CsvToDbHelper;
 import com.hadithbd.banglahadith.database.DbHelper;
 import com.hadithbd.banglahadith.database.DbManager;
+import com.hadithbd.banglahadith.viewmodel.BookContentInfo;
 import com.hadithbd.banglahadith.viewmodel.BookInfo;
-
-import java.util.List;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -70,13 +69,15 @@ public class MainActivity extends ActionBarActivity {
             mDatabase.endTransaction();
         }
 
+        /*BookContentInfo info = DbManager.getInstance().getBookContentInfo(108);
+        Log.e("Content Info ", info.getBookName() + " _ " + info.getSectionName() + " _ " + info.getQuestion() + " _ " + info.getAnswer() + " _ " + info.getBookName() + " _ ");
         List<BookInfo> list = DbManager.getInstance().getAllBookInfoForType(7);
         for (BookInfo book : list) {
             Log.e("Chapter info ", book.getBookId() + " _ " + book.getBookName() + " _ " + book.getQuestionCount());
         }
 
 
-        /*List<BookTypeInfo> list = DbManager.getInstance().getAllBookTypeInfo();
+        List<BookTypeInfo> list = DbManager.getInstance().getAllBookTypeInfo();
         for (BookTypeInfo book : list) {
             Log.e("Chapter info ", book.getTypeId() + " _ " + book.getCategoryNae() + " _ " + book.getBookCount());
         }
@@ -212,7 +213,7 @@ public class MainActivity extends ActionBarActivity {
         iconHome.setGravity(Gravity.CENTER_HORIZONTAL);
         iconHome.setGravity(Gravity.TOP);
 
-        Drawable[] drawables = new Drawable[]{blueLayer, iconCaliography, whiteLayer, iconBismillah,iconHome};
+        Drawable[] drawables = new Drawable[]{blueLayer, iconCaliography, whiteLayer, iconBismillah, iconHome};
 
 
 
