@@ -2,8 +2,8 @@ package com.hadithbd.banglahadith.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.widget.PopupMenu;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -87,14 +87,10 @@ public class HadithDetailActivity extends BaseActivity implements View.OnClickLi
 
         setHomeBackground();
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setBackgroundColor(getResources().getColor(R.color.black_20));
-        toolbar.setTitle(UtilBanglaSupport.getBanglaSpannableString(hadithInView.getBookName()));
-        toolbar.setTitleTextColor(getResources().getColor(R.color.hadith_detail_title_color));
-        toolbar.setSubtitle(UtilBanglaSupport.getBanglaSpannableString(hadithInView.getSectionBengali()));
-        toolbar.setSubtitleTextColor(getResources().getColor(android.R.color.white));
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle(UtilBanglaSupport.getBanglaSpannableString(hadithInView.getBookName()));
+        actionBar.setSubtitle(UtilBanglaSupport.getBanglaSpannableString(hadithInView.getSectionBengali()));
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         initTabMarkers();
 
@@ -129,7 +125,7 @@ public class HadithDetailActivity extends BaseActivity implements View.OnClickLi
                 case R.id.tab_text_arabic:
                     textViewHadith.setText(UtilBanglaSupport.getArabicSpannableString(hadithInView.getHadithArabic()));
                     break;
-                case R.id.tab_hadith_explanation:
+                case R.id.tab_text_hadith_explanation:
                     textViewHadith.setText(UtilBanglaSupport.getBanglaSpannableString(hadithInView.getHadithExplanation()));
                     break;
             }
