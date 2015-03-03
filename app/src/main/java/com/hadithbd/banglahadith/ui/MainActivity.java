@@ -18,6 +18,8 @@ import com.hadithbd.banglahadith.R;
 import com.hadithbd.banglahadith.database.CsvToDbHelper;
 import com.hadithbd.banglahadith.database.DbHelper;
 import com.hadithbd.banglahadith.database.DbManager;
+import com.hadithbd.banglahadith.viewmodel.HadithBookInfo;
+import com.hadithbd.banglahadith.viewmodel.HadithMainInfo;
 
 import java.util.List;
 
@@ -73,6 +75,8 @@ public class MainActivity extends ActionBarActivity {
         for (Integer i : idList) {
             Log.e("Hadith Id", "" + i);
         }
+        HadithMainInfo info = DbManager.getInstance().getHadithInformationForHadith(idList.get(0));
+        Log.e("called","");
 
         /*BookContentInfo info = DbManager.getInstance().getBookContentInfo(108);
         Log.e("Content Info ", info.getBookName() + " _ " + info.getSectionName() + " _ " + info.getQuestion() + " _ " + info.getAnswer() + " _ " + info.getBookName() + " _ ");
