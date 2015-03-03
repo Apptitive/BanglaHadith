@@ -23,6 +23,7 @@
     <color name="footer_text_color">@color/chocolate</color>
     <color name="hadith_detail_title_color">@color/yellow</color>
     <color name="hadith_detail_subtitle_color">@android:color/white</color>
+    <color name="book_chapter_prefix_color">@color/yellow</color>
 
     <array name="hadith_item_strip_colors">
         <item>#29abe2</item>

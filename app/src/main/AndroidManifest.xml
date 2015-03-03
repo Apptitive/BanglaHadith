@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.HadithChapterListActivity"
+            android:name=".ui.HadithSectionListActivity"
             android:label="@string/title_activity_hadith_detail_list"
             android:parentActivityName=".ui.HadithListActivity" >
             <meta-data
@@ -40,26 +40,27 @@
         <activity
             android:name=".ui.HadithDetailActivity"
             android:label="@string/title_activity_hadith_detail"
-            android:parentActivityName=".ui.HadithChapterListActivity" >
+            android:parentActivityName=".ui.HadithSectionListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.HadithChapterListActivity" />
+                android:value=".ui.HadithSectionListActivity" />
         </activity>
         <activity
-            android:name=".ui.BookChapterListActivity"
+            android:name=".ui.BookQuestionListActivity"
             android:label="@string/title_activity_book_chapter_list"
             android:parentActivityName=".ui.BookListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="ui.BookListActivity" />
+                android:value=".ui.BookListActivity" />
         </activity>
         <activity
             android:name=".ui.BookListActivity"
             android:label="@string/title_activity_book_list"
+            android:launchMode="singleTop"
             android:parentActivityName=".ui.BookCategoryListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="ui.BookCategoryListActivity" />
+                android:value=".ui.BookCategoryListActivity" />
         </activity>
         <activity
             android:name=".ui.MenuActivity"
@@ -71,7 +72,7 @@
             android:parentActivityName=".ui.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.hadithbd.banglahadith.ui.MainActivity" />
+                android:value=".ui.MainActivity" />
         </activity>
     </application>
 

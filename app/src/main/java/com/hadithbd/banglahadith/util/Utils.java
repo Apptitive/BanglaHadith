@@ -57,7 +57,7 @@ public class Utils {
         }
     }
 
-    public static Spannable getColoredSpannable(String text, int colorCode) {
+    public static Spannable getColoredSpannableWithBanglaSupport(String text, int colorCode) {
         Spannable spannable = new SpannableString(text);
         spannable.setSpan(new ForegroundColorSpan(colorCode), 0, spannable.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         return spannable;

@@ -8,7 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import com.hadithbd.banglahadith.R;
-import com.hadithbd.banglahadith.adapters.BookChapterListAdapter;
+import com.hadithbd.banglahadith.adapters.BookQuestionListAdapter;
 import com.hadithbd.banglahadith.database.DbManager;
 import com.hadithbd.banglahadith.util.Constants;
 import com.hadithbd.banglahadith.viewmodel.BookContentTitleInfo;
@@ -16,13 +16,13 @@ import com.hadithbd.banglahadith.views.SimpleItemDecoration;
 
 import java.util.List;
 
-public class BookChapterListActivity extends BaseActivity
-        implements BookChapterListAdapter.BookChapterItemClickListener{
+public class BookQuestionListActivity extends BaseActivity
+        implements BookQuestionListAdapter.BookQuestionItemClickListener {
 
-    public static final String TAG = BookChapterListActivity.class.getSimpleName();
+    public static final String TAG = BookQuestionListActivity.class.getSimpleName();
     private Toolbar mToolbar;
 
-    private BookChapterListAdapter mBookChapterListAdapter;
+    private BookQuestionListAdapter mBookChapterListAdapter;
 
     private RecyclerView mRecyclerView;
 
@@ -32,8 +32,7 @@ public class BookChapterListActivity extends BaseActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_book_chapter_list);
-
+        setContentView(R.layout.activity_book_question_list);
         setHomeBackground();
 
         getMessageFromBundle();
@@ -42,11 +41,11 @@ public class BookChapterListActivity extends BaseActivity
 
         initViews();
 
-
-
-        initToolbar();
+        setUpToolbar();
 
         initRecyclerAdapter();
+
+
     }
 
     private void getMessageFromBundle() {
@@ -62,7 +61,7 @@ public class BookChapterListActivity extends BaseActivity
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
     }
 
-    private void initToolbar() {
+    private void setUpToolbar() {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
@@ -70,19 +69,19 @@ public class BookChapterListActivity extends BaseActivity
     private void initRecyclerAdapter() {
 
         mRecyclerView.setHasFixedSize(true);
+
         RecyclerView.ItemDecoration itemDecoration =
                 new SimpleItemDecoration(getResources().getDrawable(android.R.drawable.divider_horizontal_dark));
         mRecyclerView.addItemDecoration(itemDecoration);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-
-        mBookChapterListAdapter = new BookChapterListAdapter(this, mContentTitleInfoList);
+        mBookChapterListAdapter = new BookQuestionListAdapter(this, mContentTitleInfoList);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mBookChapterListAdapter.setBookChapterItemClickListener(this);
+        mBookChapterListAdapter.setBookQuestionItemClickListener(this);
         mRecyclerView.setAdapter(mBookChapterListAdapter);
     }
 
     @Override
-    public void onItemClicked(int position) {
+    public void onQuestionItemClicked(int position) {
 
     }
 }

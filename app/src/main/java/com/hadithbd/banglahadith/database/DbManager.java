@@ -19,7 +19,7 @@ import com.hadithbd.banglahadith.viewmodel.BookContentInfo;
 import com.hadithbd.banglahadith.viewmodel.BookContentTitleInfo;
 import com.hadithbd.banglahadith.viewmodel.BookInfo;
 import com.hadithbd.banglahadith.viewmodel.BookTypeInfo;
-import com.hadithbd.banglahadith.viewmodel.HadithBookChapterInfo;
+import com.hadithbd.banglahadith.viewmodel.HadithBookSectionInfo;
 import com.hadithbd.banglahadith.viewmodel.HadithBookInfo;
 import com.hadithbd.banglahadith.viewmodel.HadithMainInfo;
 import com.j256.ormlite.stmt.QueryBuilder;
@@ -198,37 +198,37 @@ public class DbManager {
         return entity;
     }
 
-    public List<HadithChapter> getHadithChaptersForBook(int bookId) {
-        List<HadithChapter> chapterList = new ArrayList<>();
-        QueryBuilder<HadithChapter, Integer> qb = getHelper().getHadithChapterDao().queryBuilder();
-        Where<HadithChapter, Integer> where = qb.where();
+    public List<HadithSection> getHadithSectionsForBook(int bookId) {
+        List<HadithSection> sectionList = new ArrayList<>();
+        QueryBuilder<HadithSection, Integer> qb = getHelper().getHadithSectionDao().queryBuilder();
+        Where<HadithSection, Integer> where = qb.where();
         try {
             where.eq("bookId", bookId);
-            chapterList = where.query();
+            sectionList = where.query();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return chapterList;
+        return sectionList;
     }
 
-    public List<HadithBookChapterInfo> getHadithBookChapterInfo(int bookId) {
-        List<HadithChapter> chapterList = getHadithChaptersForBook(bookId);
-        List<HadithBookChapterInfo> hadithBookChapterInfoList = new ArrayList<>();
+    public List<HadithBookSectionInfo> getHadithBookSectionInfo(int bookId) {
+        List<HadithSection> sectionList = getHadithSectionsForBook(bookId);
+        List<HadithBookSectionInfo> hadithBookSectionInfoList = new ArrayList<>();
 
-        for (HadithChapter chapter : chapterList) {
+        for (HadithSection section : sectionList) {
             long hadithCount = 0;
-            QueryBuilder<HadithMain, Integer> hadithainQueryBuilder = getHelper().getHadithMainDao().queryBuilder();
-            Where<HadithMain, Integer> whereHadithMain = hadithainQueryBuilder.where();
+            QueryBuilder<HadithMain, Integer> hadithMainQueryBuilder = getHelper().getHadithMainDao().queryBuilder();
+            Where<HadithMain, Integer> whereHadithMain = hadithMainQueryBuilder.where();
 
             try {
-                hadithCount = whereHadithMain.eq("chapterId", chapter.getId()).countOf();
+                hadithCount = whereHadithMain.eq("sectionId", section.getId()).countOf();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-            hadithBookChapterInfoList.add(new HadithBookChapterInfo(chapter.getId(), chapter.getNameBengali(), hadithCount));
+            hadithBookSectionInfoList.add(new HadithBookSectionInfo(section.getId(), section.getNameBengali(), hadithCount));
         }
 
-        return hadithBookChapterInfoList;
+        return hadithBookSectionInfoList;
     }
 
     public long getHadithCount() {
@@ -245,20 +245,20 @@ public class DbManager {
         List<HadithBookInfo> hadithBookInfoList = new ArrayList<>();
 
         for (HadithBook hadithBook : hadithBookList) {
-            long chapterCount = 0, hadithCount = 0;
-            QueryBuilder<HadithChapter, Integer> hadithChapterQueryBuilder = getHelper().getHadithChapterDao().queryBuilder();
-            Where<HadithChapter, Integer> whereHadithChapter = hadithChapterQueryBuilder.where();
+            long sectionCount = 0, hadithCount = 0;
+            QueryBuilder<HadithSection, Integer> qb = getHelper().getHadithSectionDao().queryBuilder();
+            Where<HadithSection, Integer> where = qb.where();
 
             QueryBuilder<HadithMain, Integer> hadithainQueryBuilder = getHelper().getHadithMainDao().queryBuilder();
             Where<HadithMain, Integer> whereHadithMain = hadithainQueryBuilder.where();
 
             try {
-                chapterCount = whereHadithChapter.eq("bookId", hadithBook.getId()).countOf();
+                sectionCount = where.eq("bookId", hadithBook.getId()).countOf();
                 hadithCount = whereHadithMain.eq("bookId", hadithBook.getId()).countOf();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-            hadithBookInfoList.add(new HadithBookInfo(hadithBook.getId(), hadithBook.getNameBengali(), chapterCount, hadithCount));
+            hadithBookInfoList.add(new HadithBookInfo(hadithBook.getId(), hadithBook.getNameBengali(), sectionCount, hadithCount));
         }
 
         return hadithBookInfoList;
