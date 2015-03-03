@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/black_20"
-    tools:context="com.hadithbd.banglahadith.ui.BookChapterListActivity">
+    tools:context="com.hadithbd.banglahadith.ui.BookCategoryListActivity">
 
     <include
         android:id="@+id/toolbar"
@@ -14,7 +14,6 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin" />
+        android:layout_margin="@dimen/vertical_margin_8dp" />
 
 </LinearLayout>

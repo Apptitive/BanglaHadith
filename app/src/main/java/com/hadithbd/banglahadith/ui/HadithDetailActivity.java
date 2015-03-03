@@ -79,7 +79,7 @@ public class HadithDetailActivity extends BaseActivity implements View.OnClickLi
             chapter_id = extras.getInt(Constants.HADITH_CHAPTER_ID);
         }
 
-        hadithIdList = DbManager.getInstance().getHadithIdListForChapter(chapter_id);
+        hadithIdList = DbManager.getInstance().getHadithNoListForChapter(chapter_id);
         if (hadithIdList == null || hadithIdList.isEmpty()) {
             return;
         }
@@ -130,7 +130,7 @@ public class HadithDetailActivity extends BaseActivity implements View.OnClickLi
                     textViewHadith.setText(UtilBanglaSupport.getArabicSpannableString(hadithInView.getHadithArabic()));
                     break;
                 case R.id.tab_hadith_explanation:
-                    textViewHadith.setText("");
+                    textViewHadith.setText(UtilBanglaSupport.getBanglaSpannableString(hadithInView.getHadithExplanation()));
                     break;
             }
             if (textViewChapter.getVisibility() == View.GONE) {

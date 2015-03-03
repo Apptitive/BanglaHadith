@@ -4,6 +4,9 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 
 import java.util.HashMap;
 import java.util.Locale;
@@ -16,16 +19,16 @@ public class Utils {
     private static final HashMap<Character, Character> digitsMap = new HashMap<>();
 
     static {
-        digitsMap.put('0', '০');
-        digitsMap.put('1', '১');
-        digitsMap.put('2', '২');
-        digitsMap.put('3', '৩');
-        digitsMap.put('4', '৪');
-        digitsMap.put('5', '৫');
-        digitsMap.put('6', '৬');
-        digitsMap.put('7', '৭');
-        digitsMap.put('8', '৮');
-        digitsMap.put('9', '৯');
+        digitsMap.put('0', '?');
+        digitsMap.put('1', '?');
+        digitsMap.put('2', '?');
+        digitsMap.put('3', '?');
+        digitsMap.put('4', '?');
+        digitsMap.put('5', '?');
+        digitsMap.put('6', '?');
+        digitsMap.put('7', '?');
+        digitsMap.put('8', '?');
+        digitsMap.put('9', '?');
     }
 
     public static final boolean IS_BUILD_ABOVE_HONEYCOMB = Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB_MR2;
@@ -52,6 +55,12 @@ public class Utils {
         } else {
             return false;
         }
+    }
+
+    public static Spannable getColoredSpannable(String text, int colorCode) {
+        Spannable spannable = new SpannableString(text);
+        spannable.setSpan(new ForegroundColorSpan(colorCode), 0, spannable.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        return spannable;
     }
 
     public static String translateNumber(long count) {

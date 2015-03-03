@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.hadithbd.banglahadith.views.BanglaTextView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/book_chapter_title"
+    android:id="@+id/book_content_question"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/vertical_margin_8dp"
     android:layout_marginTop="@dimen/vertical_margin_8dp"
     android:background="@drawable/list_item_background"
     android:padding="@dimen/vertical_margin_8dp"
-    android:textColor="@android:color/white"
-    app:banglaText="Here it is book chapter" />
+    android:textColor="@android:color/white" />

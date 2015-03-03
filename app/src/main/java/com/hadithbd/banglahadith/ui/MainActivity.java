@@ -18,9 +18,6 @@ import com.hadithbd.banglahadith.R;
 import com.hadithbd.banglahadith.database.CsvToDbHelper;
 import com.hadithbd.banglahadith.database.DbHelper;
 import com.hadithbd.banglahadith.database.DbManager;
-import com.hadithbd.banglahadith.viewmodel.BookInfo;
-import com.hadithbd.banglahadith.viewmodel.BookTypeInfo;
-import com.hadithbd.banglahadith.viewmodel.HadithBookChapterInfo;
 
 import java.util.List;
 
@@ -72,13 +69,20 @@ public class MainActivity extends ActionBarActivity {
             mDatabase.endTransaction();
         }
 
+        List<Integer> idList = DbManager.getInstance().getHadithNoListForChapter(166);
+        for (Integer i : idList) {
+            Log.e("Hadith Id", "" + i);
+        }
+
+        /*BookContentInfo info = DbManager.getInstance().getBookContentInfo(108);
+        Log.e("Content Info ", info.getBookName() + " _ " + info.getSectionName() + " _ " + info.getQuestion() + " _ " + info.getAnswer() + " _ " + info.getBookName() + " _ ");
         List<BookInfo> list = DbManager.getInstance().getAllBookInfoForType(7);
         for (BookInfo book : list) {
             Log.e("Chapter info ", book.getBookId() + " _ " + book.getBookName() + " _ " + book.getQuestionCount());
         }
 
 
-        /*List<BookTypeInfo> list = DbManager.getInstance().getAllBookTypeInfo();
+        List<BookTypeInfo> list = DbManager.getInstance().getAllBookTypeInfo();
         for (BookTypeInfo book : list) {
             Log.e("Chapter info ", book.getTypeId() + " _ " + book.getCategoryNae() + " _ " + book.getBookCount());
         }
@@ -94,7 +98,7 @@ public class MainActivity extends ActionBarActivity {
             Log.e("Chapter : ", ""+book.getChapterCount());
             Log.e("Hadith : ", ""+book.getHadithCount());
         }
-        List<Integer> idList = DbManager.getInstance().getHadithIdListForChapter(162);
+        List<Integer> idList = DbManager.getInstance().getHadithNoListForChapter(162);
         HadithMainInfo info = DbManager.getInstance().getHadithInformationForHadith(idList.get(0));*/
 
 
@@ -187,7 +191,7 @@ public class MainActivity extends ActionBarActivity {
         mLayoutAllBooks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(), BookListActivity.class));
+                startActivity(new Intent(getBaseContext(), BookCategoryListActivity.class));
             }
         });
 
@@ -214,7 +218,7 @@ public class MainActivity extends ActionBarActivity {
         iconHome.setGravity(Gravity.CENTER_HORIZONTAL);
         iconHome.setGravity(Gravity.TOP);
 
-        Drawable[] drawables = new Drawable[]{blueLayer, iconCaliography, whiteLayer, iconBismillah,iconHome};
+        Drawable[] drawables = new Drawable[]{blueLayer, iconCaliography, whiteLayer, iconBismillah, iconHome};
 
 
         LayerDrawable layerDrawable = new LayerDrawable(drawables);

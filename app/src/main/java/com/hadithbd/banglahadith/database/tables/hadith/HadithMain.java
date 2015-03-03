@@ -8,7 +8,7 @@ import com.j256.ormlite.table.DatabaseTable;
  */
 @DatabaseTable
 public class HadithMain {
-    @DatabaseField
+    @DatabaseField(id = true)
     private int id;
     @DatabaseField
     private int rabiId;

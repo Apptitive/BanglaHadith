@@ -9,8 +9,12 @@ import android.util.Log;
 
 import com.hadithbd.banglahadith.R;
 import com.hadithbd.banglahadith.adapters.BookChapterListAdapter;
+import com.hadithbd.banglahadith.database.DbManager;
 import com.hadithbd.banglahadith.util.Constants;
+import com.hadithbd.banglahadith.viewmodel.BookContentTitleInfo;
 import com.hadithbd.banglahadith.views.SimpleItemDecoration;
+
+import java.util.List;
 
 public class BookChapterListActivity extends BaseActivity
         implements BookChapterListAdapter.BookChapterItemClickListener{
@@ -19,10 +23,11 @@ public class BookChapterListActivity extends BaseActivity
     private Toolbar mToolbar;
 
     private BookChapterListAdapter mBookChapterListAdapter;
+
     private RecyclerView mRecyclerView;
 
     private int mBookId;
-
+    private List<BookContentTitleInfo> mContentTitleInfoList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +36,13 @@ public class BookChapterListActivity extends BaseActivity
 
         setHomeBackground();
 
+        getMessageFromBundle();
+
+        mContentTitleInfoList = DbManager.getInstance().getContentTitleInfoForBook(mBookId);
+
         initViews();
 
-        getMessageFromBundle();
+
 
         initToolbar();
 
@@ -66,7 +75,7 @@ public class BookChapterListActivity extends BaseActivity
         mRecyclerView.addItemDecoration(itemDecoration);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        mBookChapterListAdapter = new BookChapterListAdapter();
+        mBookChapterListAdapter = new BookChapterListAdapter(this, mContentTitleInfoList);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mBookChapterListAdapter.setBookChapterItemClickListener(this);
         mRecyclerView.setAdapter(mBookChapterListAdapter);
