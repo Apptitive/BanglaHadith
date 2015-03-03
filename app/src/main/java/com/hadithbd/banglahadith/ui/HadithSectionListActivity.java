@@ -8,23 +8,23 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import com.hadithbd.banglahadith.R;
-import com.hadithbd.banglahadith.adapters.HadithChapterListAdapter;
+import com.hadithbd.banglahadith.adapters.HadithSectionListAdapter;
 import com.hadithbd.banglahadith.database.DbManager;
 import com.hadithbd.banglahadith.util.Constants;
 import com.hadithbd.banglahadith.viewmodel.HadithBookSectionInfo;
 
 import java.util.List;
 
-public class HadithChapterListActivity extends BaseActivity
-        implements HadithChapterListAdapter.HadithChapterItemClickListener {
+public class HadithSectionListActivity extends BaseActivity
+        implements HadithSectionListAdapter.HadithChapterItemClickListener {
 
-    public static final String TAG = HadithChapterListActivity.class.getSimpleName();
+    public static final String TAG = HadithSectionListActivity.class.getSimpleName();
 
     private static final int NUMBER_OF_COLUMNS = 2;
 
     private RecyclerView mRecyclerView;
 
-    private HadithChapterListAdapter mHadithDetailListAdapter;
+    private HadithSectionListAdapter mHadithDetailListAdapter;
     private Toolbar mToolbar;
 
     private int mBookId;
@@ -34,7 +34,7 @@ public class HadithChapterListActivity extends BaseActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hadith_chapter_list);
+        setContentView(R.layout.activity_hadith_section_list);
 
         getMessageFromBundle();
 
@@ -67,7 +67,7 @@ public class HadithChapterListActivity extends BaseActivity
 
     private void initRecyclerAdapter() {
         mRecyclerView.setHasFixedSize(true);
-        mHadithDetailListAdapter = new HadithChapterListAdapter(this, mHadithBookSectionInfoList);
+        mHadithDetailListAdapter = new HadithSectionListAdapter(this, mHadithBookSectionInfoList);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, NUMBER_OF_COLUMNS));
         mHadithDetailListAdapter.setmHadithChapterItemClickListener(this);
         mRecyclerView.setAdapter(mHadithDetailListAdapter);
@@ -82,7 +82,7 @@ public class HadithChapterListActivity extends BaseActivity
     public void onHadithChapterItemClicked(int position) {
         final HadithBookSectionInfo hadithBookSectionInfo = mHadithBookSectionInfoList.get(position);
 
-        Intent intent = new Intent(HadithChapterListActivity.this, HadithDetailActivity.class);
+        Intent intent = new Intent(HadithSectionListActivity.this, HadithDetailActivity.class);
         intent.putExtra(Constants.HADITH_CHAPTER_ID, hadithBookSectionInfo.getChapterId());
         startActivity(intent);
     }

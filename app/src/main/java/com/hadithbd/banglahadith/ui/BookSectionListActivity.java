@@ -8,7 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import com.hadithbd.banglahadith.R;
-import com.hadithbd.banglahadith.adapters.BookChapterListAdapter;
+import com.hadithbd.banglahadith.adapters.BookSectionListAdapter;
 import com.hadithbd.banglahadith.database.DbManager;
 import com.hadithbd.banglahadith.util.Constants;
 import com.hadithbd.banglahadith.viewmodel.BookContentTitleInfo;
@@ -16,13 +16,13 @@ import com.hadithbd.banglahadith.views.SimpleItemDecoration;
 
 import java.util.List;
 
-public class BookChapterListActivity extends BaseActivity
-        implements BookChapterListAdapter.BookChapterItemClickListener{
+public class BookSectionListActivity extends BaseActivity
+        implements BookSectionListAdapter.BookChapterItemClickListener{
 
-    public static final String TAG = BookChapterListActivity.class.getSimpleName();
+    public static final String TAG = BookSectionListActivity.class.getSimpleName();
     private Toolbar mToolbar;
 
-    private BookChapterListAdapter mBookChapterListAdapter;
+    private BookSectionListAdapter mBookChapterListAdapter;
 
     private RecyclerView mRecyclerView;
 
@@ -32,7 +32,7 @@ public class BookChapterListActivity extends BaseActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_book_chapter_list);
+        setContentView(R.layout.activity_book_section_list);
         setHomeBackground();
 
         getMessageFromBundle();
@@ -74,7 +74,7 @@ public class BookChapterListActivity extends BaseActivity
                 new SimpleItemDecoration(getResources().getDrawable(android.R.drawable.divider_horizontal_dark));
         mRecyclerView.addItemDecoration(itemDecoration);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mBookChapterListAdapter = new BookChapterListAdapter(this, mContentTitleInfoList);
+        mBookChapterListAdapter = new BookSectionListAdapter(this, mContentTitleInfoList);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mBookChapterListAdapter.setBookChapterItemClickListener(this);
         mRecyclerView.setAdapter(mBookChapterListAdapter);

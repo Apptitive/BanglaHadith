@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by Sharif on 2/19/2015.
  */
-public class HadithChapterListAdapter extends RecyclerView.Adapter<HadithChapterListAdapter.ViewHolder>
+public class HadithSectionListAdapter extends RecyclerView.Adapter<HadithSectionListAdapter.ViewHolder>
         implements View.OnClickListener {
 
     private String mHadith, mCountSuffix;
@@ -23,7 +23,7 @@ public class HadithChapterListAdapter extends RecyclerView.Adapter<HadithChapter
 
     private HadithChapterItemClickListener mHadithChapterItemClickListener;
 
-    public HadithChapterListAdapter(Context context,List<HadithBookSectionInfo> hadithBookSectionInfoList) {
+    public HadithSectionListAdapter(Context context, List<HadithBookSectionInfo> hadithBookSectionInfoList) {
         mHadithBookSectionInfoList = hadithBookSectionInfoList;
         mHadith = context.getResources().getString(R.string.hadith_bangla);
         mCountSuffix = context.getResources().getString(R.string.text_count_suffix);
@@ -38,7 +38,7 @@ public class HadithChapterListAdapter extends RecyclerView.Adapter<HadithChapter
 
         final View view = LayoutInflater
                 .from(parent.getContext())
-                .inflate(R.layout.hadith_chapter_list_item, parent, false);
+                .inflate(R.layout.hadith_section_list_item, parent, false);
 
         return new ViewHolder(view);
     }
@@ -47,8 +47,8 @@ public class HadithChapterListAdapter extends RecyclerView.Adapter<HadithChapter
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
         final HadithBookSectionInfo hadithBookSectionInfo = mHadithBookSectionInfoList.get(position);
 
-        viewHolder.hadithChapterId.setBanglaText(String.valueOf(hadithBookSectionInfo.getChapterId()));
-        viewHolder.hadithChapterName.setBanglaText(hadithBookSectionInfo.getSectionName());
+       // viewHolder.hadithSectionId.setBanglaText(String.valueOf(hadithBookSectionInfo.getChapterId()));
+        viewHolder.hadithSectionName.setBanglaText(hadithBookSectionInfo.getSectionName());
         viewHolder.hadithCount.setBanglaText(mHadith + " " + String.valueOf(hadithBookSectionInfo.getHadithCount() + mCountSuffix));
         viewHolder.itemView.setTag(position);
     }
@@ -67,14 +67,13 @@ public class HadithChapterListAdapter extends RecyclerView.Adapter<HadithChapter
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public BanglaTextView hadithChapterId, hadithChapterName, hadithCount;
+        public BanglaTextView hadithSectionId, hadithSectionName, hadithCount;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            hadithChapterId = (BanglaTextView) itemView.findViewById(R.id.hadith_chapter_id);
-            hadithChapterName = (BanglaTextView) itemView.findViewById(R.id.hadith_chapter_name);
+            hadithSectionName = (BanglaTextView) itemView.findViewById(R.id.hadith_chapter_name);
             hadithCount = (BanglaTextView) itemView.findViewById(R.id.hadith_count);
-            itemView.setOnClickListener(HadithChapterListAdapter.this);
+            itemView.setOnClickListener(HadithSectionListAdapter.this);
         }
     }
 

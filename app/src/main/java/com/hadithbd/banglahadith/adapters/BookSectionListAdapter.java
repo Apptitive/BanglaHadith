@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * Created by Sharif on 2/28/2015.
  */
-public class BookChapterListAdapter extends RecyclerView.Adapter<BookChapterListAdapter.ViewHolder>
+public class BookSectionListAdapter extends RecyclerView.Adapter<BookSectionListAdapter.ViewHolder>
         implements View.OnClickListener {
 
     private BookChapterItemClickListener mBookChapterItemClickListener;
@@ -26,7 +26,7 @@ public class BookChapterListAdapter extends RecyclerView.Adapter<BookChapterList
     private String mQuestionPrefix;
     private int chapterPrefixColor;
 
-    public BookChapterListAdapter(Context context, List<BookContentTitleInfo> contentTitleInfoList) {
+    public BookSectionListAdapter(Context context, List<BookContentTitleInfo> contentTitleInfoList) {
         mContentTitleInfoList = contentTitleInfoList;
         mQuestionPrefix = context.getString(R.string.book_question_prefix);
         chapterPrefixColor = context.getResources().getColor(R.color.book_chapter_prefix_color);
@@ -39,7 +39,7 @@ public class BookChapterListAdapter extends RecyclerView.Adapter<BookChapterList
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         final View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.book_chapter_list_item, parent, false);
+                .inflate(R.layout.book_section_list_item, parent, false);
         return new ViewHolder(view);
     }
 
@@ -75,7 +75,7 @@ public class BookChapterListAdapter extends RecyclerView.Adapter<BookChapterList
         public ViewHolder(View itemView) {
             super(itemView);
             bookContentQuestion = (BanglaTextView) itemView.findViewById(R.id.book_content_question);
-            itemView.setOnClickListener(BookChapterListAdapter.this);
+            itemView.setOnClickListener(BookSectionListAdapter.this);
         }
     }
 

@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.HadithChapterListActivity"
+            android:name=".ui.HadithSectionListActivity"
             android:label="@string/title_activity_hadith_detail_list"
             android:parentActivityName=".ui.HadithListActivity" >
             <meta-data
@@ -40,13 +40,13 @@
         <activity
             android:name=".ui.HadithDetailActivity"
             android:label="@string/title_activity_hadith_detail"
-            android:parentActivityName=".ui.HadithChapterListActivity" >
+            android:parentActivityName=".ui.HadithSectionListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.HadithChapterListActivity" />
+                android:value=".ui.HadithSectionListActivity" />
         </activity>
         <activity
-            android:name=".ui.BookChapterListActivity"
+            android:name=".ui.BookSectionListActivity"
             android:label="@string/title_activity_book_chapter_list"
             android:parentActivityName=".ui.BookListActivity" >
             <meta-data
