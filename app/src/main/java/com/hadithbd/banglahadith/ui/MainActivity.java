@@ -91,15 +91,15 @@ public class MainActivity extends ActionBarActivity {
             Log.e("Chapter info ", book.getTypeId() + " _ " + book.getCategoryNae() + " _ " + book.getBookCount());
         }
 
-        List<HadithBookChapterInfo> list = DbManager.getInstance().getHadithBookChapterInfo(1);
+        List<HadithBookChapterInfo> list = DbManager.getInstance().getHadithBookSectionInfo(1);
         for (HadithBookChapterInfo book : list) {
-            Log.e("Chapter info ", book.getChapterId() + " _ " + book.getChapterName() + " _ " + book.getHadithCount());
+            Log.e("Chapter info ", book.getChapterId() + " _ " + book.getSectionName() + " _ " + book.getHadithCount());
         }
 
         List<HadithBookInfo> list = DbManager.getInstance().getAllHadithBookInfo();
         for(HadithBookInfo book : list){
             Log.e("Book Name : ", book.getBookName());
-            Log.e("Chapter : ", ""+book.getChapterCount());
+            Log.e("Chapter : ", ""+book.getSectionCount());
             Log.e("Hadith : ", ""+book.getHadithCount());
         }
         List<Integer> idList = DbManager.getInstance().getHadithNoListForChapter(162);

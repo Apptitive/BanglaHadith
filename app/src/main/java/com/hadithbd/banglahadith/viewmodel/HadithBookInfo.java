@@ -7,13 +7,13 @@ public class HadithBookInfo {
 
     private int bookId;
     private String bookName;
-    private long chapterCount;
+    private long sectionCount;
     private long hadithCount;
 
     public HadithBookInfo(int bookId, String bookName, long chapterCount, long hadithCount) {
         this.bookId = bookId;
         this.bookName = bookName;
-        this.chapterCount = chapterCount;
+        this.sectionCount = chapterCount;
         this.hadithCount = hadithCount;
     }
 
@@ -25,8 +25,8 @@ public class HadithBookInfo {
         return bookName;
     }
 
-    public long getChapterCount() {
-        return chapterCount;
+    public long getSectionCount() {
+        return sectionCount;
     }
 
     public long getHadithCount() {
