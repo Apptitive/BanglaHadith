@@ -16,7 +16,7 @@ import com.hadithbd.banglahadith.viewmodel.HadithBookSectionInfo;
 import java.util.List;
 
 public class HadithSectionListActivity extends BaseActivity
-        implements HadithSectionListAdapter.HadithChapterItemClickListener {
+        implements HadithSectionListAdapter.HadithSectionItemClickListener {
 
     public static final String TAG = HadithSectionListActivity.class.getSimpleName();
 
@@ -69,7 +69,7 @@ public class HadithSectionListActivity extends BaseActivity
         mRecyclerView.setHasFixedSize(true);
         mHadithDetailListAdapter = new HadithSectionListAdapter(this, mHadithBookSectionInfoList);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, NUMBER_OF_COLUMNS));
-        mHadithDetailListAdapter.setmHadithChapterItemClickListener(this);
+        mHadithDetailListAdapter.setmHadithSectionItemClickListener(this);
         mRecyclerView.setAdapter(mHadithDetailListAdapter);
     }
 
@@ -79,7 +79,7 @@ public class HadithSectionListActivity extends BaseActivity
     }
 
     @Override
-    public void onHadithChapterItemClicked(int position) {
+    public void onHadithSectionItemClicked(int position) {
         final HadithBookSectionInfo hadithBookSectionInfo = mHadithBookSectionInfoList.get(position);
 
         Intent intent = new Intent(HadithSectionListActivity.this, HadithDetailActivity.class);

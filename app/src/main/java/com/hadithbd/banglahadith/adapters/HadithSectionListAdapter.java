@@ -21,7 +21,7 @@ public class HadithSectionListAdapter extends RecyclerView.Adapter<HadithSection
     private String mHadith, mCountSuffix;
     private List<HadithBookSectionInfo> mHadithBookSectionInfoList;
 
-    private HadithChapterItemClickListener mHadithChapterItemClickListener;
+    private HadithSectionItemClickListener mHadithSectionItemClickListener;
 
     public HadithSectionListAdapter(Context context, List<HadithBookSectionInfo> hadithBookSectionInfoList) {
         mHadithBookSectionInfoList = hadithBookSectionInfoList;
@@ -29,8 +29,8 @@ public class HadithSectionListAdapter extends RecyclerView.Adapter<HadithSection
         mCountSuffix = context.getResources().getString(R.string.text_count_suffix);
     }
 
-    public void setmHadithChapterItemClickListener(HadithChapterItemClickListener hadithChapterItemClickListener) {
-        this.mHadithChapterItemClickListener = hadithChapterItemClickListener;
+    public void setmHadithSectionItemClickListener(HadithSectionItemClickListener hadithSectionItemClickListener) {
+        this.mHadithSectionItemClickListener = hadithSectionItemClickListener;
     }
 
     @Override
@@ -46,8 +46,6 @@ public class HadithSectionListAdapter extends RecyclerView.Adapter<HadithSection
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
         final HadithBookSectionInfo hadithBookSectionInfo = mHadithBookSectionInfoList.get(position);
-
-       // viewHolder.hadithSectionId.setBanglaText(String.valueOf(hadithBookSectionInfo.getChapterId()));
         viewHolder.hadithSectionName.setBanglaText(hadithBookSectionInfo.getSectionName());
         viewHolder.hadithCount.setBanglaText(mHadith + " " + String.valueOf(hadithBookSectionInfo.getHadithCount() + mCountSuffix));
         viewHolder.itemView.setTag(position);
@@ -60,8 +58,8 @@ public class HadithSectionListAdapter extends RecyclerView.Adapter<HadithSection
 
     @Override
     public void onClick(View v) {
-        if (mHadithChapterItemClickListener != null) {
-            mHadithChapterItemClickListener.onHadithChapterItemClicked((int) v.getTag());
+        if (mHadithSectionItemClickListener != null) {
+            mHadithSectionItemClickListener.onHadithSectionItemClicked((int) v.getTag());
         }
     }
 
@@ -77,8 +75,8 @@ public class HadithSectionListAdapter extends RecyclerView.Adapter<HadithSection
         }
     }
 
-    public static interface HadithChapterItemClickListener {
-        void onHadithChapterItemClicked(int position);
+    public static interface HadithSectionItemClickListener {
+        void onHadithSectionItemClicked(int position);
     }
 
 }

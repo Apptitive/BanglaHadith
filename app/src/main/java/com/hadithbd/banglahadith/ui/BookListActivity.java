@@ -72,7 +72,7 @@ public class BookListActivity extends BaseActivity implements BookListAdapter.Bo
     @Override
     public void onBookItemClicked(int position) {
         final BookInfo bookInfo = mBookInfoList.get(position);
-        Intent intent = new Intent(this, BookSectionListActivity.class);
+        Intent intent = new Intent(this, BookQuestionListActivity.class);
         intent.putExtra(Constants.BOOK_ID, bookInfo.getBookId());
         startActivity(intent);
     }

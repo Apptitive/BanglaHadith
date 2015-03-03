@@ -46,7 +46,7 @@
                 android:value=".ui.HadithSectionListActivity" />
         </activity>
         <activity
-            android:name=".ui.BookSectionListActivity"
+            android:name=".ui.BookQuestionListActivity"
             android:label="@string/title_activity_book_chapter_list"
             android:parentActivityName=".ui.BookListActivity" >
             <meta-data

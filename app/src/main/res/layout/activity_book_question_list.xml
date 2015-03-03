@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/black_20"
-    tools:context="com.hadithbd.banglahadith.ui.BookSectionListActivity">
+    tools:context="com.hadithbd.banglahadith.ui.BookQuestionListActivity">
 
     <include
         android:id="@+id/toolbar"
