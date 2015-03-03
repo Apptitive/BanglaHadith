@@ -23,11 +23,11 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ViewHo
 
     private List<BookInfo> mBookInfoList;
 
-    private String mHadith, mCountSuffix;
+    private String mBookListPrefixText, mCountSuffix;
 
     public BookListAdapter(Context context, List<BookInfo> bookInfoList) {
         mBookInfoList = bookInfoList;
-        mHadith = context.getResources().getString(R.string.hadith_bangla);
+        mBookListPrefixText = context.getResources().getString(R.string.book_list_prefix_text);
         mCountSuffix = context.getResources().getString(R.string.text_count_suffix);
     }
 
@@ -50,7 +50,7 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ViewHo
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
         final BookInfo bookInfo = mBookInfoList.get(position);
         viewHolder.bookName.setBanglaText(bookInfo.getBookName());
-        viewHolder.questionCount.setBanglaText(mHadith + " " + String.valueOf(bookInfo.getQuestionCount()) + mCountSuffix);
+        viewHolder.questionCount.setBanglaText(mBookListPrefixText + " " + String.valueOf(bookInfo.getQuestionCount()) + mCountSuffix);
         viewHolder.bookItemColor.setBackgroundColor(BanglaHadithApp.itemStripColors.get(position % 8));
         viewHolder.itemView.setTag(position);
     }

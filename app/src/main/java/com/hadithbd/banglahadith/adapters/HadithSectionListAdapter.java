@@ -18,14 +18,14 @@ import java.util.List;
 public class HadithSectionListAdapter extends RecyclerView.Adapter<HadithSectionListAdapter.ViewHolder>
         implements View.OnClickListener {
 
-    private String mHadith, mCountSuffix;
+    private String mHadithListPrefixText, mCountSuffix;
     private List<HadithBookSectionInfo> mHadithBookSectionInfoList;
 
     private HadithSectionItemClickListener mHadithSectionItemClickListener;
 
     public HadithSectionListAdapter(Context context, List<HadithBookSectionInfo> hadithBookSectionInfoList) {
         mHadithBookSectionInfoList = hadithBookSectionInfoList;
-        mHadith = context.getResources().getString(R.string.hadith_bangla);
+        mHadithListPrefixText = context.getResources().getString(R.string.hadith_list_prefix_text);
         mCountSuffix = context.getResources().getString(R.string.text_count_suffix);
     }
 
@@ -47,7 +47,7 @@ public class HadithSectionListAdapter extends RecyclerView.Adapter<HadithSection
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
         final HadithBookSectionInfo hadithBookSectionInfo = mHadithBookSectionInfoList.get(position);
         viewHolder.hadithSectionName.setBanglaText(hadithBookSectionInfo.getSectionName());
-        viewHolder.hadithCount.setBanglaText(mHadith + " " + String.valueOf(hadithBookSectionInfo.getHadithCount() + mCountSuffix));
+        viewHolder.hadithCount.setBanglaText(mHadithListPrefixText + " " + String.valueOf(hadithBookSectionInfo.getHadithCount() + mCountSuffix));
         viewHolder.itemView.setTag(position);
     }
 
@@ -65,7 +65,7 @@ public class HadithSectionListAdapter extends RecyclerView.Adapter<HadithSection
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public BanglaTextView hadithSectionId, hadithSectionName, hadithCount;
+        public BanglaTextView hadithSectionName, hadithCount;
 
         public ViewHolder(View itemView) {
             super(itemView);

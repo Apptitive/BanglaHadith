@@ -24,12 +24,12 @@ public class HadithListAdapter extends RecyclerView.Adapter<HadithListAdapter.Vi
 
     private List<HadithBookInfo> mBookInfoList;
 
-    private String mChapter, mHadith, mCountSuffix;
+    private String mChapter, mHadithListPrefixText, mCountSuffix;
 
     public HadithListAdapter(Context context, List<HadithBookInfo> bookInfoList) {
         mBookInfoList = bookInfoList;
         mChapter = context.getResources().getString(R.string.chapter_bangla);
-        mHadith = context.getResources().getString(R.string.hadith_bangla);
+        mHadithListPrefixText = context.getResources().getString(R.string.hadith_list_prefix_text);
         mCountSuffix = context.getResources().getString(R.string.text_count_suffix);
     }
 
@@ -54,7 +54,7 @@ public class HadithListAdapter extends RecyclerView.Adapter<HadithListAdapter.Vi
 
         viewHolder.hadithName.setBanglaText(bookInfo.getBookName());
         viewHolder.hadithChapterCount.setBanglaText(mChapter + " " + String.valueOf(bookInfo.getSectionCount()) + mCountSuffix);
-        viewHolder.hadithCount.setBanglaText(mHadith + " " + String.valueOf(bookInfo.getHadithCount()) + mCountSuffix);
+        viewHolder.hadithCount.setBanglaText(mHadithListPrefixText + " " + String.valueOf(bookInfo.getHadithCount()) + mCountSuffix);
         viewHolder.hadithItemColor.setBackgroundColor(BanglaHadithApp.itemStripColors.get(position % 8));
         viewHolder.itemView.setTag(position);
     }
