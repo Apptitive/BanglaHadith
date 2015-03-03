@@ -264,12 +264,12 @@ public class DbManager {
         return hadithBookInfoList;
     }
 
-    public List<Integer> getHadithNoListForChapter(int chapterId) {
+    public List<Integer> getHadithNoListForSection(int sectionId) {
         List<HadithMain> mainList = new ArrayList<>();
         QueryBuilder<HadithMain, Integer> hadithMainQueryBuilder = getHelper().getHadithMainDao().queryBuilder();
         Where<HadithMain, Integer> whereHadithMain = hadithMainQueryBuilder.where();
         try {
-            whereHadithMain.eq("chapterId", chapterId);
+            whereHadithMain.eq("sectionId", sectionId);
             mainList = whereHadithMain.query();
         } catch (SQLException e) {
             e.printStackTrace();
