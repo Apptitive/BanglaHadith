@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">BanglaHadith</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">সেটিংস</string>
     <string name="text_all_hadiths">হাদিস সমূহ</string>
     <string name="text_all_books">গ্রন্থ সমূহ</string>
     <string name="title_activity_hadith_detail_list">HadithDetailList</string>
@@ -18,11 +18,11 @@
     <string name="report_hadith">রিপোর্ট</string>
     <string name="rabi">রাবীঃ</string>
     <string name="hadith_status">হাদিসের মানঃ</string>
-    <string name="action_about_us">About Us</string>
-    <string name="action_favorite">Favorite</string>
-    <string name="action_data_sync">Data Sync</string>
-    <string name="action_donation">Donation</string>
-    <string name="action_latest_update">Latest Update</string>
+    <string name="action_about_us">আমাদের সম্পর্কে</string>
+    <string name="action_favorite">পছন্দের তালিকা</string>
+    <string name="action_data_sync">তথ্য হালনাগাদ</string>
+    <string name="action_donation">সহযোগিতা করতে</string>
+    <string name="action_latest_update">সর্বশেষ তথ্য</string>
     <string name="share_hadith">একটি হাদিস</string>
     <string name="share_title">হাদিসটি কিভাবে শেয়ার করতে চান?</string>
 
