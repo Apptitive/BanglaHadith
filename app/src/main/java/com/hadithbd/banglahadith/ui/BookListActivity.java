@@ -10,7 +10,7 @@ import com.hadithbd.banglahadith.R;
 import com.hadithbd.banglahadith.adapters.BookListAdapter;
 import com.hadithbd.banglahadith.database.DbManager;
 import com.hadithbd.banglahadith.util.Constants;
-import com.hadithbd.banglahadith.viewmodel.HadithBookInfo;
+import com.hadithbd.banglahadith.viewmodel.BookInfo;
 
 import java.util.List;
 
@@ -21,22 +21,36 @@ public class BookListActivity extends BaseActivity implements BookListAdapter.Bo
     private BookListAdapter mBookListAdapter;
     private Toolbar mToolbar;
 
-    private List<HadithBookInfo> mBookInfoList;
+    private List<BookInfo> mBookInfoList;
+    private int mBookTypeId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_list);
 
-        mBookInfoList = DbManager.getInstance().getAllHadithBookInfo();
+        getMessageFromBundle();
+
+        mBookInfoList = DbManager.getInstance().getAllBookInfoForType(mBookTypeId);
+
+
 
         setHomeBackground();
+
         initViews();
 
         setUpToolbar();
 
         initRecyclerAdapter();
     }
+
+        private void getMessageFromBundle() {
+            Bundle data = getIntent().getExtras();
+            if (data != null) {
+                mBookTypeId = data.getInt(Constants.BOOK_TYPE_ID);
+            }
+        }
+
 
     private void setUpToolbar() {
         setSupportActionBar(mToolbar);
@@ -59,9 +73,11 @@ public class BookListActivity extends BaseActivity implements BookListAdapter.Bo
 
     @Override
     public void onBookItemClicked(int position) {
-        final HadithBookInfo bookInfo = mBookInfoList.get(position);
+        final BookInfo bookInfo = mBookInfoList.get(position);
         Intent intent = new Intent(this, BookChapterListActivity.class);
         intent.putExtra(Constants.BOOK_ID, bookInfo.getBookId());
         startActivity(intent);
     }
+
+
 }

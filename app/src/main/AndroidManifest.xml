@@ -14,7 +14,7 @@
         <activity
             android:name=".ui.MainActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -56,15 +56,22 @@
         <activity
             android:name=".ui.BookListActivity"
             android:label="@string/title_activity_book_list"
+            android:parentActivityName=".ui.BookCategoryListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.hadithbd.banglahadith.ui.BookCategoryListActivity" />
+        </activity>
+        <activity
+            android:name=".ui.MenuActivity"
+            android:label="@string/title_activity_menu" >
+        </activity>
+        <activity
+            android:name=".ui.BookCategoryListActivity"
+            android:label="@string/title_activity_book_category_list"
             android:parentActivityName=".ui.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.hadithbd.banglahadith.ui.MainActivity" />
-        </activity>
-
-        <activity
-            android:name=".ui.MenuActivity"
-            android:label="@string/title_activity_menu" >
         </activity>
     </application>
 
