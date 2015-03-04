@@ -80,7 +80,7 @@ public class HadithSectionListActivity extends BaseActivity
         final HadithBookSectionInfo hadithBookSectionInfo = mHadithBookSectionInfoList.get(position);
 
         Intent intent = new Intent(HadithSectionListActivity.this, HadithDetailActivity.class);
-        intent.putExtra(Constants.HADITH_CHAPTER_ID, hadithBookSectionInfo.getChapterId());
+        intent.putExtra(Constants.HADITH_SECTION_ID, hadithBookSectionInfo.getChapterId());
         startActivity(intent);
     }
 }

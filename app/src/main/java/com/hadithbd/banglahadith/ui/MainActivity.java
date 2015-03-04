@@ -64,12 +64,12 @@ public class MainActivity extends ActionBarActivity {
             mDatabase.endTransaction();
         }
 
-        List<Integer> idList = DbManager.getInstance().getHadithNoListForChapter(166);
+/*        List<Integer> idList = DbManager.getInstance().getHadithNoListForSection(166);
         for (Integer i : idList) {
             Log.e("Hadith Id", "" + i);
         }
         HadithMainInfo info = DbManager.getInstance().getHadithInformationForHadith(idList.get(0));
-        Log.e("called","");
+        Log.e("called","");*/
 
         /*BookContentInfo info = DbManager.getInstance().getBookContentInfo(108);
         Log.e("Content Info ", info.getBookName() + " _ " + info.getSectionName() + " _ " + info.getQuestion() + " _ " + info.getAnswer() + " _ " + info.getBookName() + " _ ");
@@ -95,7 +95,7 @@ public class MainActivity extends ActionBarActivity {
             Log.e("Chapter : ", ""+book.getSectionCount());
             Log.e("Hadith : ", ""+book.getHadithCount());
         }
-        List<Integer> idList = DbManager.getInstance().getHadithNoListForChapter(162);
+        List<Integer> idList = DbManager.getInstance().getHadithNoListForSection(162);
         HadithMainInfo info = DbManager.getInstance().getHadithInformationForHadith(idList.get(0));*/
 
 

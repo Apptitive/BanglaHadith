@@ -73,13 +73,13 @@ public class HadithDetailActivity extends BaseActivity implements View.OnClickLi
         setContentView(R.layout.activity_hadith_detail);
         DbManager.init(this);
 
-        int chapter_id = 0;
+        int sectionId = 0;
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            chapter_id = extras.getInt(Constants.HADITH_CHAPTER_ID);
+            sectionId = extras.getInt(Constants.HADITH_SECTION_ID);
         }
 
-        hadithIdList = DbManager.getInstance().getHadithNoListForChapter(chapter_id);
+        hadithIdList = DbManager.getInstance().getHadithNoListForSection(sectionId);
         if (hadithIdList == null || hadithIdList.isEmpty()) {
             return;
         }
