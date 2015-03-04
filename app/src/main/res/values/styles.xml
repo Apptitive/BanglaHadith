@@ -6,40 +6,54 @@
         <item name="colorPrimary">@color/color_primary</item>
         <item name="colorPrimaryDark">@color/color_primary</item>
         <item name="colorAccent">@color/color_primary</item>
-        <item name="actionBarStyle">@style/ActionBarStyle</item>
+        <item name="actionBarStyle">@style/ActionBar</item>
+        <item name="actionBarWidgetTheme">@style/ActionBarWidget</item>
         <item name="popupMenuStyle">@style/PopupMenu</item>
+        <item name="popupWindowStyle">@style/PopupWindow</item>
+        <item name="textAppearanceSmallPopupMenu">@style/TextAppearanceSmallPopupMenu</item>
+        <item name="textAppearanceLargePopupMenu">@style/TextAppearanceLargePopupMenu</item>
     </style>
 
     <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
 
     </style>
 
-    <style name="PopupMenu" parent="Widget.AppCompat.Light.ListPopupWindow">
-        <item name="android:popupBackground">@color/report_hadith_btn_normal</item>
-    </style>
-    <style name="ActionBarStyle" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
-        <item name="titleTextStyle">@style/ActionBarStyle.TitleTextStyle</item>
-        <item name="subtitleTextStyle">@style/ActionBarStyle.SubtitleTextStyle</item>
+    <style name="PopupMenu" parent="Widget.AppCompat.ListPopupWindow">
+        <item name="android:popupBackground">@android:color/black</item>
     </style>
 
-    <style name="ActionBarStyle.TitleTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:textColor">@color/yellow</item>
+    <style name="PopupWindow" parent="Widget.AppCompat.PopupWindow">
+        <item name="android:layout_margin">@dimen/dp_4</item>
     </style>
 
-    <style name="ActionBarStyle.SubtitleTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle">
+    <style name="TextAppearanceSmallPopupMenu" parent="@style/TextAppearance.AppCompat.Widget.PopupMenu.Small">
         <item name="android:textColor">@android:color/white</item>
     </style>
 
-    <style name="ToolBarStyle" parent="">
-        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
-        <item name="theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+    <style name="TextAppearanceLargePopupMenu" parent="@style/TextAppearance.AppCompat.Widget.PopupMenu.Large">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="ActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
+        <item name="titleTextStyle">@style/ActionBar.TitleTextStyle</item>
+        <item name="subtitleTextStyle">@style/ActionBar.SubtitleTextStyle</item>
+        <item name="background">@android:color/black</item>
+    </style>
+    
+    <style name="ActionBarWidget" parent="@style/Theme.AppCompat">
+        <item name="popupMenuStyle">@style/PopupMenu</item>
+    </style>
+
+    <style name="ActionBar.TitleTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/yellow</item>
+    </style>
+
+    <style name="ActionBar.SubtitleTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle">
+        <item name="android:textColor">@android:color/white</item>
     </style>
 
     <style name="Widget.CompoundButton.Love.Custom" parent="@android:style/Widget.CompoundButton.Star">
         <item name="android:button">@null</item>
         <item name="android:background">@drawable/bg_menu_love</item>
     </style>
-
-    <style name="Widget"></style>
-
 </resources>

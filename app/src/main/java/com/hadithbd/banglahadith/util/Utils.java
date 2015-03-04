@@ -19,16 +19,16 @@ public class Utils {
     private static final HashMap<Character, Character> digitsMap = new HashMap<>();
 
     static {
-        digitsMap.put('0', '?');
-        digitsMap.put('1', '?');
-        digitsMap.put('2', '?');
-        digitsMap.put('3', '?');
-        digitsMap.put('4', '?');
-        digitsMap.put('5', '?');
-        digitsMap.put('6', '?');
-        digitsMap.put('7', '?');
-        digitsMap.put('8', '?');
-        digitsMap.put('9', '?');
+        digitsMap.put('0', '০');
+        digitsMap.put('1', '১');
+        digitsMap.put('2', '২');
+        digitsMap.put('3', '৩');
+        digitsMap.put('4', '৪');
+        digitsMap.put('5', '৫');
+        digitsMap.put('6', '৬');
+        digitsMap.put('7', '৭');
+        digitsMap.put('8', '৮');
+        digitsMap.put('9', '৯');
     }
 
     public static final boolean IS_BUILD_ABOVE_HONEYCOMB = Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB_MR2;
@@ -45,7 +45,7 @@ public class Utils {
 
     /**
      * Check internet connection availability
-     * */
+     */
     public static boolean isNetworkAvailable(Context context) {
         ConnectivityManager connectionManager = (ConnectivityManager) context
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -63,8 +63,8 @@ public class Utils {
         return spannable;
     }
 
-    public static String translateNumber(long count) {
-        char[] digits = (String.valueOf(count)).toCharArray();
+    public static String translateNumber(long number) {
+        char[] digits = (String.valueOf(number)).toCharArray();
         StringBuilder sb = new StringBuilder();
         for (char digit : digits) {
             sb.append(digitsMap.get(digit));

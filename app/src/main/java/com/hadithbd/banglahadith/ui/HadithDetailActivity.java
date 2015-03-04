@@ -4,9 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.PopupMenu;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -21,13 +21,17 @@ import com.hadithbd.banglahadith.views.BanglaTextView;
 import java.util.HashMap;
 import java.util.List;
 
-public class HadithDetailActivity extends BaseActivity implements View.OnClickListener {
+public class HadithDetailActivity extends BaseActivity implements View.OnClickListener, PopupMenu.OnMenuItemClickListener {
 
     private HadithMainInfo hadithInView;
     private HashMap<Integer, View> tabToMarkerMap;
     private View currentVisibleTabMarker;
     private TextView textViewChapter;
     private TextView textViewHadith;
+    private BanglaTextView footNote;
+    private BanglaTextView hadithStatus;
+    private BanglaTextView rabiName;
+    private ActionBar actionBar;
     private PopupMenu hadithListPopupMenu;
     private List<Integer> hadithIdList;
 
@@ -41,7 +45,7 @@ public class HadithDetailActivity extends BaseActivity implements View.OnClickLi
         tabToMarkerMap.put(R.id.tab_text_hadith_explanation, findViewById(R.id.tab_marker_hadith_explanation));
     }
 
-    private void switchTabMarkerVisibilty(int selectedTabId) {
+    private void switchTabMarkerVisibility(int selectedTabId) {
         currentVisibleTabMarker.setVisibility(View.INVISIBLE);
         currentVisibleTabMarker = tabToMarkerMap.get(selectedTabId);
         if (currentVisibleTabMarker != null) {
@@ -61,10 +65,30 @@ public class HadithDetailActivity extends BaseActivity implements View.OnClickLi
         hadithListPopupMenu = new PopupMenu(this, anchorView);
         Menu menu = hadithListPopupMenu.getMenu();
         for (int hadithId : hadithIdList) {
-            Log.i("id", "" + hadithId);
-            menu.add(UtilBanglaSupport.getBanglaSpannableString(getString(R.string.hadith_number)
+            menu.add(Menu.NONE, hadithId, Menu.NONE, UtilBanglaSupport.getBanglaSpannableString(getString(R.string.hadith_number)
                     + " " + Utils.translateNumber(hadithId)));
         }
+        hadithListPopupMenu.setOnMenuItemClickListener(this);
+    }
+
+    private void setHadithView(int hadithId) {
+        hadithInView = DbManager.getInstance().getHadithInformationForHadith(hadithId);
+        if (hadithInView == null) {
+            return;
+        }
+        actionBar.setTitle(UtilBanglaSupport.getBanglaSpannableString(hadithInView.getBookName()));
+        actionBar.setSubtitle(UtilBanglaSupport.getBanglaSpannableString(hadithInView.getSectionBengali()));
+        textViewChapter.setText(UtilBanglaSupport.getBanglaSpannableString(hadithInView.getChapterBengali()));
+        textViewHadith.setText(UtilBanglaSupport.getBanglaSpannableString(hadithInView.getHadithBengali()));
+        String note = hadithInView.getNote();
+        if (note == null || note.isEmpty() || note.equals("NULL")) {
+            footNote.setVisibility(View.GONE);
+        } else {
+            footNote.setVisibility(View.VISIBLE);
+            footNote.setBanglaText(hadithInView.getNote());
+        }
+        hadithStatus.setBanglaText(hadithInView.getStatusBengali());
+        rabiName.setBanglaText(hadithInView.getRabiBengali());
     }
 
     @Override
@@ -79,31 +103,25 @@ public class HadithDetailActivity extends BaseActivity implements View.OnClickLi
             sectionId = extras.getInt(Constants.HADITH_SECTION_ID);
         }
 
-        hadithIdList = DbManager.getInstance().getHadithNoListForSection(sectionId);
-        if (hadithIdList == null || hadithIdList.isEmpty()) {
-            return;
-        }
-        hadithInView = DbManager.getInstance().getHadithInformationForHadith(hadithIdList.get(0));
-
         setHomeBackground();
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle(UtilBanglaSupport.getBanglaSpannableString(hadithInView.getBookName()));
-        actionBar.setSubtitle(UtilBanglaSupport.getBanglaSpannableString(hadithInView.getSectionBengali()));
+        actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         initTabMarkers();
 
+        hadithIdList = DbManager.getInstance().getHadithNoListForSection(sectionId);
+        if (hadithIdList == null || hadithIdList.isEmpty()) {
+            return;
+        }
+
         textViewChapter = (TextView) findViewById(R.id.textView_chapter_name);
-        textViewChapter.setText(UtilBanglaSupport.getBanglaSpannableString(hadithInView.getChapterBengali()));
         textViewHadith = (TextView) findViewById(R.id.textView_hadith);
-        textViewHadith.setText(UtilBanglaSupport.getBanglaSpannableString(hadithInView.getHadithBengali()));
-        BanglaTextView footNote = (BanglaTextView) findViewById(R.id.textView_footnote);
-        footNote.setBanglaText(hadithInView.getNote());
-        BanglaTextView hadithStatus = (BanglaTextView) findViewById(R.id.textView_hadith_status);
-        hadithStatus.setBanglaText(hadithInView.getStatusBengali());
-        BanglaTextView rabiName = (BanglaTextView) findViewById(R.id.textView_rabi_name);
-        rabiName.setBanglaText(hadithInView.getRabiBengali());
+        footNote = (BanglaTextView) findViewById(R.id.textView_footnote);
+        hadithStatus = (BanglaTextView) findViewById(R.id.textView_hadith_status);
+        rabiName = (BanglaTextView) findViewById(R.id.textView_rabi_name);
+
+        setHadithView(hadithIdList.get(0));
     }
 
     @Override
@@ -113,7 +131,7 @@ public class HadithDetailActivity extends BaseActivity implements View.OnClickLi
         }
         int id = v.getId();
         if (v instanceof TextView) {
-            switchTabMarkerVisibilty(v.getId());
+            switchTabMarkerVisibility(v.getId());
             switch (id) {
                 case R.id.tab_text_bangla:
                     textViewHadith.setText(UtilBanglaSupport.getBanglaSpannableString(hadithInView.getHadithBengali()));
@@ -147,5 +165,11 @@ public class HadithDetailActivity extends BaseActivity implements View.OnClickLi
                 hadithListPopupMenu.show();
                 break;
         }
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem menuItem) {
+        setHadithView(menuItem.getItemId());
+        return true;
     }
 }
