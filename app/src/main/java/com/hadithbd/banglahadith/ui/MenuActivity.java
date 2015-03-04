@@ -2,10 +2,12 @@ package com.hadithbd.banglahadith.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.view.MenuItem;
 
 import com.hadithbd.banglahadith.R;
+import com.hadithbd.banglahadith.bangla.UtilBanglaSupport;
 import com.hadithbd.banglahadith.ui.fragments.MenuFactory;
 import com.hadithbd.banglahadith.util.Constants;
 
@@ -22,6 +24,8 @@ public class MenuActivity extends BaseActivity {
 
         initMessageFromBundle();
 
+        setupActionBar();
+
         addMenuFragmentToThisLayout();
     }
 
@@ -29,6 +33,13 @@ public class MenuActivity extends BaseActivity {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.menu_content, MenuFactory.createMenuScreen(mMenuId));
         fragmentTransaction.commit();
+    }
+
+    public void setupActionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle(UtilBanglaSupport.getBanglaSpannableString(""));
+        actionBar.setSubtitle(UtilBanglaSupport.getBanglaSpannableString(""));
+        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
     private void initMessageFromBundle() {

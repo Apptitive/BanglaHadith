@@ -45,4 +45,12 @@
     <string name="title_activity_book_category_list">BookCategoryListActivity</string>
     <string name="book_category_preffix_text">বইঃ</string>
     <string name="book_question_prefix">পরিচ্ছদঃ</string>
+    <string name="search_title_text">অনুসন্ধান করুনঃ</string>
+    <string name="search_from_hadith">হাদিস সমূহ থেকে</string>
+    <string name="search_from_book">গ্রন্থ সমূহ থেকে</string>
+    <string name="search_with_hadith_number">হাদিস নম্বর দিয়ে অনুসন্ধান করুন</string>
+    <string name="search_with_plain_text">টেক্সট দিয়ে অনুসন্ধান করুন</string>
+    <string name="search_hadith_book">হাদিস গ্রন্থঃ</string>
+    <string name="search_all_book">সকল গ্রন্থ</string>
+    <string name="search_favorite_book">পছন্দের গ্রন্থ</string>
 </resources>
