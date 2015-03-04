@@ -15,7 +15,7 @@
     </style>
 
     <style name="PopupMenu" parent="Widget.AppCompat.Light.ListPopupWindow">
-        <item name="android:popupBackground">@android:drawable/ic_popup_sync</item>
+        <item name="android:popupBackground">@color/report_hadith_btn_normal</item>
     </style>
     <style name="ActionBarStyle" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
         <item name="titleTextStyle">@style/ActionBarStyle.TitleTextStyle</item>
