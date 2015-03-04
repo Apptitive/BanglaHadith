@@ -33,6 +33,7 @@
         </activity>
         <activity
             android:name=".ui.HadithListActivity"
+            android:launchMode="singleTop"
             android:label="@string/title_activity_hadith_list"
             android:parentActivityName=".ui.MainActivity" >
             <meta-data
@@ -42,6 +43,7 @@
         <activity
             android:name=".ui.HadithDetailActivity"
             android:label="@string/title_activity_hadith_detail"
+            android:launchMode="singleTop"
             android:parentActivityName=".ui.HadithSectionListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -50,6 +52,7 @@
         <activity
             android:name=".ui.BookQuestionListActivity"
             android:label="@string/title_activity_book_chapter_list"
+            android:launchMode="singleTop"
             android:parentActivityName=".ui.BookListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -66,11 +69,13 @@
         </activity>
         <activity
             android:name=".ui.MenuActivity"
+            android:launchMode="singleTop"
             android:label="@string/title_activity_menu" >
         </activity>
         <activity
             android:name=".ui.BookCategoryListActivity"
             android:label="@string/title_activity_book_category_list"
+            android:launchMode="singleTop"
             android:parentActivityName=".ui.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
