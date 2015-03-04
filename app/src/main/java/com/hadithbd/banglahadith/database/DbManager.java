@@ -19,8 +19,8 @@ import com.hadithbd.banglahadith.viewmodel.BookContentInfo;
 import com.hadithbd.banglahadith.viewmodel.BookContentTitleInfo;
 import com.hadithbd.banglahadith.viewmodel.BookInfo;
 import com.hadithbd.banglahadith.viewmodel.BookTypeInfo;
-import com.hadithbd.banglahadith.viewmodel.HadithBookSectionInfo;
 import com.hadithbd.banglahadith.viewmodel.HadithBookInfo;
+import com.hadithbd.banglahadith.viewmodel.HadithBookSectionInfo;
 import com.hadithbd.banglahadith.viewmodel.HadithMainInfo;
 import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.stmt.Where;
@@ -282,81 +282,93 @@ public class DbManager {
     }
 
     public HadithMain getHadithMainWithHadithNo(int hadithNo) {
-        HadithMain hadithMain = new HadithMain();
+        List<HadithMain> entity = new ArrayList<>();
         QueryBuilder<HadithMain, Integer> hadithMainQueryBuilder = getHelper().getHadithMainDao().queryBuilder();
         Where<HadithMain, Integer> whereHadithMain = hadithMainQueryBuilder.where();
         try {
             whereHadithMain.eq("hadithNo", hadithNo);
-            hadithMain = whereHadithMain.query().get(0);
+            entity = whereHadithMain.query();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return hadithMain;
+        if (entity == null || entity.size() == 0)
+            return null;
+        return entity.get(0);
     }
 
     public String getRabiBengali(int rabiId) {
-        RabiHadith entity = new RabiHadith();
+        List<RabiHadith> entity = new ArrayList<>();
         QueryBuilder<RabiHadith, Integer> qb = getHelper().getRabiHadithDao().queryBuilder();
         Where<RabiHadith, Integer> where = qb.where();
         try {
             where.eq("id", rabiId);
-            entity = where.query().get(0);
+            entity = where.query();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return entity.getRabiBengali();
+        if (entity == null || entity.size() == 0)
+            return "";
+        return entity.get(0).getRabiBengali();
     }
 
     public String getHadithBookName(int hadithBookId) {
-        HadithBook entity = new HadithBook();
+        List<HadithBook> entity = new ArrayList<>();
         QueryBuilder<HadithBook, Integer> qb = getHelper().getHadithBookDao().queryBuilder();
         Where<HadithBook, Integer> where = qb.where();
         try {
             where.eq("id", hadithBookId);
-            entity = where.query().get(0);
+            entity = where.query();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return entity.getNameBengali();
+        if (entity == null || entity.size() == 0)
+            return "";
+        return entity.get(0).getNameBengali();
     }
 
     public String getHadithSectionBengali(int sectionId) {
-        HadithSection entity = new HadithSection();
+        List<HadithSection> entity = new ArrayList<>();
         QueryBuilder<HadithSection, Integer> qb = getHelper().getHadithSectionDao().queryBuilder();
         Where<HadithSection, Integer> where = qb.where();
         try {
             where.eq("id", sectionId);
-            entity = where.query().get(0);
+            entity = where.query();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return entity.getNameBengali();
+        if (entity == null || entity.size() == 0)
+            return "";
+        return entity.get(0).getNameBengali();
     }
 
     public HadithChapter getHadithChapter(int chapterId) {
-        HadithChapter entity = new HadithChapter();
+        List<HadithChapter> entity = new ArrayList<>();
         QueryBuilder<HadithChapter, Integer> qb = getHelper().getHadithChapterDao().queryBuilder();
         Where<HadithChapter, Integer> where = qb.where();
         try {
             where.eq("id", chapterId);
-            entity = where.query().get(0);
+            entity = where.query();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return entity;
+        if (entity == null || entity.size() == 0)
+            return null;
+        return entity.get(0);
     }
 
     public String getHadithStatusBengali(int statusId) {
-        HadithStatus entity = new HadithStatus();
+        List<HadithStatus> entity = new ArrayList<>();
         QueryBuilder<HadithStatus, Integer> qb = getHelper().getHadithStatusDao().queryBuilder();
         Where<HadithStatus, Integer> where = qb.where();
         try {
             where.eq("id", statusId);
-            entity = where.query().get(0);
+            entity = where.query();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return entity.getStatusBengali();
+        if (entity == null || entity.size() == 0)
+            return "";
+        return entity.get(0).getStatusBengali();
     }
 
     public String getHadithExplanation(int hadithId) {
@@ -386,8 +398,10 @@ public class DbManager {
         mainInfo.setSectionId(main.getSectionId());
         mainInfo.setSectionBengali(getHadithSectionBengali(main.getSectionId()));
         mainInfo.setChapterId(main.getChapterId());
-        mainInfo.setChapterArabic(getHadithChapter(main.getChapterId()).getNameArabic());
-        mainInfo.setChapterBengali(getHadithChapter(main.getChapterId()).getNameBengali());
+        if (getHadithChapter(main.getChapterId()) != null) {
+            mainInfo.setChapterArabic(getHadithChapter(main.getChapterId()).getNameArabic());
+            mainInfo.setChapterBengali(getHadithChapter(main.getChapterId()).getNameBengali());
+        }
         mainInfo.setStatusId(main.getStatusId());
         mainInfo.setStatusBengali(getHadithStatusBengali(main.getStatusId()));
         mainInfo.setHadithNo(main.getHadithNo());
