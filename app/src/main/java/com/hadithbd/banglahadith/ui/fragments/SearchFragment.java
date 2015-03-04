@@ -9,14 +9,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.hadithbd.banglahadith.R;
+import com.hadithbd.banglahadith.bangla.UtilBanglaSupport;
+import com.hadithbd.banglahadith.database.DbManager;
+import com.hadithbd.banglahadith.database.tables.book.BookName;
+
+import java.util.List;
 
 /**
  * Created by Sharif on 3/4/2015.
  */
 public class SearchFragment extends Fragment implements RadioGroup.OnCheckedChangeListener {
+
+    public static final String TAG = "SEARCG TAG";
 
     private RadioGroup mRgSearchFromHadithOrBook, mRgSearchFromTextOrHadithNumber, mRgSearchFromHadithBook;
 
@@ -24,7 +32,26 @@ public class SearchFragment extends Fragment implements RadioGroup.OnCheckedChan
 
     private SparseArray<CheckBox> bookCheckBoxes = new SparseArray<>();
 
-    public static final String TAG="SEARCG TAG";
+    private List<BookName> mBookNames;
+
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        mBookNames = DbManager.getInstance().getAllBookNames();
+        loadBookCheckboxes();
+    }
+
+    private void loadBookCheckboxes() {
+
+        for (int i = 0; i < 5; i++) {
+            CheckBox checkBox = new CheckBox(getActivity());
+            checkBox.setText(UtilBanglaSupport.getBanglaSpannableString("Sharif"));
+            checkBox.setTextColor(getResources().getColor(android.R.color.white));
+            bookCheckBoxes.put(i, checkBox);
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -56,39 +83,53 @@ public class SearchFragment extends Fragment implements RadioGroup.OnCheckedChan
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
 
-        switch (checkedId){
+        switch (checkedId) {
             case R.id.rb_search_from_hadiths:
                 mRgSearchFromTextOrHadithNumber.setVisibility(View.VISIBLE);
+                mRowHadithBook.setVisibility(View.VISIBLE);
+                RadioButton radioButton = (RadioButton) mRgSearchFromHadithBook.getChildAt(0);
+                radioButton.setChecked(true);
+                RadioButton button = (RadioButton) mRgSearchFromTextOrHadithNumber.getChildAt(0);
+                button.setChecked(true);
                 break;
             case R.id.rb_search_from_books:
                 mRgSearchFromTextOrHadithNumber.setVisibility(View.GONE);
                 mRowHadithBook.setVisibility(View.GONE);
+                removeCheckBoxes();
                 break;
             case R.id.rb_search_with_text:
                 mRowHadithBook.setVisibility(View.VISIBLE);
+                if (mRgSearchFromTextOrHadithNumber.getCheckedRadioButtonId() == R.id.rb_search_with_text) {
+                    RadioButton radioButton1 = (RadioButton) mRgSearchFromHadithBook.getChildAt(0);
+                    radioButton1.setChecked(true);
+                }
+
                 break;
             case R.id.rb_search_with_hadith_number:
                 mRowHadithBook.setVisibility(View.GONE);
+                removeCheckBoxes();
                 break;
             case R.id.rb_search_all_book:
+                removeCheckBoxes();
                 break;
             case R.id.rb_search_favorite_book:
-
                 showBooksToCheck();
-
                 break;
+        }
 
+    }
+
+    private void removeCheckBoxes() {
+        for (int i = 0; i < bookCheckBoxes.size(); i++) {
+            mSearchRootLayout.removeView(bookCheckBoxes.get(i));
         }
 
     }
 
     private void showBooksToCheck() {
         int childIndex = 4;
-        for (int i = 0; i<10; i++){
-            CheckBox checkBox = new CheckBox(getActivity());
-            checkBox.setText("Sharifur");
-            checkBox.setTextColor(getResources().getColor(android.R.color.white));
-            mSearchRootLayout.addView(checkBox, childIndex++);
+        for (int i = 0; i < bookCheckBoxes.size(); i++) {
+            mSearchRootLayout.addView(bookCheckBoxes.get(i), childIndex++);
         }
     }
 }

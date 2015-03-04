@@ -27,7 +27,8 @@
                 android:textColor="@android:color/white" />
 
 
-            <RadioGroup android:id="@+id/rg_search_from_hadith_or_book"
+            <RadioGroup
+                android:id="@+id/rg_search_from_hadith_or_book"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/search_row_height"
                 android:gravity="center_vertical"
@@ -38,6 +39,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@android:color/white"
+                    android:checked="true"
                     android:text="@string/search_from_hadith" />
 
                 <RadioButton
@@ -52,7 +54,6 @@
                 android:id="@+id/rg_search_from_text_or_hadith_number"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
-                android:visibility="gone"
                 android:gravity="center_vertical"
                 android:orientation="vertical">
 
@@ -60,8 +61,10 @@
                     android:id="@+id/rb_search_with_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:checked="true"
                     android:textColor="@android:color/white"
                     android:text="@string/search_with_plain_text" />
+
                 <RadioButton
                     android:id="@+id/rb_search_with_hadith_number"
                     android:layout_width="wrap_content"
@@ -74,7 +77,6 @@
             <LinearLayout
                 android:id="@+id/row_hadith_book"
                 android:layout_width="match_parent"
-                android:visibility="gone"
                 android:layout_height="@dimen/search_row_height"
                 android:orientation="horizontal">
 
@@ -97,6 +99,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/white"
+                        android:checked="true"
                         android:text="@string/search_all_book" />
 
                     <RadioButton
@@ -107,6 +110,25 @@
                         android:text="@string/search_favorite_book" />
                 </RadioGroup>
             </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/search_row_height"
+                android:orientation="horizontal">
+
+                <com.hadithbd.banglahadith.views.BanglaTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    app:banglaText="@string/hadith_number" />
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/horizontal_margin_8dp" />
+            </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -125,7 +147,6 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/horizontal_margin_4dp" />
             </LinearLayout>
-
 
         </LinearLayout>
 
