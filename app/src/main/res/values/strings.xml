@@ -25,7 +25,6 @@
     <string name="action_latest_update">সর্বশেষ তথ্য</string>
     <string name="share_hadith">একটি হাদিস</string>
     <string name="share_title">হাদিসটি কিভাবে শেয়ার করতে চান?</string>
-
     <string name="text_internet_connection_failed">Internet connection is not available right now, please try again later.</string>
     <string name="title_activity_menu">MenuActivity</string>
     <string name="title_activity_book_list">BookListActivity</string>
@@ -45,4 +44,15 @@
     <string name="title_activity_book_category_list">BookCategoryListActivity</string>
     <string name="book_category_preffix_text">বইঃ</string>
     <string name="book_question_prefix">পরিচ্ছদঃ</string>
+    <string name="contact">যোগাযোগ</string>
+    <string name="owner_name">খোন্দকার রোকন-উল-হক</string>
+    <string name="owner_phone">+৮৮ ০১৭১ ৪১১ ০৬৩০</string>
+    <string name="owner_mail">info@hadithbd.com</string>
+    <string name="owner_web">www.hadithbd.com</string>
+    <string name="owner_name_en">Kh. Rokon-UL-Haque</string>
+    <string name="about_app">অ্যাপ সম্পর্কে</string>
+    <string name="app_version">Version</string>
+    <string name="app_developer">Developed By: Apptitive</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

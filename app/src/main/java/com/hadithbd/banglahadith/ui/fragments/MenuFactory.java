@@ -21,7 +21,7 @@ public class MenuFactory {
         } else if (menuId == R.id.action_data_sync) {
             fragment = new AboutUsFragment();
         } else if (menuId == R.id.action_donation) {
-            fragment = new AboutUsFragment();
+            fragment = new DonationFragment();
         } else if (menuId == R.id.action_latest_update) {
             fragment = new LatestUpdate();
         }
