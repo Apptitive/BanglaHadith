@@ -1,22 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/home_layout_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:background="@drawable/home_blue_layer"
+    android:layout_height="match_parent">
 
-    <View
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight=".70"
-        android:visibility="invisible" />
+        android:layout_height="wrap_content"
+        android:src="@drawable/bg_caliography"
+        android:layout_gravity="bottom" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/home_white_layer" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/dp_64">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bg_bismillah" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_hadith_home_top"
+            android:layout_marginTop="@dimen/dp_48" />
+    </LinearLayout>
 
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight=".30">
+        android:layout_height="@dimen/dp_164"
+        android:layout_gravity="bottom">
 
         <View
             android:layout_width="1dp"
@@ -42,7 +65,7 @@
                 android:id="@+id/ic_all_hadiths"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/ic_hadiths_home" />
+                android:background="@drawable/ic_home" />
 
             <com.hadithbd.banglahadith.views.BanglaTextView
                 android:layout_width="match_parent"
@@ -86,4 +109,4 @@
         </RelativeLayout>
     </RelativeLayout>
 
-</LinearLayout>
+</FrameLayout>

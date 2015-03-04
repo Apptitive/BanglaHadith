@@ -159,4 +159,5 @@
     <dimen name="dp_130">260dp</dimen>
     <dimen name="dp_140">280dp</dimen>
     <dimen name="dp_190">380dp</dimen>
+    <dimen name="dp_164">328dp</dimen>
 </resources>

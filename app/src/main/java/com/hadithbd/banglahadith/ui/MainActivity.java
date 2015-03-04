@@ -2,23 +2,16 @@ package com.hadithbd.banglahadith.ui;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.LayerDrawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.hadithbd.banglahadith.R;
 import com.hadithbd.banglahadith.database.CsvToDbHelper;
 import com.hadithbd.banglahadith.database.DbHelper;
 import com.hadithbd.banglahadith.database.DbManager;
-import com.hadithbd.banglahadith.viewmodel.HadithBookInfo;
 import com.hadithbd.banglahadith.viewmodel.HadithMainInfo;
 
 import java.util.List;
@@ -38,7 +31,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setHomeBackgroundLayer();
+       // setHomeBackgroundLayer();
 
         DbManager.init(this);
         mDbHelper = new DbHelper(getApplicationContext());
@@ -204,44 +197,5 @@ public class MainActivity extends ActionBarActivity {
     private void initLayouts() {
         mLayoutAllHadiths = (RelativeLayout) findViewById(R.id.layout_all_hadiths);
         mLayoutAllBooks = (RelativeLayout) findViewById(R.id.layout_all_books);
-    }
-
-    public void setHomeBackgroundLayer() {
-
-        BitmapDrawable whiteLayer = (BitmapDrawable) getResources().getDrawable(R.drawable.home_white_layer);
-        BitmapDrawable iconCaliography = (BitmapDrawable) getResources().getDrawable(R.drawable.bg_caliography);
-        iconCaliography.setGravity(Gravity.BOTTOM);
-
-        BitmapDrawable blueLayer = (BitmapDrawable) getResources().getDrawable(R.drawable.home_blue_layer);
-
-        BitmapDrawable iconBismillah = (BitmapDrawable) getResources().getDrawable(R.drawable.bg_bismillah);
-        iconBismillah.setGravity(Gravity.CENTER_HORIZONTAL);
-        iconBismillah.setGravity(Gravity.TOP);
-
-        BitmapDrawable iconHome = (BitmapDrawable) getResources().getDrawable(R.drawable.ic_hadith_home_top);
-        iconHome.setGravity(Gravity.CENTER_HORIZONTAL);
-        iconHome.setGravity(Gravity.TOP);
-
-        Drawable[] drawables = new Drawable[]{blueLayer, iconCaliography, whiteLayer, iconBismillah, iconHome};
-
-
-        LayerDrawable layerDrawable = new LayerDrawable(drawables);
-        layerDrawable.setLayerInset(3, 0, (int) getResources().getDimension(R.dimen.dp_88), 0, 0);
-        layerDrawable.setLayerInset(4, 0, (int) getResources().getDimension(R.dimen.dp_190), 0, 0);
-
-
-        setLayerToBackground(layerDrawable);
-
-    }
-
-
-    private void setLayerToBackground(LayerDrawable layerDrawable) {
-        LinearLayout view = (LinearLayout) findViewById(R.id.home_layout_main);
-
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
-            view.setBackgroundDrawable(layerDrawable);
-        } else {
-            view.setBackground(layerDrawable);
-        }
     }
 }
