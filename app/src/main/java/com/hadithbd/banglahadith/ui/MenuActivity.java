@@ -21,7 +21,7 @@ public class MenuActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-
+        setHomeBackground();
         initMessageFromBundle();
 
         setupActionBar();
@@ -46,14 +46,14 @@ public class MenuActivity extends BaseActivity {
         Bundle data = getIntent().getExtras();
         if (data != null) {
             mMenuId = data.getInt(Constants.MENU_ITEM_ID);
-            Log.e(TAG, "menu id: "+ mMenuId);
+            Log.e(TAG, "menu id: " + mMenuId);
         }
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        if (item.getItemId()==android.R.id.home){
+        if (item.getItemId() == android.R.id.home) {
             finish();
         }
         return super.onOptionsItemSelected(item);
