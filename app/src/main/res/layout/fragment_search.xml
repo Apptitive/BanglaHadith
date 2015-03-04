@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_20">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/search_root_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/white_80"
+            android:padding="@dimen/activity_horizontal_margin">
+
+            <com.hadithbd.banglahadith.views.BanglaTextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/search_row_height"
+                android:gravity="center_vertical"
+                app:banglaText="@string/search_title_text"
+                android:textSize="@dimen/abc_text_size_headline_material"
+                android:textColor="@android:color/white" />
+
+
+            <RadioGroup
+                android:id="@+id/rg_search_from_hadith_or_book"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/search_row_height"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_search_from_hadiths"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:checked="true"
+                    android:text="@string/search_from_hadith" />
+
+                <RadioButton
+                    android:id="@+id/rb_search_from_books"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:text="@string/search_from_book" />
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/rg_search_from_text_or_hadith_number"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/rb_search_with_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:textColor="@android:color/white"
+                    android:text="@string/search_with_plain_text" />
+
+                <RadioButton
+                    android:id="@+id/rb_search_with_hadith_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:text="@string/search_with_hadith_number" />
+            </RadioGroup>
+
+
+            <LinearLayout
+                android:id="@+id/row_hadith_book"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/search_row_height"
+                android:orientation="horizontal">
+
+                <com.hadithbd.banglahadith.views.BanglaTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    app:banglaText="@string/search_hadith_book"
+                    android:textColor="@android:color/white" />
+
+                <RadioGroup
+                    android:id="@+id/rg_search_from_hadith_book"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rb_search_all_book"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/white"
+                        android:checked="true"
+                        android:text="@string/search_all_book" />
+
+                    <RadioButton
+                        android:id="@+id/rb_search_favorite_book"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/white"
+                        android:text="@string/search_favorite_book" />
+                </RadioGroup>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/search_row_height"
+                android:orientation="horizontal">
+
+                <com.hadithbd.banglahadith.views.BanglaTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    app:banglaText="@string/hadith_number" />
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/horizontal_margin_8dp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/search_row_height"
+                android:orientation="horizontal">
+
+                <com.hadithbd.banglahadith.views.BanglaTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    app:banglaText="@string/search_title_text"
+                    android:textColor="@android:color/white" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/horizontal_margin_4dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+</FrameLayout>

@@ -43,17 +43,19 @@ public class MainActivity extends ActionBarActivity {
             CsvToDbHelper.sBulkInsert(this, R.raw.bookwriter, mDatabase);
             CsvToDbHelper.sBulkInsert(this, R.raw.booktype, mDatabase);
             CsvToDbHelper.sBulkInsert(this, R.raw.bookname, mDatabase);
-            CsvToDbHelper.sBulkInsert(this, R.raw.bookcontent, mDatabase);
             CsvToDbHelper.sBulkInsert(this, R.raw.booksection, mDatabase);
 
             CsvToDbHelper.sBulkInsert(this, R.raw.rabihadith, mDatabase);
             CsvToDbHelper.sBulkInsert(this, R.raw.hadithstatus, mDatabase);
             CsvToDbHelper.sBulkInsert(this, R.raw.hadithpublisher, mDatabase);
             CsvToDbHelper.sBulkInsert(this, R.raw.hadithsection, mDatabase);
-            CsvToDbHelper.sBulkInsert(this, R.raw.hadithexplanation, mDatabase);
             CsvToDbHelper.sBulkInsert(this, R.raw.hadithchapter, mDatabase);
             CsvToDbHelper.sBulkInsert(this, R.raw.hadithbook, mDatabase);
+
+            CsvToDbHelper.sBulkInsert(this, R.raw.bookcontent, mDatabase);
             CsvToDbHelper.sBulkInsert(this, R.raw.hadithmain, mDatabase);
+            CsvToDbHelper.sBulkInsert(this, R.raw.hadithexplanation, mDatabase);
+
 
 
             mDatabase.setTransactionSuccessful();

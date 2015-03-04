@@ -1,21 +1,259 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black_20"
-    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.hadithbd.banglahadith.ui.AboutUsActivity">
 
-
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:drawableLeft="@drawable/ic_phone"
-        android:drawablePadding="@dimen/about_us_drawable_padding_left"
-        android:gravity="center_vertical"
-        android:text="+8801933841016"
-        android:background="@drawable/list_item_background"
-        android:textColor="@android:color/white" />
+        android:layout_height="match_parent">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white_20"
+            android:layout_margin="@dimen/dp_10"
+            android:orientation="vertical">
 
-</LinearLayout>
+            <com.hadithbd.banglahadith.views.BanglaTextView
+                android:id="@+id/btv_contact"
+                android:layout_marginTop="@dimen/dp_25"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/hadith_detail_chapter_name_min_height"
+                android:background="@color/white_50"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/dp_12"
+                android:textColor="@android:color/black"
+                android:text="@string/contact"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white_80"
+                android:layout_marginTop="@dimen/dp_20"
+                android:paddingTop="@dimen/dp_20"
+                android:paddingBottom="@dimen/dp_20">
+
+                <com.hadithbd.banglahadith.views.BanglaTextView
+                    android:id="@+id/btv_owner_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/dp_12"
+                    android:textColor="@android:color/black"
+                    android:text="@string/owner_name"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="@dimen/dp_10" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/dp_12"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_20"
+                        android:layout_height="@dimen/dp_30"
+                        android:src="@drawable/ic_phone"
+                        android:layout_gravity="center_vertical" />
+
+                    <com.hadithbd.banglahadith.views.BanglaTextView
+                        android:id="@+id/btv_owner_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/dp_20"
+                        android:textColor="@android:color/black"
+                        android:text="@string/owner_phone"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/dp_12"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_20"
+                        android:layout_height="@dimen/dp_30"
+                        android:src="@drawable/ic_mail"
+                        android:layout_gravity="center_vertical" />
+
+                    <TextView
+                        android:id="@+id/btv_owner_mail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/dp_20"
+                        android:textColor="@android:color/black"
+                        android:text="@string/owner_mail"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/dp_12"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_20"
+                        android:layout_height="@dimen/dp_30"
+                        android:src="@drawable/ic_web"
+                        android:layout_gravity="center_vertical" />
+
+                    <TextView
+                        android:id="@+id/btv_owner_web"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/dp_20"
+                        android:textColor="@android:color/black"
+                        android:text="@string/owner_web"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/dp_12"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:textColor="@android:color/black"
+                    android:text="@string/owner_name_en"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="@dimen/dp_10" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/dp_12"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_20"
+                        android:layout_height="@dimen/dp_30"
+                        android:src="@drawable/ic_phone"
+                        android:layout_gravity="center_vertical" />
+
+                    <TextView
+                        android:id="@+id/owner_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/dp_20"
+                        android:textColor="@android:color/black"
+                        android:text="+88 0171 411 0630"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/dp_12"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_20"
+                        android:layout_height="@dimen/dp_30"
+                        android:src="@drawable/ic_mail"
+                        android:layout_gravity="center_vertical" />
+
+                    <TextView
+                        android:id="@+id/owner_mail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/dp_20"
+                        android:textColor="@android:color/black"
+                        android:text="@string/owner_mail"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/dp_12"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_20"
+                        android:layout_height="@dimen/dp_30"
+                        android:src="@drawable/ic_web"
+                        android:layout_gravity="center_vertical" />
+
+                    <TextView
+                        android:id="@+id/owner_web"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/dp_20"
+                        android:textColor="@android:color/black"
+                        android:text="@string/owner_web"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <com.hadithbd.banglahadith.views.BanglaTextView
+                android:id="@+id/btv_about_app"
+                android:layout_marginTop="@dimen/dp_25"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/hadith_detail_chapter_name_min_height"
+                android:background="@color/white_50"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/dp_12"
+                android:textColor="@android:color/black"
+                android:text="@string/about_app"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white_80"
+                android:layout_marginTop="@dimen/dp_20"
+                android:paddingTop="@dimen/dp_20"
+                android:paddingBottom="@dimen/dp_20">
+
+                <TextView
+                    android:id="@+id/app_version"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/dp_12"
+                    android:textColor="@android:color/black"
+                    android:text="@string/app_version"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/app_developer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/dp_12"
+                    android:textColor="@android:color/black"
+                    android:text="@string/app_developer"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/app_copy_right"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/dp_12"
+                    android:textColor="@android:color/black"
+                    android:text="© 2013-2015 Bangla Hadith, All rights resevered"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>
