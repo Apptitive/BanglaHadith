@@ -102,7 +102,7 @@ public class HadithDetailActivity extends BaseActivity implements View.OnClickLi
         }
         hadithListPopupMenu.setOnMenuItemClickListener(this);
         MenuInflater inflater = hadithListPopupMenu.getMenuInflater();
-        inflater.inflate(R.menu.hadith_detail_popup_menu, hadithListPopupMenu.getMenu());
+        inflater.inflate(R.menu.menu_hadith_detail_popup, hadithListPopupMenu.getMenu());
     }
 
     private void setHadithView(int hadithId) {

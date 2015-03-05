@@ -1,5 +1,6 @@
 package com.hadithbd.banglahadith.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -84,6 +85,6 @@ public class BookQuestionListActivity extends BaseActivity
 
     @Override
     public void onQuestionItemClicked(int position) {
-
+        startActivity(new Intent(this, BookQnActivity.class));
     }
 }
