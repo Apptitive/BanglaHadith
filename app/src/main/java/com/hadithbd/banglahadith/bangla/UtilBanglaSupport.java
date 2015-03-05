@@ -1,6 +1,5 @@
 package com.hadithbd.banglahadith.bangla;
 
-import android.content.Context;
 import android.graphics.Typeface;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -34,7 +33,7 @@ public class UtilBanglaSupport {
         Log.d(obj.getClass().getSimpleName(), msg);
     }
 
-    public static SpannableString getSpannableWithFont(Context context, String text, Typeface font, float size) {
+    public static SpannableString getSpannableWithFont(String text, Typeface font, float size) {
         SpannableString retVal = new SpannableString(text);
         TypefaceSpan span = new TypefaceSpan(font);
         retVal.setSpan(span, 0, retVal.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);

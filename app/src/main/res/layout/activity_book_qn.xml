@@ -13,6 +13,20 @@
         android:layout_height="@dimen/hadith_detail_tab_strip_height"
         android:background="@android:color/black">
 
+        <ImageView
+            android:id="@+id/tick_hadith"
+            android:layout_width="@dimen/book_qna_icon_question_size"
+            android:layout_height="@dimen/book_qna_icon_question_size"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_12"
+            android:layout_marginStart="@dimen/dp_12"
+            android:background="@drawable/ic_question" />
+
+        <com.hadithbd.banglahadith.views.BanglaTextView
+            android:id="@+id/textView_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
         <ImageButton
             android:id="@+id/menu_overflow"
             android:layout_width="@dimen/hadith_detail_menu_overflow_width"
@@ -149,7 +163,7 @@
 
             <CheckBox
                 android:id="@+id/checkbox_love"
-                style="@style/Widget.CompoundButton.Love.Custom"
+                style="@style/Widget.CompoundButton.Favorite_Fill.Custom"
                 android:layout_width="@dimen/book_qna_menu_favorite_size"
                 android:layout_height="@dimen/book_qna_menu_favorite_size"
                 android:layout_marginEnd="@dimen/dp_4"
@@ -162,7 +176,7 @@
                 android:background="@drawable/bg_menu_share"
                 android:onClick="onClick"
                 android:scaleType="fitCenter"
-                android:src="@drawable/share" />
+                android:src="@drawable/ic_share_dark" />
         </LinearLayout>
 
         <ImageButton

@@ -34,6 +34,8 @@
     <dimen name="book_qna_nav_button_height">@dimen/dp_40</dimen>
     <dimen name="book_qna_menu_favorite_size">@dimen/dp_32</dimen>
     <dimen name="book_qna_menu_share_size">@dimen/dp_32</dimen>
+    <dimen name="book_qna_icon_question_size">@dimen/dp_24</dimen>
     <dimen name="about_us_drawable_padding_left">16dp</dimen>
     <dimen name="search_row_height">48dp</dimen>
+    <dimen name="search_button_radious">4dp</dimen>
 </resources>

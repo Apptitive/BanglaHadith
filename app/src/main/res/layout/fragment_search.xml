@@ -122,6 +122,7 @@
 
 
             <LinearLayout
+                android:id="@+id/layout_hadith_number"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/search_row_height"
                 android:layout_marginTop="@dimen/vertical_margin_8dp"
@@ -151,7 +152,6 @@
                 android:layout_marginTop="@dimen/vertical_margin_8dp"
                 android:paddingLeft="@dimen/horizontal_margin_8dp"
                 android:paddingRight="@dimen/horizontal_margin_8dp"
-                android:background="@color/white_50"
                 android:orientation="horizontal">
 
                 <com.hadithbd.banglahadith.views.BanglaTextView
@@ -159,12 +159,47 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:textColor="@android:color/black"
-                    app:banglaText="@string/search_title_text" />
+                    app:banglaText="@string/hadith_search_type" />
+                
+                </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/search_row_height"
+                android:layout_marginTop="@dimen/vertical_margin_8dp"
+                android:paddingLeft="@dimen/horizontal_margin_8dp"
+                android:orientation="horizontal">
+
+
 
                 <EditText
-                    android:layout_width="match_parent"
+                    android:id="@+id/editext_search"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/horizontal_margin_4dp" />
+                    android:layout_weight="1"
+                    android:background="@android:drawable/editbox_background_normal"
+                    android:paddingLeft="@dimen/horizontal_margin_4dp"
+                    android:paddingRight="@dimen/horizontal_margin_4dp"
+                    android:layout_marginLeft="@dimen/horizontal_margin_4dp"
+                    android:layout_marginRight="@dimen/horizontal_margin_4dp"/>
+                <com.hadithbd.banglahadith.views.BanglaTextView
+                    android:id="@+id/search_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:background="@drawable/bg_search_button"
+                    android:drawableLeft="@android:drawable/ic_menu_search"
+                    android:drawablePadding="@dimen/dp_4"
+                    android:paddingLeft="@dimen/dp_4"
+                    android:paddingRight="@dimen/horizontal_margin_8dp"
+                    android:textColor="@android:color/black"
+                    app:banglaText="@string/search_title_text" />
+
             </LinearLayout>
 
         </LinearLayout>

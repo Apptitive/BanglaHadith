@@ -197,7 +197,7 @@
 
         <CheckBox
             android:id="@+id/checkbox_love"
-            style="@style/Widget.CompoundButton.Love.Custom"
+            style="@style/Widget.CompoundButton.Favorite_Blank.Custom"
             android:layout_width="@dimen/hadith_detail_menu_favorite_size"
             android:layout_height="@dimen/hadith_detail_menu_favorite_size"
             android:layout_centerVertical="true"

@@ -52,11 +52,15 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
-    <style name="Widget.CompoundButton.Love.Custom" parent="@android:style/Widget.CompoundButton.Star">
+    <style name="Widget.CompoundButton.Favorite_Blank.Custom" parent="@android:style/Widget.CompoundButton.Star">
         <item name="android:button">@null</item>
-        <item name="android:background">@drawable/bg_menu_love</item>
+        <item name="android:background">@drawable/bg_menu_favorite_blank</item>
     </style>
 
+    <style name="Widget.CompoundButton.Favorite_Fill.Custom" parent="@android:style/Widget.CompoundButton.Star">
+        <item name="android:button">@null</item>
+        <item name="android:background">@drawable/bg_menu_favorite_fill</item>
+    </style>
 
     <style name="Widget"></style>
 

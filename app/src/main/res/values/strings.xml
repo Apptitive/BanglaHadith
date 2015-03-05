@@ -56,7 +56,7 @@
     <string name="uttara_branch">উত্তরা শাখা</string>
     <string name="ibbl_ac_name">A/C Name: Kh. Rokonul Haque</string>
 
-    <string name="search_title_text">অনুসন্ধান করুনঃ</string>
+    <string name="search_title_text">অনুসন্ধান করুন</string>
     <string name="search_from_hadith">হাদিস সমূহ থেকে</string>
     <string name="search_from_book">গ্রন্থ সমূহ থেকে</string>
     <string name="search_with_hadith_number">হাদিস নম্বর দিয়ে অনুসন্ধান করুন</string>
@@ -66,5 +66,6 @@
     <string name="search_favorite_book">পছন্দের গ্রন্থ</string>
     <string name="title_activity_book_qn">BookQnActivity</string>
     <string name="online_donate">অনলাইন ডোনেশন</string>
+    <string name="hadith_search_type">হাদিস টাইপ</string>
 
 </resources>
