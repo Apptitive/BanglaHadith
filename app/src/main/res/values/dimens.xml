@@ -32,4 +32,5 @@
     <dimen name="hadith_detail_email_share_width">@dimen/dp_48</dimen>
     <dimen name="hadith_detail_email_share_height">@dimen/dp_40</dimen>
     <dimen name="about_us_drawable_padding_left">16dp</dimen>
+    <dimen name="search_row_height">48dp</dimen>
 </resources>

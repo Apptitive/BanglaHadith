@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@color/nav_btn_bg_pressed_color" android:state_pressed="true" />
-    <item android:drawable="@color/nav_btn_bg_normal_color" />
+    <item android:drawable="@color/bg_btn_nav_pressed" android:state_pressed="true" />
+    <item android:drawable="@color/bg_btn_nav_disabled" android:state_enabled="false" />
+    <item android:drawable="@color/bg_btn_nav_normal" />
 </selector>

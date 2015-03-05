@@ -24,6 +24,8 @@ public class MenuFactory {
             fragment = new DonationFragment();
         } else if (menuId == R.id.action_latest_update) {
             fragment = new LatestUpdate();
+        }else if(menuId == R.id.action_search){
+            fragment = new SearchFragment();
         }
         return fragment;
     }
