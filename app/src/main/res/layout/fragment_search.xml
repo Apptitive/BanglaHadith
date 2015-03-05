@@ -3,34 +3,39 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginRight="@dimen/activity_horizontal_margin"
+    android:layout_marginTop="@dimen/activity_vertical_margin"
     android:background="@color/black_20">
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:fillViewport="true">
 
         <LinearLayout
             android:id="@+id/search_root_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:background="@color/white_80"
-            android:padding="@dimen/activity_horizontal_margin">
+            android:background="@color/white_20"
+            android:layout_margin="@dimen/dp_10"
+            android:orientation="vertical">
 
             <com.hadithbd.banglahadith.views.BanglaTextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="@dimen/search_row_height"
                 android:gravity="center_vertical"
                 app:banglaText="@string/search_title_text"
-                android:textSize="@dimen/abc_text_size_headline_material"
-                android:textColor="@android:color/white" />
+                android:background="@color/white_50"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/abc_text_size_headline_material" />
 
 
             <RadioGroup
                 android:id="@+id/rg_search_from_hadith_or_book"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/search_row_height"
+                android:background="@color/white_50"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -38,7 +43,6 @@
                     android:id="@+id/rb_search_from_hadiths"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/white"
                     android:checked="true"
                     android:text="@string/search_from_hadith" />
 
@@ -46,7 +50,6 @@
                     android:id="@+id/rb_search_from_books"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/white"
                     android:text="@string/search_from_book" />
             </RadioGroup>
 
@@ -62,14 +65,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="true"
-                    android:textColor="@android:color/white"
                     android:text="@string/search_with_plain_text" />
 
                 <RadioButton
                     android:id="@+id/rb_search_with_hadith_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/white"
                     android:text="@string/search_with_hadith_number" />
             </RadioGroup>
 
@@ -77,6 +78,7 @@
             <LinearLayout
                 android:id="@+id/row_hadith_book"
                 android:layout_width="match_parent"
+                android:background="@color/white_50"
                 android:layout_height="@dimen/search_row_height"
                 android:orientation="horizontal">
 
@@ -84,8 +86,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    app:banglaText="@string/search_hadith_book"
-                    android:textColor="@android:color/white" />
+
+                    android:textColor="@android:color/black"
+                    app:banglaText="@string/search_hadith_book"/>
 
                 <RadioGroup
                     android:id="@+id/rg_search_from_hadith_book"
@@ -98,7 +101,6 @@
                         android:id="@+id/rb_search_all_book"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@android:color/white"
                         android:checked="true"
                         android:text="@string/search_all_book" />
 
@@ -106,7 +108,6 @@
                         android:id="@+id/rb_search_favorite_book"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@android:color/white"
                         android:text="@string/search_favorite_book" />
                 </RadioGroup>
             </LinearLayout>
@@ -121,9 +122,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
+                    android:textColor="@android:color/black"
                     app:banglaText="@string/hadith_number" />
 
                 <Spinner
+                    android:id="@+id/spinner_books"
+                    android:background="@null"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/horizontal_margin_8dp" />
@@ -139,8 +143,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    app:banglaText="@string/search_title_text"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/black"
+                    app:banglaText="@string/search_title_text" />
 
                 <EditText
                     android:layout_width="match_parent"
