@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -19,6 +20,7 @@ import com.hadithbd.banglahadith.bangla.UtilBanglaSupport;
 import com.hadithbd.banglahadith.database.DbManager;
 import com.hadithbd.banglahadith.database.tables.hadith.HadithBook;
 import com.hadithbd.banglahadith.util.UIUtils;
+import com.hadithbd.banglahadith.views.BanglaTextView;
 
 import java.util.List;
 
@@ -31,13 +33,17 @@ public class SearchFragment extends Fragment implements RadioGroup.OnCheckedChan
 
     private RadioGroup mRgSearchFromHadithOrBook, mRgSearchFromTextOrHadithNumber, mRgSearchFromHadithBook;
 
-    private LinearLayout mRowHadithBook, mSearchRootLayout;
+    private LinearLayout mRowHadithBook, mSearchRootLayout, mLayoutHadithNumber;
 
     private SparseArray<CheckBox> bookCheckBoxes = new SparseArray<>();
 
     private List<HadithBook> mHadithBooks;
 
     private Spinner mSpinnerBooks;
+
+    private EditText mEditTextSearch;
+
+    private BanglaTextView mSearchButton;
 
 
     @Override
@@ -73,6 +79,17 @@ public class SearchFragment extends Fragment implements RadioGroup.OnCheckedChan
         setupListeners();
 
         setSpinnerBooksAdapter();
+
+        setUpSearchButton();
+    }
+
+    private void setUpSearchButton() {
+        mSearchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     private void setSpinnerBooksAdapter() {
@@ -81,7 +98,7 @@ public class SearchFragment extends Fragment implements RadioGroup.OnCheckedChan
 
 
     /**
-     * Set bangla text to radio in each buttons
+     * Set bangla text to radio in each buttons for each radio group
      *
      * */
     private void setBanglaTextToRadioButtons() {
@@ -107,10 +124,15 @@ public class SearchFragment extends Fragment implements RadioGroup.OnCheckedChan
         mRowHadithBook = (LinearLayout) view.findViewById(R.id.row_hadith_book);
         mSearchRootLayout = (LinearLayout) view.findViewById(R.id.search_root_layout);
         mSpinnerBooks = (Spinner) view.findViewById(R.id.spinner_books);
+        mLayoutHadithNumber = (LinearLayout) view.findViewById(R.id.layout_hadith_number);
+        mEditTextSearch = (EditText) view.findViewById(R.id.editext_search);
+        mSearchButton = (BanglaTextView) view.findViewById(R.id.search_button);
     }
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+
 
         switch (checkedId) {
             case R.id.rb_search_from_hadiths:
@@ -120,11 +142,12 @@ public class SearchFragment extends Fragment implements RadioGroup.OnCheckedChan
                 radioButton.setChecked(true);
                 RadioButton button = (RadioButton) mRgSearchFromTextOrHadithNumber.getChildAt(0);
                 button.setChecked(true);
+                mLayoutHadithNumber.setVisibility(View.GONE);
                 break;
             case R.id.rb_search_from_books:
                 mRgSearchFromTextOrHadithNumber.setVisibility(View.GONE);
                 mRowHadithBook.setVisibility(View.GONE);
-                removeCheckBoxes();
+                removeBookCheckBox();
                 break;
             case R.id.rb_search_with_text:
                 mRowHadithBook.setVisibility(View.VISIBLE);
@@ -132,30 +155,32 @@ public class SearchFragment extends Fragment implements RadioGroup.OnCheckedChan
                     RadioButton radioButton1 = (RadioButton) mRgSearchFromHadithBook.getChildAt(0);
                     radioButton1.setChecked(true);
                 }
+                mLayoutHadithNumber.setVisibility(View.GONE);
 
                 break;
             case R.id.rb_search_with_hadith_number:
                 mRowHadithBook.setVisibility(View.GONE);
-                removeCheckBoxes();
+                mLayoutHadithNumber.setVisibility(View.VISIBLE);
+                removeBookCheckBox();
                 break;
             case R.id.rb_search_all_book:
-                removeCheckBoxes();
+                removeBookCheckBox();
                 break;
             case R.id.rb_search_favorite_book:
-                showBooksToCheck();
+                showBooksWithCheckBox();
                 break;
         }
 
     }
 
-    private void removeCheckBoxes() {
+    private void removeBookCheckBox() {
         for (HadithBook hadithBook: mHadithBooks) {
             mSearchRootLayout.removeView(bookCheckBoxes.get(hadithBook.getId()));
         }
 
     }
 
-    private void showBooksToCheck() {
+    private void showBooksWithCheckBox() {
         int childIndex = 4;
         for (HadithBook hadithBook: mHadithBooks) {
             mSearchRootLayout.addView(bookCheckBoxes.get(hadithBook.getId()), childIndex++);
