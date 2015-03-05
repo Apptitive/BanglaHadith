@@ -69,8 +69,9 @@
         </activity>
         <activity
             android:name=".ui.MenuActivity"
-            android:label="@string/title_activity_menu"
-            android:launchMode="singleTop" >
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="stateHidden"
+            android:label="@string/title_activity_menu" >
         </activity>
         <activity
             android:name=".ui.BookCategoryListActivity"

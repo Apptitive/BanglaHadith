@@ -11,11 +11,14 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 
 import com.hadithbd.banglahadith.R;
+import com.hadithbd.banglahadith.adapters.BanglaArrayAdapter;
 import com.hadithbd.banglahadith.bangla.UtilBanglaSupport;
 import com.hadithbd.banglahadith.database.DbManager;
-import com.hadithbd.banglahadith.database.tables.book.BookName;
+import com.hadithbd.banglahadith.database.tables.hadith.HadithBook;
+import com.hadithbd.banglahadith.util.UIUtils;
 
 import java.util.List;
 
@@ -32,24 +35,26 @@ public class SearchFragment extends Fragment implements RadioGroup.OnCheckedChan
 
     private SparseArray<CheckBox> bookCheckBoxes = new SparseArray<>();
 
-    private List<BookName> mBookNames;
+    private List<HadithBook> mHadithBooks;
+
+    private Spinner mSpinnerBooks;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mBookNames = DbManager.getInstance().getAllBookNames();
+        mHadithBooks = DbManager.getInstance().getAllHadithBooks();
+
         loadBookCheckboxes();
     }
 
     private void loadBookCheckboxes() {
 
-        for (int i = 0; i < 5; i++) {
+        for (HadithBook hadithBook: mHadithBooks) {
             CheckBox checkBox = new CheckBox(getActivity());
-            checkBox.setText(UtilBanglaSupport.getBanglaSpannableString("Sharif"));
-            checkBox.setTextColor(getResources().getColor(android.R.color.white));
-            bookCheckBoxes.put(i, checkBox);
+            checkBox.setText(UtilBanglaSupport.getBanglaSpannableString(hadithBook.getNameBengali()));
+            bookCheckBoxes.put(hadithBook.getId(), checkBox);
         }
     }
 
@@ -63,8 +68,31 @@ public class SearchFragment extends Fragment implements RadioGroup.OnCheckedChan
         super.onViewCreated(view, savedInstanceState);
         initViews(view);
 
+        setBanglaTextToRadioButtons();
+
         setupListeners();
+
+        setSpinnerBooksAdapter();
     }
+
+    private void setSpinnerBooksAdapter() {
+        mSpinnerBooks.setAdapter(new BanglaArrayAdapter(getActivity(), mHadithBooks));
+    }
+
+
+    /**
+     * Set bangla text to radio in each buttons
+     *
+     * */
+    private void setBanglaTextToRadioButtons() {
+        UIUtils.setRadioButtonTexts(mRgSearchFromHadithOrBook,getString(R.string.search_from_hadith),
+                getString(R.string.search_from_book));
+        UIUtils.setRadioButtonTexts(mRgSearchFromTextOrHadithNumber,getString(R.string.search_with_plain_text),
+                getString(R.string.search_with_hadith_number));
+        UIUtils.setRadioButtonTexts(mRgSearchFromHadithBook,getString(R.string.search_all_book),
+                getString(R.string.search_favorite_book));
+    }
+
 
     private void setupListeners() {
         mRgSearchFromHadithOrBook.setOnCheckedChangeListener(this);
@@ -78,6 +106,7 @@ public class SearchFragment extends Fragment implements RadioGroup.OnCheckedChan
         mRgSearchFromHadithBook = (RadioGroup) view.findViewById(R.id.rg_search_from_hadith_book);
         mRowHadithBook = (LinearLayout) view.findViewById(R.id.row_hadith_book);
         mSearchRootLayout = (LinearLayout) view.findViewById(R.id.search_root_layout);
+        mSpinnerBooks = (Spinner) view.findViewById(R.id.spinner_books);
     }
 
     @Override
@@ -120,16 +149,16 @@ public class SearchFragment extends Fragment implements RadioGroup.OnCheckedChan
     }
 
     private void removeCheckBoxes() {
-        for (int i = 0; i < bookCheckBoxes.size(); i++) {
-            mSearchRootLayout.removeView(bookCheckBoxes.get(i));
+        for (HadithBook hadithBook: mHadithBooks) {
+            mSearchRootLayout.removeView(bookCheckBoxes.get(hadithBook.getId()));
         }
 
     }
 
     private void showBooksToCheck() {
         int childIndex = 4;
-        for (int i = 0; i < bookCheckBoxes.size(); i++) {
-            mSearchRootLayout.addView(bookCheckBoxes.get(i), childIndex++);
+        for (HadithBook hadithBook: mHadithBooks) {
+            mSearchRootLayout.addView(bookCheckBoxes.get(hadithBook.getId()), childIndex++);
         }
     }
 }
