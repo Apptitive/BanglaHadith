@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.hadithbd.banglahadith.ui.HadithDetailActivity"
-    android:background="@color/hadith_detail_screen_background"
+    android:background="@color/bg_hadith_detail_screen"
     android:padding="8dp">
 
     <RelativeLayout
@@ -24,7 +24,7 @@
                 android:id="@+id/tab_marker_bangla"
                 android:layout_width="@dimen/hadith_detail_tab_width"
                 android:layout_height="@dimen/hadith_detail_tab_marker_height"
-                android:background="@color/tab_marker_color" />
+                android:background="@color/bg_tab_marker" />
 
             <com.hadithbd.banglahadith.views.BanglaTextView
                 android:id="@+id/tab_text_bangla"
@@ -47,7 +47,7 @@
             android:layout_marginTop="@dimen/hadith_detail_tab_divider_margin_top"
             android:layout_toEndOf="@id/tab_bangla"
             android:layout_toRightOf="@id/tab_bangla"
-            android:background="@color/divider_color" />
+            android:background="@color/bg_divider" />
 
         <LinearLayout
             android:id="@+id/tab_english"
@@ -62,7 +62,7 @@
                 android:id="@+id/tab_marker_english"
                 android:layout_width="@dimen/hadith_detail_tab_width"
                 android:layout_height="@dimen/hadith_detail_tab_marker_height"
-                android:background="@color/tab_marker_color"
+                android:background="@color/bg_tab_marker"
                 android:visibility="invisible" />
 
             <TextView
@@ -85,7 +85,7 @@
             android:layout_marginTop="@dimen/hadith_detail_tab_divider_margin_top"
             android:layout_toEndOf="@id/tab_english"
             android:layout_toRightOf="@id/tab_english"
-            android:background="@color/divider_color" />
+            android:background="@color/bg_divider" />
 
         <LinearLayout
             android:id="@+id/tab_arabic"
@@ -100,7 +100,7 @@
                 android:id="@+id/tab_marker_arabic"
                 android:layout_width="@dimen/hadith_detail_tab_width"
                 android:layout_height="@dimen/hadith_detail_tab_marker_height"
-                android:background="@color/tab_marker_color"
+                android:background="@color/bg_tab_marker"
                 android:visibility="invisible" />
 
             <com.hadithbd.banglahadith.views.ArabicTextView
@@ -124,7 +124,7 @@
             android:layout_marginTop="@dimen/hadith_detail_tab_divider_margin_top"
             android:layout_toEndOf="@id/tab_arabic"
             android:layout_toRightOf="@id/tab_arabic"
-            android:background="@color/divider_color" />
+            android:background="@color/bg_divider" />
 
         <LinearLayout
             android:id="@+id/tab_hadith_explanation"
@@ -139,7 +139,7 @@
                 android:id="@+id/tab_marker_hadith_explanation"
                 android:layout_width="@dimen/hadith_detail_tab_width"
                 android:layout_height="@dimen/hadith_detail_tab_marker_height"
-                android:background="@color/tab_marker_color"
+                android:background="@color/bg_tab_marker"
                 android:visibility="invisible" />
 
             <com.hadithbd.banglahadith.views.BanglaTextView
@@ -182,7 +182,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/hadith_detail_menu_strip_height"
-        android:background="@color/menu_strip_background_color">
+        android:background="@color/bg_menu_strip">
 
         <com.hadithbd.banglahadith.views.BanglaTextView
             android:id="@+id/textView_hadith_number"
@@ -249,12 +249,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="8dp"
-        android:background="@color/hadith_detail_pane_bg_color">
+        android:background="@color/bg_hadith_detail_pane">
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/divider_4">
+            android:layout_above="@+id/footnote_view">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -266,7 +266,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:minHeight="@dimen/hadith_detail_chapter_name_min_height"
-                    android:background="@color/hadith_detail_pane_header_color"
+                    android:background="@color/bg_textview_chapter_name"
                     android:gravity="center_vertical"
                     android:paddingLeft="@dimen/dp_12"
                     android:textColor="@android:color/black"
@@ -285,29 +285,35 @@
             </LinearLayout>
         </ScrollView>
 
-        <View
-            android:id="@+id/divider_4"
+        <LinearLayout
+            android:id="@+id/footnote_view"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/hadith_detail_footer_divider_height"
-            android:layout_above="@+id/textView_footnote"
-            android:layout_marginBottom="@dimen/dp_6"
-            android:layout_marginLeft="@dimen/dp_12"
-            android:layout_marginStart="@dimen/dp_12"
-            android:layout_marginRight="@dimen/dp_12"
-            android:background="@color/footer_divider_color" />
-
-        <com.hadithbd.banglahadith.views.BanglaTextView
-            android:id="@+id/textView_footnote"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/divider_5"
-            android:layout_marginBottom="@dimen/dp_8"
-            android:layout_marginLeft="@dimen/dp_12"
-            android:layout_marginStart="@dimen/dp_12"
-            android:layout_marginRight="@dimen/dp_12"
-            android:textColor="@color/footer_text_color"
-            android:textSize="12sp"
-            app:banglaText="" />
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/divider_4"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/hadith_detail_footer_divider_height"
+                android:layout_marginBottom="@dimen/dp_6"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_marginStart="@dimen/dp_12"
+                android:layout_marginRight="@dimen/dp_12"
+                android:background="@color/bg_divider_footer" />
+
+            <com.hadithbd.banglahadith.views.BanglaTextView
+                android:id="@+id/textView_footnote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_marginStart="@dimen/dp_12"
+                android:layout_marginRight="@dimen/dp_12"
+                android:textColor="@color/bg_textview_footer"
+                android:textSize="12sp"
+                app:banglaText="" />
+        </LinearLayout>
 
         <View
             android:id="@+id/divider_5"
@@ -318,7 +324,7 @@
             android:layout_marginLeft="@dimen/dp_12"
             android:layout_marginStart="@dimen/dp_12"
             android:layout_marginRight="@dimen/dp_12"
-            android:background="@color/footer_divider_color" />
+            android:background="@color/bg_divider_footer" />
 
         <com.hadithbd.banglahadith.views.BanglaTextView
             android:layout_width="wrap_content"
@@ -328,7 +334,7 @@
             android:layout_toStartOf="@+id/textView_hadith_status"
             android:layout_marginRight="@dimen/dp_2"
             android:layout_marginEnd="@dimen/dp_2"
-            android:textColor="@color/footer_text_color"
+            android:textColor="@color/bg_textview_footer"
             app:banglaText="@string/hadith_status" />
 
         <com.hadithbd.banglahadith.views.BanglaTextView
@@ -352,7 +358,7 @@
             android:layout_marginRight="@dimen/dp_2"
             android:layout_marginEnd="@dimen/dp_2"
             android:layout_marginBottom="@dimen/dp_8"
-            android:textColor="@color/footer_text_color"
+            android:textColor="@color/bg_textview_footer"
             app:banglaText="@string/rabi" />
 
         <com.hadithbd.banglahadith.views.BanglaTextView

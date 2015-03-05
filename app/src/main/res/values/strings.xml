@@ -23,8 +23,10 @@
     <string name="action_data_sync">তথ্য হালনাগাদ</string>
     <string name="action_donation">সহযোগিতা করতে</string>
     <string name="action_latest_update">সর্বশেষ তথ্য</string>
-    <string name="share_hadith">একটি হাদিস</string>
     <string name="share_title">হাদিসটি কিভাবে শেয়ার করতে চান?</string>
+    <string name="share_title_email">ইমেইল-এর মাধ্যমে হাদিসটি শেয়ার করুন</string>
+    <string name="report_hadith_title">হাদিসটি  রিপোর্ট করুন</string>
+
     <string name="text_internet_connection_failed">Internet connection is not available right now, please try again later.</string>
     <string name="title_activity_menu">MenuActivity</string>
     <string name="title_activity_book_list">BookListActivity</string>
