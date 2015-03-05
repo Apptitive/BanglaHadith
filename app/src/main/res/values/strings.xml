@@ -54,5 +54,12 @@
     <string name="app_version">Version</string>
     <string name="app_developer">Developed By: Apptitive</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="donation">বাংলা হাদিসকে সহযোগিতা করুন</string>
+    <string name="donation_detail">এটি সম্পূর্ণ ব্যক্তি উদ্যোগে পরিচালিত। আপনাদের সহযোগিতা আমাদের প্রজেক্ট সমূহের কাজকে ত্বরান্বিত করবে।</string>
+    <string name="bkash_account">বিকাশ একাউন্ট</string>
+    <string name="bkash_acc_no">01714110630 (Personal)</string>
+    <string name="islami_bank">ইসলামী ব্যাংক বাংলাদেশ লিমিটেড</string>
+    <string name="uttara_branch">উত্তরা শাখা</string>
+    <string name="ibbl_ac_name">A/C Name: Kh. Rokonul Haque</string>
 
 </resources>
