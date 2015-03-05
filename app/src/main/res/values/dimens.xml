@@ -37,4 +37,5 @@
     <dimen name="book_qna_icon_question_size">@dimen/dp_24</dimen>
     <dimen name="about_us_drawable_padding_left">16dp</dimen>
     <dimen name="search_row_height">48dp</dimen>
+    <dimen name="search_button_radious">4dp</dimen>
 </resources>
