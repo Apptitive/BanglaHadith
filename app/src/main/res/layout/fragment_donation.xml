@@ -2,9 +2,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black_20"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.hadithbd.banglahadith.ui.AboutUsActivity">
+    tools:context="com.hadithbd.banglahadith.ui.DonationActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -29,7 +30,7 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/dp_12"
                 android:textColor="@android:color/black"
-                android:text="@string/donation"
+                app:banglaText="@string/donation"
                 android:textSize="20sp" />
 
             <com.hadithbd.banglahadith.views.BanglaTextView
@@ -44,7 +45,7 @@
                 android:paddingLeft="@dimen/dp_12"
                 android:paddingRight="@dimen/dp_12"
                 android:textColor="@android:color/black"
-                android:text="@string/donation_detail"
+                app:banglaText="@string/donation_detail"
                 android:textSize="16sp" />
 
             <LinearLayout
@@ -74,7 +75,7 @@
                         android:gravity="center_vertical"
                         android:paddingLeft="@dimen/dp_12"
                         android:textColor="@android:color/black"
-                        android:text="@string/bkash_account"
+                        app:banglaText="@string/bkash_account"
                         android:textSize="16sp" />
 
                     <TextView
@@ -123,7 +124,7 @@
                             android:gravity="center_vertical"
                             android:paddingLeft="@dimen/dp_12"
                             android:textColor="@android:color/black"
-                            android:text="@string/islami_bank"
+                            app:banglaText="@string/islami_bank"
                             android:textSize="16sp" />
 
                         <com.hadithbd.banglahadith.views.BanglaTextView
@@ -133,7 +134,7 @@
                             android:paddingLeft="@dimen/dp_12"
                             android:textColor="@android:color/black"
                             android:textStyle="bold"
-                            android:text="@string/uttara_branch"
+                            app:banglaText="@string/uttara_branch"
                             android:textSize="16sp" />
                     </LinearLayout>
 
@@ -147,6 +148,7 @@
                     android:textColor="@android:color/black"
                     android:text="@string/ibbl_ac_name"
                     android:paddingLeft="@dimen/dp_12" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -154,6 +156,7 @@
                     android:textColor="@android:color/black"
                     android:text="A/C No (For direct deposit)  : 38805"
                     android:paddingLeft="@dimen/dp_12" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -164,6 +167,52 @@
             </LinearLayout>
 
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_20"
+                android:layout_marginBottom="@dimen/dp_20"
+                android:paddingTop="@dimen/dp_20"
+                android:paddingBottom="@dimen/dp_20"
+                android:orientation="horizontal"
+                android:background="@color/white_50">
+
+                <com.hadithbd.banglahadith.views.BanglaTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/dp_12"
+                    android:paddingRight="@dimen/dp_12"
+                    android:textColor="@android:color/black"
+                    app:banglaText="@string/online_donate"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:id="@+id/btn_online_donate"
+                    android:layout_width="400dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/bg_report_btn"
+                    android:clickable="true"
+                    android:onClick="onClick"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/hadith_detail_report_icon_size"
+                        android:layout_height="@dimen/hadith_detail_report_icon_size"
+                        android:layout_gravity="center_vertical"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/report" />
+
+                    <com.hadithbd.banglahadith.views.BanglaTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp"
+                        app:banglaText="অনলাইনে ডোনেট করতে" />
+                </LinearLayout>
+
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </FrameLayout>

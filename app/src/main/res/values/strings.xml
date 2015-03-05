@@ -65,5 +65,6 @@
     <string name="search_all_book">সকল গ্রন্থ</string>
     <string name="search_favorite_book">পছন্দের গ্রন্থ</string>
     <string name="title_activity_book_qn">BookQnActivity</string>
+    <string name="online_donate">অনলাইন ডোনেশন</string>
 
 </resources>
