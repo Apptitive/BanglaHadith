@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.hadithbd.banglahadith.BanglaHadithApp;
 import com.hadithbd.banglahadith.R;
 import com.hadithbd.banglahadith.bangla.UtilBanglaSupport;
 import com.hadithbd.banglahadith.database.DbManager;
@@ -71,8 +72,7 @@ public class HadithDetailActivity extends BaseActivity implements View.OnClickLi
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.setType("text/plain");
         shareIntent.putExtra(Intent.EXTRA_TEXT, Constants.HADITH_SHARE_URL + hadithInView.getId());
-        startActivity(Intent.createChooser(shareIntent
-                , UtilBanglaSupport.getBanglaSpannableString(getString(R.string.share_title))));
+        startActivity(Intent.createChooser(shareIntent, getString(R.string.share_title)));
     }
 
     private void createShareViaEmailIntent() {
@@ -80,8 +80,7 @@ public class HadithDetailActivity extends BaseActivity implements View.OnClickLi
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, hadithInView.getBookName() + ", " + hadithInView.getSectionBengali()
                 + ", " + getString(R.string.hadith_number) + Utils.translateNumber(hadithInView.getHadithNo()));
         emailIntent.putExtra(Intent.EXTRA_TEXT, hadithInView.getHadithBengali());
-        startActivity(Intent.createChooser(emailIntent
-                , UtilBanglaSupport.getBanglaSpannableString(getString(R.string.share_title_email))));
+        startActivity(Intent.createChooser(emailIntent, getString(R.string.share_title_email)));
     }
 
     private void createReportViaEmailIntent() {
@@ -89,8 +88,7 @@ public class HadithDetailActivity extends BaseActivity implements View.OnClickLi
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, hadithInView.getBookName() + ", "
                 + getString(R.string.hadith_number) + Utils.translateNumber(hadithInView.getHadithNo()));
         emailIntent.putExtra(Intent.EXTRA_TEXT, hadithInView.getHadithBengali());
-        startActivity(Intent.createChooser(emailIntent
-                , UtilBanglaSupport.getBanglaSpannableString(getString(R.string.report_hadith_title))));
+        startActivity(Intent.createChooser(emailIntent, getString(R.string.report_hadith_title)));
     }
 
     private void createHadithListPopupMenu(View anchorView, List<Integer> hadithIdList) {
@@ -112,7 +110,8 @@ public class HadithDetailActivity extends BaseActivity implements View.OnClickLi
         }
         actionBar.setTitle(UtilBanglaSupport.getBanglaSpannableString(hadithInView.getBookName()));
         actionBar.setSubtitle(UtilBanglaSupport.getBanglaSpannableString(hadithInView.getSectionBengali()));
-        imageViewTickHadith.setVisibility(hadithInView.getCheckStatus() == 1 ? View.VISIBLE : View.INVISIBLE);
+        imageViewTickHadith.setBackgroundResource(hadithInView.getCheckStatus() == 1
+                ? R.drawable.tick_hadith : R.drawable.ic_cross_hadith);
         textViewHadithNumber.setBanglaText(getString(R.string.hadith_number) + " " + Utils.translateNumber(hadithId));
         textViewChapter.setText(UtilBanglaSupport.getBanglaSpannableString(hadithInView.getChapterBengali()));
         textViewHadith.setText(UtilBanglaSupport.getBanglaSpannableString(hadithInView.getHadithBengali()));
@@ -184,7 +183,8 @@ public class HadithDetailActivity extends BaseActivity implements View.OnClickLi
                     textViewHadith.setText(hadithInView.getHadithEnglish());
                     return;
                 case R.id.tab_text_arabic:
-                    textViewHadith.setText(UtilBanglaSupport.getArabicSpannableString(hadithInView.getHadithArabic()));
+                    textViewHadith.setText(UtilBanglaSupport.getSpannableWithFont(hadithInView.getHadithArabic()
+                            , BanglaHadithApp.typefaceArabic, 2f));
                     break;
                 case R.id.tab_text_hadith_explanation:
                     textViewHadith.setText(UtilBanglaSupport.getBanglaSpannableString(hadithInView.getHadithExplanation()));

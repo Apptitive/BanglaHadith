@@ -16,7 +16,7 @@ import java.util.Locale;
 public class AndroidCustomFontSupport {
 
     public static SpannableString getStringRepresentationInCustomFont(Context context, String text, Typeface customFont, float size) {
-        return UtilBanglaSupport.getSpannableWithFont(context, text, customFont, size);
+        return UtilBanglaSupport.getSpannableWithFont(text, customFont, size);
     }
 
     /**

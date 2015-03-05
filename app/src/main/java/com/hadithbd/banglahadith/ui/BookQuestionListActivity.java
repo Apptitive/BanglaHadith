@@ -85,6 +85,9 @@ public class BookQuestionListActivity extends BaseActivity
 
     @Override
     public void onQuestionItemClicked(int position) {
-        startActivity(new Intent(this, BookQnActivity.class));
+        final  BookContentTitleInfo bookContentTitleInfo = mContentTitleInfoList.get(position);
+        Intent intent = new Intent(BookQuestionListActivity.this, BookQnActivity.class);
+        intent.putExtra(Constants.BOOK_CONTENT_ID, bookContentTitleInfo.getBookContentId());
+        startActivity(intent);
     }
 }

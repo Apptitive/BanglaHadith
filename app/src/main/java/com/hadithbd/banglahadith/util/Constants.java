@@ -29,6 +29,8 @@ public class Constants {
 
     public static final String BOOK_TYPE_ID = "book_type_id";
 
+    public static final String BOOK_CONTENT_ID = "book_content_id";
+
     public static final String HADITH_SHARE_URL = "http://www.hadithbd.com/share.php?hid=";
 
     public static final String REPORT_SENDTO_ADDRESS = "info@hadithbd.com";
